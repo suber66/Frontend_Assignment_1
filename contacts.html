@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HT.KZ contacts page.">
+    <meta name="author" content="Akhynbay Dias">
+    <title>Contacts</title>
+</head>
+<body>
+<header>
+    <h1><a href="index.html"><span>HT</span>.<span>KZ</span></a></h1><!--use span tag to apply styling to the text with the exception of dot-->
+    <p>The Best Travel Agency in Kazakhstan</p>
+    <hr>
+</header>
+<main>
+    <nav>
+    <p>Full Site Navigation:</p>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="colophon.html">Colophon</a></li>
+        <li><a href="Almaty.html">Almaty tour</a></li>
+        <li><a href="Dubai.html">Dubai tour</a></li>
+        <li><a href="Egypt.html">Egypt tour</a></li>
+    </ul>
+</nav>
+    <h2>Contact Us</h2>
+    <p>If you have any questions or need assistance, feel free to reach out to us:</p>
+    <section id="phone_numbers">
+        <h3>Phone Numbers</h3>
+        <ul>
+            <li>
+                <h4>Astana:</h4>
+                <a href="tel:87008365904">8 (700) 836-59-04</a>
+            </li>
+            <li>
+                <h4>Almaty:</h4>
+                <a href="tel:87479158731">8 (747) 915-87-31</a>
+            </li>
+            <li>
+                <h4>Shymkent:</h4>
+                <a href="tel:87079921818">8 (707) 992-18-18</a>
+            </li>
+            
+        </ul>
+    </section>
+    <section id="addresses">
+        <h3>Our Addresses</h3>
+        <ul>
+            <li>
+                <article>
+                    <h4>Astana:</h4>
+                    <ul>
+                        <li>st. Tole bi 48/1</li>
+                        <li>st. Sarayshyk, 7</li>
+                        <li>st. Mangilik el 21</li>
+                        <li>Astana, st. Charles de Gaulle, 13</li>
+                    </ul>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <h4>Almaty:</h4>
+                    <ul>
+                        <li>Nazarbayev Ave., 130</li>
+                        <li>st. Baitursynova, house 20, apt/office 73</li>
+                        <li>Abylai Khan Avenue 92 "Residential Complex Stolichny"</li>
+                        <li>st. Rozybakieva, 181A</li>
+                        <li>st. Auezova 69</li>
+                        <li>Baitursynov 20 ug. Gogol street</li>
+                    </ul>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <h4>Shymkent:</h4>
+                    <ul>
+                        <li>st. Turmakhan Orynbaev, 37</li>
+                    </ul>
+                </article>
+            </li>
+        </ul>
+    </section>
+    <!--use div tag as a layout for container-->
+    <div>
+        <p>Opening Hours: Monday-Friday 10:00-19:00 | Saturday 10:00-15:00 | Sunday Closed</p>
+    </div>
+    <section id="contact_form">
+        <form method="post" action="#"><!--form have no where to send-->
+            <fieldset>
+                <legend>Contact Information</legend>
+                <label for="fname">Full Name:</label>
+                <input type="text" id="fname" name="fname" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7 (700) 000-00-00" required><br><br>
+                <label for="city">City:</label>
+                <select id="city" name="city" required>
+                    <option value="">Select your city</option>
+                    <option value="Astana">Astana</option>
+                    <option value="Almaty">Almaty</option>
+                    <option value="Shymkent">Shymkent</option>
+                </select><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="5" cols="40" required></textarea><br><br>
+                <input type="submit" value="Submit"> <input type="reset" value="Reset">
+            </fieldset>
+        </form>
+    </section>
+</main>
+<footer>
+    <p>Legal address: 050000, Republic of Kazakhstan, Almaty city, microdistrict Samal 3, building 29/2</p>
+    <p>&copy; 2026 HT.KZ. All rights reserved.</p>
+</footer>
+</body>
+</html>
