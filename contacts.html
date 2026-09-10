@@ -31,6 +31,11 @@
 <main>
     <h2>Contact Us</h2>
     <p>If you have any questions or need assistance, feel free to reach out to us:</p>
+    <a href="#contact_form">Jump to Contact Form</a>
+    <a href="#phone_numbers">Jump to Phone Numbers</a>
+    <a href="#addresses">Jump to Addresses</a>
+    <!-- use div to group related content-->
+    <div id="contact_info">
     <section id="phone_numbers">
         <h3>Phone Numbers</h3>
         <ul>
@@ -54,41 +59,62 @@
         <ul>
             <li>
                 <article>
-                    <h4>Astana:</h4>
+                    <h4><a href="https://2gis.kz/astana/branches/70000001018122468?m=71.447783%2C51.135066%2F14" target="_blank" rel="noopener noreferrer">Astana:</a></h4>
                     <ul>
-                        <li>st. Tole bi 48/1</li>
-                        <li>st. Sarayshyk, 7</li>
-                        <li>st. Mangilik el 21</li>
-                        <li>Astana, st. Charles de Gaulle, 13</li>
+                        <li><abbr title="Street">st.</abbr> Tole bi 48/1</li>
+                        <li><abbr title="Street">st.</abbr> Sarayshyk, 7</li>
+                        <li><abbr title="Street">st.</abbr> Mangilik el 21</li>
+                        <li>Astana, <abbr title="Street">st.</abbr> Charles de Gaulle, 13</li>
                     </ul>
                 </article>
             </li>
             <li>
                 <article>
-                    <h4>Almaty:</h4>
+                    <h4><a href="https://2gis.kz/almaty/branches/9429948590968793?m=76.949953%2C43.256358%2F14" target="_blank" rel="noopener noreferrer">Almaty:</a></h4>
                     <ul>
-                        <li>Nazarbayev Ave., 130</li>
-                        <li>st. Baitursynova, house 20, apt/office 73</li>
-                        <li>Abylai Khan Avenue 92 "Residential Complex Stolichny"</li>
-                        <li>st. Rozybakieva, 181A</li>
-                        <li>st. Auezova 69</li>
-                        <li>Baitursynov 20 ug. Gogol street</li>
+                        <li><abbr title="Avenue">Ave.</abbr> Nazarbayev, 130</li>
+                        <li><abbr title="Street">st.</abbr> Baitursynova, house 20, apt/office 73</li>
+                        <li><abbr title="Avenue">Ave.</abbr> Abylai Khan 92 "Residential Complex Stolichny"</li>
+                        <li><abbr title="Street">st.</abbr> Rozybakieva, 181A</li>
+                        <li><abbr title="Street">st.</abbr> Auezova 69</li>
+                        <li><abbr title="Street">st.</abbr> Baitursynova, 20</li>
                     </ul>
                 </article>
             </li>
             <li>
                 <article>
-                    <h4>Shymkent:</h4>
+                    <h4><a href="https://2gis.kz/shymkent/firm/70000001059272143?m=69.610789%2C42.31759%2F16" target="_blank" rel="noopener noreferrer">Shymkent:</a></h4>
                     <ul>
-                        <li>st. Turmakhan Orynbaev, 37</li>
+                        <li><abbr title="Street">st.</abbr> Turmakhan Orynbaev, 37</li>
                     </ul>
                 </article>
             </li>
         </ul>
     </section>
-    <aside>
-        <p>Opening Hours: <i>Monday-Friday</i> 10:00-19:00 | <i>Saturday</i> 10:00-15:00 | <i>Sunday</i> Closed</p>
-    </aside>
+    </div>
+    <table>
+        <Caption>Opening Hours</Caption>
+        <thead>
+            <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Opening Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday-Friday</td>
+                <td>10:00-19:00</td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td>10:00-15:00</td>
+            </tr>
+            <tr>
+                <td>Sunday</td>
+                <td>Closed</td>
+            </tr>
+        </tbody>
+    </table>
     <section id="contact_form">
         <form method="post" action="#"><!--form have no server to send-->
             <h3>Contact Form:</h3>
@@ -96,6 +122,11 @@
                 <legend>Contact Information</legend>
                 <label for="fname">Full Name:</label>
                 <input type="text" id="fname" name="fname" required><br><br>
+                <p>Choose your gender:</p>
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="female" required><br><br>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required><br><br>
                 <label for="phone">Phone Number:</label>
@@ -107,8 +138,14 @@
                     <option value="Almaty">Almaty</option>
                     <option value="Shymkent">Shymkent</option>
                 </select><br><br>
+                <label for="number">Number of Travelers:</label>
+                <input type="number" id="number" name="number" min="1" max="10" required><br><br>
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" required><br><br>
                 <label for="message">Message:</label><br>
                 <textarea id="message" name="message" rows="5" cols="40" required></textarea><br><br>
+                <label for="subscribe">Subscribe to our newsletter:</label>
+                <input type="checkbox" id="subscribe" name="subscribe" value="yes"><br><br>
                 <input type="submit" value="Submit"> <input type="reset" value="Reset">
             </fieldset>
         </form>
@@ -117,7 +154,7 @@
 <footer>
     <p><b>Contact Information:</b></p>
     <p>24/7 Support:</p>
-    <a href="8 (707) 338-49-49">8 (707) 338-49-49</a><br>
+    <a href="tel:87073384949">8 (707) 338-49-49</a><br>
     <p>For job inquiries:</p>
     <a href="mailto:htkz-rabota@mail.ru">htkz-rabota@mail.ru</a>
     <p>Legal address: 050000, Republic of Kazakhstan, Almaty city, microdistrict Samal 3, building 29/2</p>
