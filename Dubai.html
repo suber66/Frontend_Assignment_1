@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dubai tour">
     <meta name="author" content="Kalybek Zhumabekov">
-    <title>Dubai tour</title>
+    <title>United Arab Emirates</title>
 </head>
 <body>
     <header>
@@ -29,9 +29,8 @@
     </header>
     <hr>
     <main>
-        <section>
              <nav>
-            <H2>Navigation</H2>
+            <h2>Navigation</h2>
         <ul>
             <li><a href="#about">About journey</a></li>
             <li><a href="#dubai-facts">Dubai facts</a></li>
@@ -43,7 +42,6 @@
             <li><a href="#booking">Booking form</a></li>
         </ul>
         </nav>
-        </section>
         <section id="about">
             <h2>About our journey</h2>
              <p>
@@ -76,10 +74,11 @@
                 architecture.
             </p>
                 <figure>
-                        <img src="images\photo_2026-09-10_15-23-44.jpg" alt="dubai">
-                <figcaption>dubai</figcaption>
-            </figure>
+                        <img src="images/photo_2026-09-10_15-23-44.jpg" alt="United Arab Emirates">
+                        <figcaption>dubai</figcaption>
+                </figure>
                 <hr>
+        </section>
         <section id="dubai-facts">
             <h2>Dubai Quick Facts</h2>
 
@@ -110,16 +109,15 @@
             <p>Enjoy a comfortable stay in a modern hotel with convenient access
                 to Dubai's main attractions, restaurants, and shopping areas.
                 <figure>
-                        <img src="images\photo_2026-09-10_15-23-50.jpg" alt="Rove Downtown Dubai">
+                        <img src="images/photo_2026-09-10_15-23-50.jpg" alt="Rove Downtown Dubai">
                 <figcaption>Rove Downtown Dubai</figcaption>
             </figure>   
-            </p>
             <hr>
         </section>
         <section id="schedule">
             <h2>Dubai Tour Schedule</h2>
-
-            <!-- No semantic element fits this wrapper because it only groups the daily itinerary blocks together. -->
+            <!-- div is used only to group the three day-by-day articles as one itinerary unit; -->
+            <!-- there is no single semantic tag that means "a collection of article elements". -->
             <div class="daily-itinerary">
 
                 <article>
@@ -152,39 +150,69 @@
                     </ol>
                 </article>
 
+                <article>
+                    <h3>Day 4 &ndash; Dubai Marina</h3>
+                    <ol>
+                        <li>Visit Dubai Marina</li>
+                        <li>Walk along the Marina promenade</li>
+                        <li>Enjoy a boat cruise</li>
+                        <li>Relax at Jumeirah Beach</li>
+                    </ol>
+                </article>
+
+                <article>
+                    <h3>Day 5 &ndash; Palm Jumeirah</h3>
+                    <ol>
+                        <li>Visit Palm Jumeirah</li>
+                        <li>Explore Atlantis area</li>
+                        <li>Enjoy the beach and sea views</li>
+                        <li>Have a farewell dinner in Dubai</li>
+                    </ol>
+                </article>
+
+
             </div>
         </section>
         <section id="price">
             <hr>
             <h2>Tour Packages &amp; Prices</h2>
-            <table>
-                <caption>Comparison of Tour Packages and Pricing</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Package Name</th>
-                        <th scope="col">Price per Person</th>
-                        <th scope="col">Includes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Standard Tour</th>
-                        <td>520,000 tg</td>
-                        <td>boarding pass,Transportation, hotel, guide services</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Comfort Tour</th>
-                        <td>820,000 tg</td>
-                        <td>boarding pass,,Transportation, hotel, guide, meals</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-wrapper"><!-- No semantic element fits this wrapper because it only groups the table for layout purposes. -->
+                <table>
+                    <caption>Comparison of Tour Packages and Pricing</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Package Name</th>
+                            <th scope="col">Price per Person</th>
+                            <th scope="col">Includes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Standard Tour</th>
+                            <td>446,550 tg </td>
+                            <td>boarding pass,Transportation, hotel, guide services</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Comfort Tour</th>
+                            <td>631,584 tg</td>
+                            <td>boarding pass,,Transportation, hotel, guide, meals</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><small>Prices reference the Pickalbatros Royal Moderna Sharm 5? package on ht.kz and change with travel dates and availability.</small></p>
             <hr>
         </section>
         <section id="inc">
             <h2>What's Included</h2>
             <ul>
-                <li>Round-trip flight</li>
+                 <li>Round-trip flight
+                    <!-- nested list: this breaks down what "round-trip flight" actually includes -->
+                    <ul>
+                        <li>Economy class seating</li>
+                        <li>20 kg checked baggage</li>
+                    </ul>
+                </li>
                 <li>Hotel accommodation</li>
                 <li>Transportation</li>
                 <li>Tour guide</li>
@@ -226,6 +254,7 @@
 
         <section id="booking">
             <h2>Reserve Your Excursion</h2>
+            <!-- This form does not send data anywhere yet; there is no server behind it. -->
             <form action="#" method="post">
                 <fieldset>
                     <legend>Booking Specifications &amp; Personal Info</legend>

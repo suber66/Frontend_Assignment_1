@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=hea, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Egypt tour">
     <meta name="author" content="Kalybek Zhumabekov">
-    <title>egypt tour</title>
+    <title>Egypt: Where History Comes Alive</title>
 </head>
 <body>
     <header>
+        <!-- Author: Kalybek Zhumabekov -->
     <h1><a href="index.html"><span>HT</span>.<span>KZ</span></a></h1>
+    <!-- span used here because header/nav/main/section/etc. all carry block-level meaning; -->
+    <!-- I only need to isolate two short text fragments inside the same inline logo link. -->
     <h2>The Egyptian Adventure</h2>
     <p><b>The Best Travel Agency in Kazakhstan</b></p>
     <hr>
@@ -27,13 +30,12 @@
     </nav>
     </header>
     <main>
-        <section>
             <nav>
                 <hr>
-                <H2>Navigation</H2>
+                <h2>Navigation</h2>
                 <ul>
                     <li><a href="#about">About journey</a></li>
-                    <li><a href="#infor">Tip</li>
+                    <li><a href="#infor">Tip</a></li>
                     <li><a href="#schedule">About Schedule</a></li>
                     <li><a href="#price">Price</a></li>
                     <li><a href="#inc"> Whats included what not</a></li>
@@ -42,20 +44,32 @@
                     <li><a href="#booking">Booking form</a></li>
                 </ul>
             </nav>
-            <hr></section>
+            <hr>
         <section id="about">
             <H2>About journey</H2>
+            <!-- div is used here because these are three short at-a-glance labels displayed -->
+            <!-- side by side; they are not a list of items (no bullets/order) and not a -->
+            <!-- section of their own, so no semantic tag fits a plain inline badge row. -->
+            <div class="quick-facts-bar">
+                <span>5 Days</span> &middot; <span>Cairo, Egypt</span> &middot; <span>All-inclusive</span>
+            </div>
                 <p>Discover Ancient Egypt takes travelers through some of Egypt's most famous historical attractions. The tour includes the 
                 Pyramids of Giza, the Great Sphinx, the Grand Egyptian Museum, Cairo's historic areas and a Nile experience. <strong>The Great Pyramid
                  of Khufu</strong> was the world's tallest structure for about 3,800 years and is the only surviving member of the <mark>Seven Wonders of the 
-                Ancient World</mark>. It is estimated to have been completed around 2560 <abbr title="Before Christ">BC</abbr>
+                Ancient World</mark>. It is estimated to have been completed around 2560 <abbr title="Before Christ">BC</abbr>.</p>
                 <p>
                 Discover Ancient Egypt takes travelers through some of Egypt's most famous historical attractions. Visitors can explore the traditional
                 <i>souq</i> markets of Cairo, where they can buy souvenirs and local products.Egypt's ancient history has been explored in many books and documentaries,
                 including <cite>Ancient Egypt: A Historical Overview</cite>.</p>
+                <aside id="infor">
+                    <!-- aside: a practical travel tip that is useful context but not part of the -->
+                    <!-- main narrative about the journey itself, so it doesn't belong in a section/article. -->
+                    <h2>Tip</h2>
+                    <p>Best time to visit Egypt is between October and April, when temperatures are cooler.
+                    Bring modest clothing for visits to mosques and historic religious sites.</p>
+                </aside>
                 <section id="timeline">
                     <h2>Journey Through Ancient Egypt</h2>
-
                     <ol>
                         <li>
                             <strong>c. 2600 BCE</strong> &mdash; The Great Pyramid of Giza
@@ -90,18 +104,20 @@
                     </ul>
                 
                 <figure>
-                        <img src="images\3mxwuigs0484c40wg8w4o044o.jpg" alt="egypt">
+                        <img src="images/3mxwuigs0484c40wg8w4o044o.jpg" alt="Discover Ancient Egypt">
                 <figcaption>egypt</figcaption>
                 </figure> 
             <hr>
+        </section>
+        <section>
             <h2>About hotel</h2>
-                 <p>iro Nile View Hotel<sup>&reg;</sup> is a comfortable 4-star hotel designed for travelers exploring the history and culture of Egypt. Located 
-                in Cairo, the hotel offers easy access to major attractions and provides a relaxing place to stay after a day of sightseeing.
-                Guests can enjoy comfortable rooms, breakfast, Wi-Fi, a restaurant, and views of the city. The hotel is a convenient base for 
-                visiting the Pyramids of Giza, the Sphinx, historic Cairo, and the Nile River. One returning guest wrote that the sunset
-                 view was <q>absolutely breathtaking</q>.</p>  
+                 <p>Pickalbatros Royal Moderna Sharm "Aqua Park"<sup>&reg;</sup> is a 5-star beachfront resort in Sharm el-Sheikh, booked as
+                    part of this package on ht.kz. The resort sits on the first line by the sea with its own sandy beach and an on-site
+                    aqua park, and operates on an all-inclusive basis with an outdoor pool. It is offered here as the coastal extension of the
+                    trip after the Cairo sightseeing days &mdash; guests fly from Cairo to Sharm el-Sheikh to relax by the Red Sea. One returning guest wrote that the sunset
+                    view was <q>absolutely breathtaking</q>.</p> 
                 <figure>
-                        <img src="images\4-Star-Hotels-with-Nile-River-View-in-Cairo.webp" alt="egypt">
+                    <img src="images/2026-09-12%20233627.png" alt="egypt">               
                 <figcaption>egypt</figcaption>
             </figure> 
                 <hr>
@@ -109,43 +125,74 @@
         <section id="schedule">
             <h2>Itinerary & Schedule</h2>
             <h3>Daily Schedule Overview</h3>
-
-            <h3>Day 1  &mdash; Pyramids & Giza</h3>
-                <ul>
-                    <li>09:00 &ndash; Breakfast</li>
-                    <li>10:00 &ndash; Giza Pyramids</li>
-                    <li>12:00 &ndash; Great Sphinx</li>
-                    <li>14:00 &ndash; Lunch</li>
-                    <li>16:00 &ndash; Grand Egyptian Museum</li>
-                    <li>19:00 &ndash; Dinner</li>
-                </ul>
-            <h3>Day 2  &mdash; Cairo</h3>
-                <ul>
-                    <li>09:00 &ndash; Breakfast</li>
-                    <li>10:00 &ndash; Egyptian Museum</li>
-                    <li>12:30 &ndash; Historic Cairo</li>
-                    <li>14:00 &ndash; Lunch</li>
-                    <li>16:00 &ndash; Khan el-Khalili Bazaar</li>
-                    <li>19:00 &ndash; Nile River Cruise</li>
-                    <li>21:00 &ndash; Return to Hotel</li>
-                </ul>
-            <h3>Day 3  &mdash; Cairo Experience</h3>
-                <ul>
-                    <li>09:00 &ndash; Breakfast</li>
-                    <li>10:00 &ndash; Free Time</li>
-                    <li>11:00 &ndash; Local Market</li>
-                    <li>13:00 &ndash; Lunch</li>
-                    <li>15:00 &ndash; City Sightseeing</li>
-                    <li>17:00 &ndash; Souvenir Shopping</li>
-                    <li>19:00 &ndash; Farewell Dinner</li>
-                </ul>
-                <p>For more context, you can navigate back to the <a href="#about">about journey</a>section or jump 
-                straight to the<a href="booking">Booking form</a></p>
+            <!-- div groups the five day-by-day articles into one itinerary block, the same way -->
+            <!-- Dubai.html groups its articles — there is no single tag that means "a set of day plans". -->
+            <div class="daily-itinerary">
+                <article>
+                    <h3>Day 1  &mdash; Pyramids & Giza</h3>
+                    <ol>
+                        <li>Breakfast</li>
+                        <li>Giza Pyramids</li>
+                        <li>Great Sphinx</li>
+                        <li>Lunch</li>
+                        <li>Grand Egyptian Museum</li>
+                        <li>Dinner</li>
+                    </ol>
+                </article>
+                <article>
+                    <h3>Day 2  &mdash; Cairo</h3>
+                    <ol>
+                        <li>Breakfast</li>
+                        <li>Egyptian Museum</li>
+                        <li>Historic Cairo</li>
+                        <li>Lunch</li>
+                        <li>Khan el-Khalili Bazaar</li>
+                        <li>Nile River Cruise</li>
+                        <li>Return to Hotel</li>
+                    </ol>
+                </article>
+ 
+                <article>
+                    <h3>Day 3  &mdash; Flight to Sharm el-Sheikh</h3>
+                    <ol>
+                        <li>Breakfast, check out from Cairo hotel</li>
+                        <li>Domestic flight to Sharm el-Sheikh</li>
+                        <li>Check-in at Pickalbatros Royal Moderna Sharm</li>
+                        <li>Free time on the resort's private sandy beach</li>
+                        <li>All-inclusive dinner at the hotel</li>
+                    </ol>
+                </article>
+ 
+                <article>
+                    <h3>Day 4  &mdash; Sharm el-Sheikh Resort Day</h3>
+                    <ol>
+                        <li>All-inclusive breakfast</li>
+                        <li>Aqua park (on-site at the hotel)</li>
+                        <li>All-inclusive lunch</li>
+                        <li>First-line beach and outdoor pool</li>
+                        <li>All-inclusive dinner</li>
+                    </ol>
+                </article>
+ 
+                <article>
+                    <h3>Day 5  &mdash; Farewell and Departure</h3>
+                    <ol>
+                        <li>All-inclusive breakfast</li>
+                        <li>Free time on the beach</li>
+                        <li>Check out from the hotel</li>
+                        <li>Transfer to Sharm el-Sheikh airport</li>
+                        <li>Farewell dinner (in-flight or at the airport)</li>
+                    </ol>
+                </article>
+ 
+            </div>
+                <p>For more context, you can navigate back to the <a href="#about">about journey</a> section or jump 
+                straight to the <a href="#booking">Booking form</a></p>
                 <hr>
         </section>
         <section id="price">
             <h2>Tour Packages &amp; Prices</h2>
-            <div  class="table-wrapper"s>
+            <div  class="table-wrapper"><!-- No semantic element fits this wrapper because it only groups the table for layout purposes. -->
                 <table>
                     <caption>Comparison of Tour Packages and Pricing</caption>
                     <thead>
@@ -157,18 +204,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Standard Tour</th>
-                            <td><span class="price-value">480,000</span>tg</td>
+                            <th scope="row">Standard Tour (5 nights)</th>
+                            <td>437,390 tg</td>
                             <td>boarding pass, Transportation, hotel, guide services</td>
                         </tr>
                         <tr>
-                            <th scope="row">Comfort Tour</th>
-                            <td><span class="price-value">850,000</span>tg</td>
+                            <th scope="row">Comfort Tour (7 nights)</th>
+                            <td>602,728 tg</td>
                             <td>boarding pass, Transportation, hotel, guide, meals</td>
                         </tr>
                     </tbody>
                 </table>
-                <p><small><mark>*Final price may change depending on flight and hotel availability.</mark></small></p>
+                <p><small><mark>*Prices reference the Pickalbatros Royal Moderna Sharm 5? package on ht.kz,
+                     departing from Astana, and change depending on flight dates and hotel availability.</mark></small></p>
                 <hr>
             </div>
         </section>
@@ -221,16 +269,19 @@
             <pre><samp>Status: Booking confirmed 
 Reference: EGY-2026-01</samp></pre>
             <form action="#" method="post">
+                <!-- This form does not send data anywhere yet; there is no server behind it. -->
                 <fieldset>
                     <legend>Booking Specifications &amp; Personal Info</legend>
                     <label for="full-name">Full name:</label><br>
                     <input type="text" id="full-name" name="full-name" placeholder="e.g Kalybek Zhumabekov" required><br><br>
                     <label for="email-adr">Email Address:</label><br>
-                    <input type="email" id="email-adr" name="email adr" placeholder="name@example.com" required><br><br>
+                    <input type="email" id="email-adr" name="email-adr" placeholder="name@example.com" required><br><br>
                     <label for="phone-num">Phone Number:</label><br>
                     <input type="tel" id="phone-num" name="phone-num" placeholder="+77001234567" required><br><br>
                     <label for="count">How many travelers:</label><br>
                     <input type="number" name="TN" id="count" min="1" max="10" required><br><br>
+                    <label for="tour-date">Select date:</label><br>
+                    <input type="date" id="tour-date" name="tour-date" required><br><br>
                     <label>Select Tour Type:</label><br>
                     <input type="radio" id="standard" name="tour-type" value="standard" checked>
                     <label for="standard">Standard</label>
@@ -248,7 +299,7 @@ Reference: EGY-2026-01</samp></pre>
                     <textarea id="requests" name="requests" rows="4" cols="30" placeholder="Write any additional notes here..."></textarea><br><br>
                 </fieldset>
                 <button type="submit">Submit Reservation Request</button>
-                <button type="reset"> Clear form</button>
+                <button type="reset">Clear form</button>
             </form>   
         </section>
     </main>
@@ -259,7 +310,7 @@ Reference: EGY-2026-01</samp></pre>
         <p>For job inquiries:</p>
         <a href="mailto:htkz-rabota@mail.ru">htkz-rabota@mail.ru</a>
         <p>Legal address: 050000, Republic of Kazakhstan, Almaty city, microdistrict Samal 3, building 29/2 &mdash;
-            <a href="https://2gis.kz/almaty/search/HT.KZ" target="_blank" rel="noopener noreferrer">open on 2GIS map</a>
+        <a href="https://2gis.kz/almaty/search/HT.KZ" target="_blank" rel="noopener noreferrer">open on 2GIS map</a>
         </p>
         <p>&copy; 2026 HT.KZ. All rights reserved.</p>
     </footer>

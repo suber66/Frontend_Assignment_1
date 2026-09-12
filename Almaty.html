@@ -11,6 +11,8 @@
     <!-- Author: Kalybek Zhumabekov -->
     <header>
     <h1><a href="index.html"><span>HT</span>.<span>KZ</span></a></h1>
+        <!-- span used here because header/nav/main/section/etc. all carry block-level meaning; -->
+        <!-- I only need to isolate two short text fragments inside the same inline logo link. -->
     <h2>Almaty Tour & Mountain Adventure</h2>
     <p><b>The Best Travel Agency in Kazakhstan</b></p>
     <hr>
@@ -29,9 +31,8 @@
     </header>
     <hr>
     <main>
-        <section>
             <nav>
-            <H2>Navigation</H2>
+            <h2>Navigation</h2>
             <ul>
                 <li><a href="#about">About journey</a></li>
                 <li><a href="#tip">Tips</a></li>
@@ -41,7 +42,6 @@
                 <li><a href="#booking">Booking form</a></li>
         </ul>
         </nav>
-        </section>
         <section id="about">
             <h2>About our journey</h2>
             <p>
@@ -63,10 +63,11 @@
             </p>
 
                 <figure>
-                        <img src="images\photo_2026-09-10_15-07-24.jpg" alt="almaty">
+                        <img src="images/photo_2026-09-10_15-07-24.jpg" alt="Almaty city view with mountains in the background">
                 <figcaption>Almaty city</figcaption>
             </figure>
                   <hr>
+        </section>
         <section>
             <h2>About hotel</h2>
             <p><strong>Kazakhstan Hotel</strong><sup>&reg;</sup> is one of the most famous landmarks in Almaty and an important symbol of the city's history and
@@ -91,18 +92,18 @@
                     <dd>Available for guests</dd>
                 </dl>
                  <figure>
-                        <img src="images\photo_2026-09-10_15-07-24 (2).jpg" alt="almaty">
+                        <img src="images/photo_2026-09-10_15-07-24%20%282%29.jpg" alt="almaty">
                 <figcaption>Kazakhstan Hotel</figcaption>
             </figure>
                  <hr>
         </section>
         <section id="tip">
+            <h2>Travel Tips</h2>
             <div class="info-cards">
                 <article>
                     <h3>Traveler Tip</h3>
                     <p>Bring comfortable shoes, a light jacket and some water &mdash; Almaty is perfect for walking around the city and exploring the nearby mountains. If you plan to visit Medeu or Shymbulak, check the weather before your trip. This tip can be reused for our city and mountain tours, which is why it lives in an <code>&lt;article&gt;</code>.</p>
                 </article>
-
                 <aside>
                     <h3>Did you know?</h3>
                     <p>Almaty is the largest city in Kazakhstan and is located near the foothills of the Trans-Ili Alatau mountains. The famous Medeu skating rink is situated at an altitude of about 1,691 m above sea level.</p>
@@ -117,35 +118,39 @@
             </div>
         </section>
         <section id="schedule">
-            <h2>Itinerary and Schedule</h2>
-            <h3>Daily Schedule Overview</h3>
-            <h4>day1 &mdash; city day</h4>
-                <ul>
-                    <li>09:00 &ndash; Breakfast</li>
-                    <li>10:00 &ndash; Panfilov Park</li>
-                    <li>12:00 &ndash; Green Bazaar</li>
-                    <li>14:00 &ndash; Lunch</li>
-                    <li>16:00 &ndash; Kok Tobe</li>
-                    <li>19:00 &ndash; Dinner</li>
-                </ul>
-                <h4>day2 &mdash;Mountains</h4>
-                <ul>
-                    <LI>09:00 &ndash; Breakfast</LI>
-                    <li>10:00 &ndash; Medeu</li>
-                    <li>12:00 &ndash; Shymbulak</li>
-                    <li>14:00 &ndash; Lunch</li>
-                    <li>15:00 &ndash; Mountain activities</li>
-                    <li>19:00 &ndash; Return to Almaty</li> 
-                </uL>
-                <h4>day3 &mdash; Nature</h4>
-                <ul>
-                    <li>08:00 &ndash; Breakfast</li>
-                    <li>09:00 &ndash; Big Almaty Lake</li>
-                    <li>12:00 &ndash; Photography & sightseeing</li>
-                    <li>14:00 &ndash; Lunch</li>
-                    <li>16:00 &ndash; Shopping</li>
-                    <li>19:00 &ndash; Farewell dinner</li>
-                </ul>
+            <div class="daily-itinerary">
+                <!-- div is used only to group the three day-by-day articles as one itinerary unit; -->
+                <!-- there is no single semantic tag that means "a collection of article elements". -->
+                <h2>Itinerary and Schedule</h2>
+                <h3>Daily Schedule Overview</h3>
+                <h4>day1 &mdash; city day</h4>
+                    <ul>
+                        <li>09:00 &ndash; Breakfast</li>
+                        <li>10:00 &ndash; Panfilov Park</li>
+                        <li>12:00 &ndash; Green Bazaar</li>
+                        <li>14:00 &ndash; Lunch</li>
+                        <li>16:00 &ndash; Kok Tobe</li>
+                        <li>19:00 &ndash; Dinner</li>
+                    </ul>
+                    <h4>day2 &mdash;Mountains</h4>
+                    <ul>
+                        <LI>09:00 &ndash; Breakfast</LI>
+                        <li>10:00 &ndash; Medeu</li>
+                        <li>12:00 &ndash; Shymbulak</li>
+                        <li>14:00 &ndash; Lunch</li>
+                        <li>15:00 &ndash; Mountain activities</li>
+                        <li>19:00 &ndash; Return to Almaty</li> 
+                    </uL>
+                    <h4>day3 &mdash; Nature</h4>
+                    <ul>
+                        <li>08:00 &ndash; Breakfast</li>
+                        <li>09:00 &ndash; Big Almaty Lake</li>
+                        <li>12:00 &ndash; Photography & sightseeing</li>
+                        <li>14:00 &ndash; Lunch</li>
+                        <li>16:00 &ndash; Shopping</li>
+                        <li>19:00 &ndash; Farewell dinner</li>
+                    </ul>
+            </div>
         </section>
         <section id="price">
             <h2>Tour Packages &amp; Prices</h2>
@@ -162,14 +167,12 @@
                     <tbody>
                         <tr>
                             <th scope="row">Standard Tour</th>
-                            <!-- No semantic element fits because this span only identifies the price value within the cell. -->
-                            <td><span class="price-value">180,000</span> tg</td>
+                            <td>180,000 tg</td>
                             <td>Transportation, hotel, guide services</td>
                         </tr>
                         <tr>
                             <th scope="row">Comfort Tour</th>
-                             <!-- No semantic element fits because this span only identifies the price value within the cell. -->
-                            <td><span class="price-value">230,000</span> tg</td>
+                            <td>230,000 tg</td>
                             <td>Transportation, hotel, guide, meals</td>
                         </tr>
                     </tbody>
@@ -195,10 +198,10 @@
 
         <section ID="booking">
             <h2>Reserve Your Excursion</h2>
-            <p>After we receive your request you will get a confirmation code such as <code>EGY-2026-01</code>. To save your ticket as a
+            <p>After we receive your request you will get a confirmation code such as <code>ALM-2026-01</code>. To save your ticket as a
              PDF just press <kbd>Ctrl</kbd> + <kbd>P</kbd>. A typical confirmation message looks like this:</p>
             <pre><samp>Status: Booking confirmed 
-Reference: EGY-2026-01</samp></pre>
+Reference: ALM-2026-01</samp></pre>
             <!-- This form does not send data to a server yet because the project has no server-side processing. -->    
             <form action="#" method="post">
                 <fieldset>
