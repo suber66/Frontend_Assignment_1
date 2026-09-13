@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,6 @@
 
 <header>
     <h1><a href="reviews.html">HT.KZ</a></h1>
-
     <p><b>The Best Travel Agency in Kazakhstan</b></p>
     <hr>
 
@@ -21,7 +21,14 @@
         <p><em>Full Site Navigation:</em></p>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about_us.html">About Us</a></li>
+            <li>
+                <a href="about_us.html">About Us</a>
+                <!-- Nested list groups sections of the About Us page. -->
+                <ul>
+                    <li><a href="about_us.html#team">Our Team</a></li>
+                    <li><a href="about_us.html#contact-form">Contact Form</a></li>
+                </ul>
+            </li>
             <li><a href="contacts.html">Contacts</a></li>
             <li><a href="reviews.html">Reviews</a></li>
             <li><a href="colophon.html">Colophon</a></li>
@@ -48,7 +55,7 @@
     <section id="customer-reviews">
         <h2>What Our Customers Say</h2>
 
-        <!-- article is used because each review is an independent piece of content -->
+        <p><i>Our customers share their travel experiences with HT.KZ.</i></p>
 
         <article>
             <h3>Arailym Baigaziyeva</h3>
@@ -59,7 +66,9 @@
         <article>
             <h3>Nazira Iskakova</h3>
             <p>I would like to thank our manager, Aidana, for organizing our vacation in Nha Trang, Vietnam. Everything was handled impeccably: the flight, transfers, and check-in all went smoothly, without any delays or issues.
+
             The hotel matched the description perfectly; it was clean and comfortable, and conveniently located near the sea. I especially appreciate your attentiveness—you were always available to help with any questions and provided great recommendations for excursions and activities.
+
             It was a fantastic and memorable trip, featuring beautiful beaches, warm waters, and plenty of interesting places to visit. Thank you for your professionalism and care. I will definitely reach out to you again when planning my next trip! 💐❤️😘</p>
             <p><small>03.06.2026</small></p>
         </article>
@@ -67,10 +76,10 @@
         <article>
             <h3>Dilyara Kaldybaeva</h3>
             <p>A huge thank you to Balzhan—she helped us choose our tour, everything went perfectly, and she was always in touch. ❤️❤️🙏
+
             I recommend her to everyone!!</p>
             <p><small>24.08.2026</small></p>
         </article>
-
     </section>
 
     <aside>
@@ -80,38 +89,40 @@
         </p>
     </aside>
 
-    <section>
-    <h2>Review Summary</h2>
+    <div>
+        <!-- This div groups the review summary table. -->
+        <section>
+            <h2>Review Summary</h2>
 
-    <table border="1">
-        <caption>Customer review ratings</caption>
+            <table border="1">
+                <caption>Customer review ratings</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Akmaral</th>
+                        <th scope="col">Egypt</th>
+                        <th scope="col"><mark>5</mark></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Meiram</th>
+                        <td>Vietnam</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Beibarys</th>
+                        <td>Thailand</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
 
-        <thead>
-            <tr>
-                <th scope="col">Akmaral</th>
-                <th scope="col">Egypt</th>
-                <th scope="col">5</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <th scope="row">Meiram</th>
-                <td>Vietnam</td>
-                <td>5</td>
-            </tr>
-
-            <tr>
-                <th scope="row">Beibarys</th>
-                <td>Thailand</td>
-                <td>5</td>
-            </tr>
-        </tbody>
-    </table>
-    </section>
     <blockquote>
-    <p>«Здравствуйте, хочу поблагодарить HT.KZ за подбор тура, в частности сказать спасибо менеджеру Азизе. Отдохнули хорошо. Все было по плану, как и планировали. Трансфер встретил, отвез в гостиницу. В целом все понравилось. Гостиница не плохая, не новая, но чистая и в хорошем расположении, все достопримечательности в пешей доступности. Рядом есть метро, трамвай, немного пройтись и можно сесть на паром. Спасибо еще раз Азизе, что всегда была с нами на связи.»</p>
+        <p>«Здравствуйте, хочу поблагодарить HT.KZ за подбор тура, в частности сказать спасибо менеджеру Азизе. Отдохнули хорошо. Все было по плану, как и планировали. Трансфер встретил, отвез в гостиницу. В целом все понравилось. Гостиница не плохая, не новая, но чистая и в хорошем расположении, все достопримечательности в пешей доступности. Рядом есть метро, трамвай, немного пройтись и можно сесть на паром. Спасибо еще раз Азизе, что всегда была с нами на связи.»</p>
     </blockquote>
+
     <p>— Saniya, 13.04.2026</p>
 
     <p>
@@ -120,50 +131,34 @@
         — Bula, 26.08.2026
     </p>
 
+    <p>Our customers gave ratings from 1 to 5<sup>★</sup>.</p>
+
     <hr>
 
     <section id="review-form">
         <h2>Leave a Review</h2>
-        <form method="post" action="#">
 
+        <form method="post" action="#">
             <fieldset>
                 <legend>Your Review</legend>
 
                 <label for="review-name">Full Name:</label>
-                <input
-                    type="text"
-                    id="review-name"
-                    name="review-name"
-                    placeholder="Your name"
-                    required
-                >
+                <input type="text" id="review-name" name="review-name"
+                    placeholder="Your name" required>
                 <br><br>
 
                 <label for="review-email">Email:</label>
-                <input
-                    type="email"
-                    id="review-email"
-                    name="review-email"
-                    placeholder="name@example.com"
-                    required
-                >
+                <input type="email" id="review-email" name="review-email"
+                    placeholder="name@example.com" required>
                 <br><br>
 
                 <label for="review-phone">Phone:</label>
-                <input
-                    type="tel"
-                    id="review-phone"
-                    name="review-phone"
-                    placeholder="+7 (700) 000-00-00"
-                >
+                <input type="tel" id="review-phone" name="review-phone"
+                    placeholder="+7 (700) 000-00-00">
                 <br><br>
 
                 <label for="review-date">Travel date:</label>
-                <input
-                    type="date"
-                    id="review-date"
-                    name="review-date"
-                >
+                <input type="date" id="review-date" name="review-date">
                 <br><br>
 
                 <label for="review-rating">Rating:</label>
@@ -179,7 +174,8 @@
 
                 <p>Would you recommend HT.KZ?</p>
 
-                <input type="radio" id="yes" name="recommend" value="yes" required>
+                <input type="radio" id="yes" name="recommend"
+                    value="yes" required>
                 <label for="yes">Yes</label>
 
                 <input type="radio" id="no" name="recommend" value="no">
@@ -187,12 +183,8 @@
 
                 <br><br>
 
-                <input
-                    type="checkbox"
-                    id="permission"
-                    name="permission"
-                    value="yes"
-                >
+                <input type="checkbox" id="permission"
+                    name="permission" value="yes">
                 <label for="permission">
                     I allow my review to be published.
                 </label>
@@ -202,14 +194,9 @@
                 <label for="review-message">Your Review:</label>
                 <br>
 
-                <textarea
-                    id="review-message"
-                    name="review-message"
-                    rows="5"
-                    cols="40"
-                    placeholder="Write your review"
-                    required
-                ></textarea>
+                <textarea id="review-message" name="review-message"
+                    rows="5" cols="40"
+                    placeholder="Write your review" required></textarea>
 
                 <br><br>
 
@@ -224,7 +211,6 @@
 
 <footer>
     <p><b>Contact Information:</b></p>
-
     <p>24/7 Support:</p>
     <a href="tel:+77073384949">8 (707) 338-49-49</a>
     <br>
