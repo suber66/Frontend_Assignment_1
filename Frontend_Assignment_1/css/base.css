@@ -3,31 +3,6 @@
    Created by the team for the ayana.buyer project (Assignment 2 — CSS)
    ======================================================================== */
 
-/* -------------------------------------------------------------------------
-   1. Palette (5 colours, each justified)
-   -------------------------------------------------------------------------
-   #1B1B2F  dark navy — headings & strong text
-            Rationale: high contrast on light bg, premium brand feel
-            hex #1B1B2F | rgb(27, 27, 47)
-
-   #E94560  crimson accent — links, buttons, hover states
-            Rationale: attention-grabbing CTA colour; satisfies the
-            "one named colour" requirement (CSS keyword: crimson)
-            hex #E94560 | rgb(233, 69, 96) | named: crimson
-
-   #F5F5F5  light warm gray — default page background
-            Rationale: softer than white, lets cards pop
-            hex #F5F5F5 | rgb(245, 245, 245)
-
-   #FFFFFF  white — cards, header, footer backgrounds
-            Rationale: standard surface colour for clean layout
-            hex #FFFFFF | rgb(255, 255, 255)
-
-   #333333  dark gray — body text
-            Rationale: softer than pure black, easier to read at length
-            hex #333333 | rgb(51, 51, 51)
-   ------------------------------------------------------------------------- */
-
 :root {
     --color-heading:  #1B1B2F;
     --color-accent:   #fd4848;
