@@ -33,7 +33,6 @@ html {
 
 body {
     font-family: 'Georgia', 'Times New Roman', Times, serif;
-    font-size: 1rem;
     line-height: 1.6;
     color: var(--color-text);
     background-color: var(--color-bg);
@@ -76,6 +75,7 @@ header {
     padding-top: 0.5rem;
     padding-left: 4rem;
     border-bottom: 1px solid var(--color-heading);
+    z-index: 1000;
 }
 
 header h1 {
@@ -185,7 +185,6 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1rem;
-    font-size: 0.95rem;
     border: 1px solid var(--color-heading);
 }
 
@@ -230,7 +229,7 @@ fieldset {
 legend {
     font-family: Geneva, Verdana, sans-serif;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: var(--color-heading);
 }
 
@@ -238,7 +237,6 @@ label {
     display: inline-block;
     font-weight: 600;
     margin-bottom: 0.25rem;
-    font-size: 0.95rem;
 }
 
 input[type="text"],
@@ -254,8 +252,6 @@ select {
     border: 1px solid var(--color-heading);
     border-radius: 4px;
     font-family: inherit;
-    font-size: 0.95rem;
-    transition: border-color 0.2s ease;
 }
 
 input[type="text"]:focus,
@@ -265,8 +261,7 @@ input[type="number"]:focus,
 input[type="date"]:focus,
 textarea:focus,
 select:focus {
-    border-color: var(--color-accent);
-    outline: 2px solid var(--color-bg);
+    box-shadow: 0 0 5px 1px var(--color-text);
 }
 
 input[type="tel"] {
@@ -276,13 +271,11 @@ input[type="tel"] {
 input[type="submit"],
 input[type="reset"] {
     padding: 0.5rem 1.25rem;
-    border: none;
+    border: 1px solid var(--color-heading);
     border-radius: 4px;
     font-family: Geneva, Verdana, sans-serif;
-    font-size: 0.95rem;
     cursor: pointer;
     margin-right: 0.5rem;
-    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 input[type="submit"] {
@@ -297,12 +290,12 @@ input[type="submit"]:focus {
 
 input[type="reset"] {
     background-color: var(--color-bg);
-    color: var(--color-text);
+    color: var(--color-surface);
 }
 
 input[type="reset"]:hover,
 input[type="reset"]:focus {
-    background-color: var(--color-bg);
+    background-color: var(--color-heading);
 }
 
 select {
@@ -317,7 +310,6 @@ footer {
     text-align: center;
     padding: 1.5rem 2rem;
     margin-top: 2rem;
-    font-size: 0.9rem;
 }
 
 footer p {
@@ -343,7 +335,6 @@ blockquote p {
 }
 
 cite {
-    font-size: 0.9rem;
     color: var(--color-text);
 }
 
@@ -366,8 +357,8 @@ figcaption {
 /* Marks, code, kbd, samp, abbr, sup, sub, small, strong, em */
 
 mark {
-    background-color: var(--color-bg);
-    color: var(--color-heading);
+    background-color: var(--color-accent);
+    color: var(--color-bg);
     padding: 0.1em 0.3em;
     border-radius: 10px;
 }
