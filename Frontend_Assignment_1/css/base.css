@@ -6,15 +6,9 @@
 :root {
     --color-heading:  #1B1B2F;
     --color-accent:   #fd4848;
-    --color-accent-2: rgba(233, 69, 96, 0.10);
-    --color-accent-3: rgba(233, 69, 96, 0.20);
-    --color-bg:       #d1d1d1;
-    --color-surface:  #FFFFFF;
+    --color-bg:       #ffffff;
+    --color-surface:  #cfcdcd;
     --color-text:     #333333;
-    --color-bg-text: #F5F5F5;
-    --color-text-alt: #666666;
-    --color-bg-alt: #f0f0f0;
-    --color-border: #292626;
 }
 
 /* Fonts:
@@ -81,7 +75,7 @@ header {
     background-color: var(--color-surface);
     padding-top: 0.5rem;
     padding-left: 4rem;
-
+    border-bottom: 1px solid var(--color-heading);
 }
 
 header h1 {
@@ -148,7 +142,7 @@ section {
 
 hr {
     border: none;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-heading);
     margin: 1.5rem 0;
 }
 
@@ -192,20 +186,20 @@ table {
     border-collapse: collapse;
     margin-bottom: 1rem;
     font-size: 0.95rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-heading);
 }
 
 caption {
     text-align: left;
     font-style: italic;
     margin-bottom: 0.5rem;
-    color: var(--color-text-alt);
+    color: var(--color-text);
 }
 
 th, td {
     padding: 0.6rem 0.75rem;
     text-align: left;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-heading);
 }
 
 thead th {
@@ -215,7 +209,7 @@ thead th {
 }
 
 tbody tr:nth-child(even) {
-    background-color: var(--color-bg-alt);
+    background-color: var(--color-bg);
 }
 
 /* Forms */
@@ -227,7 +221,7 @@ form {
 }
 
 fieldset {
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-heading);
     border-radius: 6px;
     padding: 1.25rem;
     background-color: var(--color-surface);
@@ -257,7 +251,7 @@ select {
     width: 100%;
     max-width: 400px;
     padding: 0.5rem 0.6rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-heading);
     border-radius: 4px;
     font-family: inherit;
     font-size: 0.95rem;
@@ -272,7 +266,7 @@ input[type="date"]:focus,
 textarea:focus,
 select:focus {
     border-color: var(--color-accent);
-    outline: 2px solid var(--color-accent-3);
+    outline: 2px solid var(--color-bg);
 }
 
 input[type="tel"] {
@@ -302,13 +296,13 @@ input[type="submit"]:focus {
 }
 
 input[type="reset"] {
-    background-color: var(--color-bg-alt);
+    background-color: var(--color-bg);
     color: var(--color-text);
 }
 
 input[type="reset"]:hover,
 input[type="reset"]:focus {
-    background-color: var(--color-bg-alt);
+    background-color: var(--color-bg);
 }
 
 select {
@@ -340,7 +334,7 @@ blockquote {
     border-left: 4px solid var(--color-accent);
     padding: 1rem 1.25rem;
     margin: 1rem 0;
-    background-color: var(--color-accent-2);
+    background-color: var(--color-bg);
     font-style: italic;
 }
 
@@ -350,7 +344,7 @@ blockquote p {
 
 cite {
     font-size: 0.9rem;
-    color: var(--color-text-alt);
+    color: var(--color-text);
 }
 
 figure {
@@ -364,7 +358,7 @@ figure img {
 
 figcaption {
     font-size: 0.875rem;
-    color: var(--color-text-alt);
+    color: var(--color-text);
     margin-top: 0.5rem;
     font-style: italic;
 }
@@ -372,7 +366,7 @@ figcaption {
 /* Marks, code, kbd, samp, abbr, sup, sub, small, strong, em */
 
 mark {
-    background-color: var(--color-accent-2);
+    background-color: var(--color-bg);
     color: var(--color-heading);
     padding: 0.1em 0.3em;
     border-radius: 10px;
@@ -381,7 +375,7 @@ mark {
 code, kbd, samp {
     font-family: "Courier New", Courier, monospace;
     font-size: 0.9em;
-    background-color: var(--color-bg-text);
+    background-color: var(--color-surface);
     padding: 0.1em 0.3em;
     border-radius: 10px;
 }
