@@ -20,43 +20,6 @@ hr {
   display: none;
 }
 
-/* ---------- Header and navigation ---------- */
-header {
-  z-index: 10;
-  border-bottom: 1px solid var(--color-bg);
-}
-
-header h1 a {
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
-nav.topnav ul li a {
-  font-weight: 700;
-}
-
-nav.topnav ul li a:hover,
-nav.topnav ul li a:focus {
-  color: var(--color-heading);
-  border-bottom-color: var(--color-heading);
-}
-
-/* Attribute selector: matches the nav link with href="reviews.html"
-   (the last item, "Reviews & Contacts") and makes it a black pill */
-nav.topnav ul li a[href="reviews.html"] {
-  padding: 0.5rem 1.25rem;
-  border-radius: 999px;
-  background-color: var(--color-heading);
-  color: var(--color-surface);
-}
-
-nav.topnav ul li a[href="reviews.html"]:hover,
-nav.topnav ul li a[href="reviews.html"]:focus {
-  background-color: var(--color-accent);
-  border-bottom-color: transparent;
-  color: var(--color-heading);
-}
-
 /* ---------- Page title ---------- */
 /* Child selector: only the h2 that is a direct child of <main> */
 main > h2 {
@@ -80,19 +43,16 @@ main > h2::after {
 }
 
 /* ---------- Cards ---------- */
-/* Margin collapse I ran into: on stores.html a card (margin-bottom 2rem) is followed by
-   a <figure> (margin-top 2rem). Vertical margins of siblings collapse into one 2rem gap, not 4rem. */
 main > section,
 main > article,
 main > aside {
   margin-bottom: 2rem;
   padding: 2.5rem;
-  background-color: var(--color-bg-text);
+  background-color: var(--color-bg);
   border-radius: var(--radius);
 }
 
-/* position: static is the default: the cards stay in normal document flow,
-   and top/left/z-index would have no effect on them */
+/* position: static is the default: the cards stay in normal document flow */
 main > section {
   position: static;
 }
@@ -123,14 +83,11 @@ main > p {
 }
 
 /* ---------- IDs ---------- */
-/* An id is right here: these two sections are targets of the "Jump to ..." links on
-   reviews.html. A fragment link needs exactly one element per page, which an id guarantees. */
 #reviews-section,
 #contacts-section {
   scroll-margin-top: 5rem;
 }
 
-/* Specificity (1,0,0) beats the card rule (0,0,2): the contacts card becomes black */
 #contacts-section {
   background-color: var(--color-heading);
   color: white;
@@ -151,7 +108,6 @@ main > p {
 }
 
 /* ---------- "Fact" aside (stores.html) ---------- */
-/* Same specificity as the card group above but written later, so it wins */
 main > aside {
   background-color: var(--color-surface);
   border: 2px solid var(--color-heading);
@@ -167,48 +123,40 @@ main > aside a {
   text-decoration: none;
   transition: background-color 0.2s, color 0.2s;
 }
-
 main > aside a:hover,
 main > aside a:focus {
   background-color: var(--color-accent);
   color: var(--color-heading);
 }
-
 main > article {
   border-left: 0.5rem solid var(--color-accent);
 }
 
 /* ---------- Inline elements ---------- */
-/* Attribute selector: matches every link with target="_blank"
-   (the Instagram links on index, stores and reviews) and adds an arrow */
+/* Attribute selector: matches every link with target="_blank" */
 a[target="_blank"]::after {
   content: " \2197";
   font-size: 0.85em;
 }
 
-/* Descendant selector: the plain <span> with the page name inside a paragraph (index.html) */
+/* Descendant selector: the plain <span> with the page name */
 main p span {
   font-weight: 700;
 }
-
 mark {
   background-color: var(--color-accent);
   color: var(--color-heading);
 }
 
 /* ---------- Photo cards (figure.photo-card) ---------- */
-/* position: relative makes the figure the containing block for the absolute badge below.
-   Centering 1 — margin auto: a block with max-width is centred by equal auto side margins;
-   it fits because the card has a fixed width and nothing beside it. */
 .photo-card {
   position: relative;
   max-width: 30rem;
   margin: 2rem auto;
   overflow: hidden;
-  background-color: var(--color-bg-text);
+  background-color: var(--color-bg);
   border-radius: var(--radius);
 }
-
 .photo-card img {
   display: block;
   width: 100%;
@@ -217,8 +165,7 @@ mark {
   background-color: var(--color-surface);
 }
 
-/* position: absolute — the badge sits in the top-left corner inside the relative figure.
-   Without position: relative on .photo-card it would jump to the corner of the page. */
+/* position: absolute — the badge sits in the top-left corner */
 .photo-card::before {
   content: "From Instagram";
   position: absolute;
@@ -241,17 +188,14 @@ mark {
   line-height: 1.5;
 }
 
-/* Float: on index.html the figure sits inside the news article and floats right,
-   so the text wraps around it. Specificity (0,1,1) beats .photo-card (0,1,0). */
+/* Float: the figure sits inside the news article and floats right */
 article > .photo-card {
   float: right;
   width: 16rem;
   margin: 0 0 1rem 1.5rem;
 }
 
-/* Clear: without it the float is out of normal flow, the article would ignore the
-   picture's height, and the picture would hang out of the card's bottom edge
-   over the next card. */
+/* Clear: keeps the article from collapsing around the float */
 main > article::after {
   content: "";
   display: block;
@@ -259,7 +203,6 @@ main > article::after {
 }
 
 /* ---------- Flexbox: order steps (ol.order-steps) ---------- */
-/* flex: 1 1 14rem = grow to fill the row, shrink if needed, ideal width 14rem */
 .order-steps {
   display: flex;
   flex-direction: row;
@@ -280,7 +223,7 @@ main > article::after {
   counter-increment: step;
 }
 
-/* ::before draws the round step number from a CSS counter */
+/* ::before draws the round step number */
 .order-steps li::before {
   content: counter(step);
   display: block;
@@ -298,9 +241,6 @@ main > article::after {
 }
 
 /* ---------- Grid: product categories (ul.category-grid) ---------- */
-/* Why grid, not flexbox: the cards need equal columns that stay aligned in every row,
-   and the last card must span the full row (grid-column: 1 / -1).
-   With flex I would need width hacks and the columns would not line up. */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -310,7 +250,7 @@ main > article::after {
   list-style: none;
 }
 
-/* Child selector: only the top-level <li>, not the nested sub-category <li> */
+/* Child selector: only the top-level <li> */
 .category-grid > li {
   margin: 0;
   padding: 1.75rem;
@@ -323,7 +263,7 @@ main > article::after {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* :nth-child(2) matches the second category card ("Electronics") */
+/* :nth-child(2) matches the second category card */
 .category-grid > li:nth-child(2) {
   background-color: var(--color-heading);
   color: var(--color-surface);
@@ -334,7 +274,7 @@ main > article::after {
   box-shadow: var(--shadow);
 }
 
-/* Descendant selector: the nested sub-category lists */
+/* Descendant selector: nested sub-category lists */
 .category-grid ul {
   margin: 0.75rem 0 0;
   font-family: Geneva, Verdana, sans-serif;
@@ -343,9 +283,7 @@ main > article::after {
   letter-spacing: 0;
 }
 
-/* :last-child matches the "Gift certificates" card, which spans all columns.
-   Centering 2 — grid: place-items centres the text both ways; grid is the shortest way
-   to centre a single short line in a box. */
+/* :last-child matches the "Gift certificates" card */
 .category-grid > li:last-child {
   grid-column: 1 / -1;
   display: grid;
@@ -354,14 +292,13 @@ main > article::after {
   color: var(--color-heading);
 }
 
-/* ---------- "What is included" list (ul.included-list) ---------- */
+/* ---------- "What is included" list ---------- */
 .included-list {
   margin: 1rem 0 0;
   padding: 0;
   list-style: none;
 }
 
-/* position: relative is the containing block for the absolute check mark */
 .included-list li {
   position: relative;
   margin: 0.7rem 0;
@@ -385,7 +322,6 @@ main > article::after {
 }
 
 /* ---------- Reviews (blockquote.client-review) ---------- */
-/* position: relative is the containing block for the big quotation mark */
 .client-review {
   position: relative;
   margin: 1.5rem 0 0.25rem;
@@ -408,20 +344,18 @@ main > article::after {
   color: var(--color-accent);
 }
 
-/* Adjacent sibling selector: matches the attribution line ("— Client review ...")
-   that comes right after a <blockquote> on reviews.html and stores.html */
+/* Attribution line after a blockquote */
 blockquote + p {
   max-width: none;
   margin: 0 0 1.75rem 1rem;
-  color: var(--color-text-alt);
+  color: var(--color-text);
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   text-align: left;
 }
 
-/* ---------- Specificity experiment: two rules, one target (the <p> inside a review) ---------- */
-
-/* Rule 1: specificity (0,1,1) = one class + one type. It WINS. */
+/* ---------- Specificity experiment ---------- */
+/* Rule 1: specificity (0,1,1) */
 .client-review p {
   margin: 0;
   font-size: 1.05rem;
@@ -429,17 +363,14 @@ blockquote + p {
   color: var(--color-heading);
 }
 
-/* Rule 2: specificity (0,0,3) = three types. It is written later but LOSES:
-   source order only decides when specificity is equal, and one class outranks any number of types. */
+/* Rule 2: specificity (0,0,3) */
 main blockquote p {
   font-size: 0.95rem;
   font-style: normal;
-  color: var(--color-text-alt);
+  color: var(--color-text);
 }
 
-/* Resolution without !important: on stores.html the long quote is a direct child of <main>.
-   Specificity (0,1,3) = three types + one class beats rule 1 (0,1,1), so this quote is
-   upright and larger. Reviews on reviews.html sit inside <section>, so ">" skips them. */
+/* Resolution without !important */
 main > blockquote.client-review p {
   font-size: 1.1rem;
   font-style: normal;
@@ -482,16 +413,16 @@ thead th {
   text-transform: uppercase;
 }
 
-/* :first-child matches the first cell of every row (the category name) */
+/* :first-child matches the first cell of every row */
 td:first-child {
   font-weight: 700;
 }
 
 tbody tr:hover {
-  background-color: var(--color-accent-3);
+  background-color: var(--color-accent);
 }
 
-/* ---------- Flexbox: account statistics (div.account-stats) ---------- */
+/* ---------- Flexbox: account statistics ---------- */
 .account-stats {
   display: flex;
   flex-wrap: wrap;
@@ -499,14 +430,10 @@ tbody tr:hover {
   margin-bottom: 1.5rem;
 }
 
-/* Universal selector: every direct child of .account-stats (the two <p> notes)
-   shares the row and wraps if it is too narrow */
 .account-stats > * {
   flex: 1 1 14rem;
 }
 
-/* Centering 3 — flex: the note is itself a flex container, so justify-content and
-   align-items centre the text both ways; it fits one line of text in a box with a minimum height. */
 .account-stats p {
   display: flex;
   align-items: center;
@@ -515,7 +442,7 @@ tbody tr:hover {
   margin: 0;
   padding: 1.5rem;
   border-radius: var(--radius);
-  background-color: var(--color-bg-text);
+  background-color: var(--color-bg);
   color: var(--color-heading);
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 1.2rem;
@@ -523,12 +450,13 @@ tbody tr:hover {
   text-align: center;
 }
 
-/* :nth-child(2) matches the second note ("5 countries ...") */
+/* :nth-child(2) matches the second note */
 .account-stats p:nth-child(2) {
   background-color: var(--color-accent);
 }
 
 /* ---------- Code samples (stores.html) ---------- */
+
 pre {
   margin: 1rem 0;
   padding: 1.25rem 1.5rem;
@@ -541,21 +469,13 @@ pre {
 }
 
 kbd {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-heading);
   border-bottom-width: 0.2rem;
   background-color: var(--color-surface);
 }
 
-/* ---------- Footer ---------- */
-footer {
-  margin-top: 3rem;
-  padding: 2.5rem 2rem;
-  letter-spacing: 0.06em;
-}
-
 /* ---------- Fixed badge ---------- */
-/* position: fixed — the badge stays in the bottom-right corner of the window while the page
-   scrolls. It is a pseudo-element, so no extra HTML is needed. */
+/* position: fixed — the badge stays in the bottom-right corner */
 body::after {
   content: "Kaspi installment available";
   position: fixed;
@@ -573,7 +493,7 @@ body::after {
   pointer-events: none;
 }
 
-/* ---------- Small screens (optional) ---------- */
+/* ---------- Small screens ---------- */
 @media (max-width: 800px) {
   main > h2 {
     font-size: 2.2rem;
