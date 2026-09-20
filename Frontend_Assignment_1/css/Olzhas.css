@@ -121,9 +121,12 @@
   border-bottom: 1px solid var(--color-surface);
 }
 
+/* Фикс текста заголовков таблицы */
 .spec-table th {
   background-color: var(--color-surface);
-  font-size: 0.8rem;
+  color: #111111 !important; /* Явно задаем видимый темный цвет текста */
+  font-size: 0.85rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -160,13 +163,12 @@
     align-items: flex-start;
   }
 }
+
 /* ---------- Navigation Line Fix ---------- */
-/* Возвращаем одну ровную линию под навигацией */
 nav {
   border-bottom: 1px solid #333 !important;
 }
 
-/* Убираем рамки у шапки и списка, чтобы линия не дублировалась */
 header,
 header nav ul,
 nav ul {
