@@ -1,0 +1,162 @@
+/* =========================================================
+   olzhas.css — personal stylesheet, Olzhas Zholdygulov
+   Pages: electronics.html, sportswear.html
+   Loaded second, after base.css.
+   ========================================================= */
+
+:root {
+  --radius-lg: 1.25rem;
+  --radius-sm: 0.5rem;
+  --transition-fast: 0.2s ease;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Electronics & Sportswear Grid Showcase ---------- */
+.product-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin: 2rem 0;
+}
+
+/* Product Card Wrapper */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+/* Status Badge using ::before */
+.product-card[data-status="in-stock"]::before {
+  content: "In Stock";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.25rem 0.65rem;
+  background-color: var(--color-accent);
+  color: var(--color-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-sm);
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Flexible content area pushing the button/action to bottom */
+.product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-heading);
+  margin: 0.75rem 0;
+}
+
+/* Buy / Request Button */
+.btn-primary {
+  display: block;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-heading);
+  color: var(--color-surface);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-accent);
+  color: var(--color-heading);
+  outline: none;
+}
+
+/* ---------- Tech Specs & Sport Feature Tables ---------- */
+.spec-table-container {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-sm);
+}
+
+.spec-table th,
+.spec-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-surface);
+}
+
+.spec-table th {
+  background-color: var(--color-surface);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.spec-table tbody tr:hover {
+  background-color: var(--color-surface);
+}
+
+/* ---------- Feature Highlight Block ---------- */
+.feature-callout {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  background-color: var(--color-bg);
+  border-left: 0.4rem solid var(--color-accent);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  margin: 2rem 0;
+}
+
+.feature-callout-content h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* ---------- Responsive Adjustments ---------- */
+@media (max-width: 768px) {
+  .product-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-callout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
