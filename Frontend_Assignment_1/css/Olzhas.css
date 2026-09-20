@@ -124,7 +124,7 @@
 /* Фикс текста заголовков таблицы */
 .spec-table th {
   background-color: var(--color-surface);
-  color: #111111 !important; /* Явно задаем видимый темный цвет текста */
+  color: var(--color-heading) !important; /* Явно задаем видимый темный цвет текста */
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
