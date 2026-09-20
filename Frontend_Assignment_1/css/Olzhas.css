@@ -160,3 +160,19 @@
     align-items: flex-start;
   }
 }
+/* ---------- Navigation Line Fix ---------- */
+/* Возвращаем одну ровную линию под навигацией */
+nav {
+  border-bottom: 1px solid #333 !important;
+}
+
+/* Убираем рамки у шапки и списка, чтобы линия не дублировалась */
+header,
+header nav ul,
+nav ul {
+  border-bottom: none !important;
+}
+
+hr {
+  display: none !important;
+}
