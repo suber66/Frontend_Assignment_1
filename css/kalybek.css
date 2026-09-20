@@ -1,0 +1,517 @@
+/* =========================================================
+   kalybek.css — personal stylesheet, Kalybek Zhumabekov
+   Pages: index.html, stores.html, reviews.html
+   Loaded second, after base.css.
+   ========================================================= */
+
+:root {
+  --radius: 1.5rem;
+  --shadow: 0 0.5rem 1.5rem rgba(27, 27, 47, 0.12);
+}
+
+body {
+  font-family: Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  background-color: var(--color-surface);
+}
+
+hr {
+  display: none;
+}
+
+/* ---------- Page title ---------- */
+/* Child selector: only the h2 that is a direct child of <main> */
+main > h2 {
+  margin-bottom: 2.5rem;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+/* ::after draws the short accent bar under the page title */
+main > h2::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 0.35rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  background-color: var(--color-accent);
+}
+
+/* ---------- Cards ---------- */
+main > section,
+main > article,
+main > aside {
+  margin-bottom: 2rem;
+  padding: 2.5rem;
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+}
+
+/* position: static is the default: the cards stay in normal document flow */
+main > section {
+  position: static;
+}
+
+main > section h3,
+main > article h3,
+main > aside h3 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+main h4 {
+  margin-top: 1.75rem;
+  padding-left: 0.75rem;
+  border-left: 0.3rem solid var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+main > p {
+  max-width: 44rem;
+  margin: 0 auto 1.25rem;
+  text-align: center;
+}
+
+/* ---------- IDs ---------- */
+#reviews-section,
+#contacts-section {
+  scroll-margin-top: 5rem;
+}
+
+#contacts-section {
+  background-color: var(--color-heading);
+  color: white;
+}
+
+#contacts-section h3 {
+  color: var(--color-accent);
+}
+
+#contacts-section a {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+#contacts-section a:hover,
+#contacts-section a:focus {
+  color: white;
+}
+
+/* ---------- "Fact" aside (stores.html) ---------- */
+main > aside {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-heading);
+}
+
+main > aside a {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  background-color: var(--color-heading);
+  color: var(--color-surface);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+main > aside a:hover,
+main > aside a:focus {
+  background-color: var(--color-accent);
+  color: var(--color-heading);
+}
+main > article {
+  border-left: 0.5rem solid var(--color-accent);
+}
+
+/* ---------- Inline elements ---------- */
+/* Attribute selector: matches every link with target="_blank" */
+a[target="_blank"]::after {
+  content: " \2197";
+  font-size: 0.85em;
+}
+
+/* Descendant selector: the plain <span> with the page name */
+main p span {
+  font-weight: 700;
+}
+mark {
+  background-color: var(--color-accent);
+  color: var(--color-heading);
+}
+
+/* ---------- Photo cards (figure.photo-card) ---------- */
+.photo-card {
+  position: relative;
+  max-width: 30rem;
+  margin: 2rem auto;
+  overflow: hidden;
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+}
+.photo-card img {
+  display: block;
+  width: 100%;
+  max-height: 32rem;
+  object-fit: contain;
+  background-color: var(--color-surface);
+}
+
+/* position: absolute — the badge sits in the top-left corner */
+.photo-card::before {
+  content: "From Instagram";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background-color: var(--color-accent);
+  color: var(--color-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.photo-card figcaption {
+  padding: 1rem 1.25rem 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Float: the figure sits inside the news article and floats right */
+article > .photo-card {
+  float: right;
+  width: 16rem;
+  margin: 0 0 1rem 1.5rem;
+}
+
+/* Clear: keeps the article from collapsing around the float */
+main > article::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ---------- Flexbox: order steps (ol.order-steps) ---------- */
+.order-steps {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.order-steps li {
+  flex: 1 1 14rem;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  counter-increment: step;
+}
+
+/* ::before draws the round step number */
+.order-steps li::before {
+  content: counter(step);
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background-color: var(--color-heading);
+  color: var(--color-surface);
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 2.5rem;
+  text-align: center;
+}
+
+/* ---------- Grid: product categories (ul.category-grid) ---------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Child selector: only the top-level <li> */
+.category-grid > li {
+  margin: 0;
+  padding: 1.75rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* :nth-child(2) matches the second category card */
+.category-grid > li:nth-child(2) {
+  background-color: var(--color-heading);
+  color: var(--color-surface);
+}
+
+.category-grid > li:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: var(--shadow);
+}
+
+/* Descendant selector: nested sub-category lists */
+.category-grid ul {
+  margin: 0.75rem 0 0;
+  font-family: Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* :last-child matches the "Gift certificates" card */
+.category-grid > li:last-child {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-accent);
+  color: var(--color-heading);
+}
+
+/* ---------- "What is included" list ---------- */
+.included-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.included-list li {
+  position: relative;
+  margin: 0.7rem 0;
+  padding-left: 2.5rem;
+}
+
+.included-list li::before {
+  content: "\2713";
+  position: absolute;
+  top: 0.1rem;
+  left: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.6rem;
+  text-align: center;
+}
+
+/* ---------- Reviews (blockquote.client-review) ---------- */
+.client-review {
+  position: relative;
+  margin: 1.5rem 0 0.25rem;
+  padding: 1.25rem 1.5rem 1.25rem 3.75rem;
+  background-color: var(--color-surface);
+  border-left: 0;
+  border-radius: 1.25rem;
+}
+
+.client-review::before {
+  content: "\201C";
+  position: absolute;
+  top: 0.25rem;
+  left: 1rem;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+/* Attribution line after a blockquote */
+blockquote + p {
+  max-width: none;
+  margin: 0 0 1.75rem 1rem;
+  color: var(--color-text);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+
+/* ---------- Specificity experiment ---------- */
+/* Rule 1: specificity (0,1,1) */
+.client-review p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-heading);
+}
+
+/* Rule 2: specificity (0,0,3) */
+main blockquote p {
+  font-size: 0.95rem;
+  font-style: normal;
+  color: var(--color-text);
+}
+
+/* Resolution without !important */
+main > blockquote.client-review p {
+  font-size: 1.1rem;
+  font-style: normal;
+  color: var(--color-heading);
+}
+
+/* ---------- Contacts list (ul.contact-list) ---------- */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-list li {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1rem;
+}
+
+/* ---------- Table (stores.html) ---------- */
+table {
+  background-color: var(--color-surface);
+  border-color: var(--color-bg);
+}
+
+th,
+td {
+  padding: 0.9rem 1rem;
+  border-bottom-color: var(--color-bg);
+}
+
+thead th {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* :first-child matches the first cell of every row */
+td:first-child {
+  font-weight: 700;
+}
+
+tbody tr:hover {
+  background-color: var(--color-accent);
+}
+
+/* ---------- Flexbox: account statistics ---------- */
+.account-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.account-stats > * {
+  flex: 1 1 14rem;
+}
+
+.account-stats p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 7rem;
+  margin: 0;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  color: var(--color-heading);
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* :nth-child(2) matches the second note */
+.account-stats p:nth-child(2) {
+  background-color: var(--color-accent);
+}
+
+/* ---------- Code samples (stores.html) ---------- */
+
+pre {
+  margin: 1rem 0;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  border-radius: 1rem;
+  background-color: var(--color-heading);
+  color: var(--color-surface);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+kbd {
+  border: 1px solid var(--color-heading);
+  border-bottom-width: 0.2rem;
+  background-color: var(--color-surface);
+}
+
+/* ---------- Fixed badge ---------- */
+/* position: fixed — the badge stays in the bottom-right corner */
+body::after {
+  content: "Kaspi installment available";
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 20;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background-color: var(--color-heading);
+  box-shadow: var(--shadow);
+  color: var(--color-surface);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  pointer-events: none;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 800px) {
+  main > h2 {
+    font-size: 2.2rem;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  article > .photo-card {
+    float: none;
+    width: auto;
+    margin: 0 auto 1rem;
+  }
+
+  main > section,
+  main > article,
+  main > aside {
+    padding: 1.5rem 1.25rem;
+  }
+}
