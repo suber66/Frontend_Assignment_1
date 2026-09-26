@@ -16,15 +16,7 @@ headings: "Trebuchet MS", Helvetica, sans-serif
 paragraphs: Geneva, Verdana, sans-serif
 */
 
-/* CSS Reset + change box-sizing */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
+
 
 html {
     font-size: 100%;
@@ -68,15 +60,7 @@ a:focus {
     outline-offset: 2px;
 }
 
-header {
-    position: sticky;
-    top: -3.5rem;
-    background-color: var(--color-surface);
-    padding-top: 0.5rem;
-    padding-left: 4rem;
-    border-bottom: 1px solid var(--color-heading);
-    z-index: 1000;
-}
+
 
 header h1 {
     margin-bottom: 1rem;
@@ -96,34 +80,9 @@ header h1 a:focus {
     outline: none;
 }
 
-/* nav (top bar navigation) */
+/* navbar (top bar navigation) */
 
-nav.topnav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2rem;
-    list-style: none;
-    padding: 0.5rem 0;
-    flex-wrap: wrap;
-}
 
-nav.topnav ul li a {
-    text-decoration: none;
-    color: var(--color-heading);
-    font-family: Geneva, Verdana, sans-serif;
-    font-weight: 600;
-    padding: 0.25rem 0;
-    border-bottom: 2px solid transparent;
-}
-
-nav.topnav ul li a:hover,
-nav.topnav ul li a:focus {
-    color: var(--color-accent);
-    border-bottom-color: var(--color-accent);
-    outline: none;
-}
 
 /* main */
 
