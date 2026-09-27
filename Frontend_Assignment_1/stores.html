@@ -7,150 +7,165 @@
     <meta name="description" content="Stores, brands and working terms at ayana.buyer: product categories, Kaspi installments and group orders.">
     <meta name="author" content="Kalybek Zhumabekov">
     <title>ayana.buyer — Stores &amp; Brands</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/kalybek.css">
 </head>
 <body>
-    <header>
-        <link rel="stylesheet" href="css/base.css">
-        <link rel="stylesheet" href="css/kalybek.css">
-        <h1><a href="index.html" aria-label="ayana.buyer — go to homepage">ayana.buyer</a></h1>
-        <nav class="topnav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="stores.html">Stores &amp; Brands</a></li>
-                <li><a href="shoes.html">Shoes</a></li>
-                <li><a href="clothing.html">Clothing</a></li>
-                <li><a href="accessories.html">Accessories</a></li>
-                <li><a href="sportswear.html">Sportswear</a></li>
-                <li><a href="electronics.html">Electronics</a></li>
-                <li><a href="reviews.html">Reviews &amp; Contacts</a></li>
-            </ul>
+     <header class="sticky-top">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light" aria-label="Main navigation">
+            <div class="container-fluid">
+                <h1 class="h4 mb-0"><a class="navbar-brand fw-bold" href="index.html" aria-label="ayana.buyer — go to homepage">ayana.buyer</a></h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-xl-auto mb-2 mb-xl-0">
+                        <li class="nav-item"><a class="nav-link px-xl-2" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-xl-2" href="stores.html">Stores &amp; Brands</a></li>
+                        <li class="nav-item"><a class="nav-link px-xl-2 active" aria-current="page" href="shoes.html">Shoes</a></li>
+                        <li class="nav-item"><a class="nav-link px-xl-2" href="clothing.html">Clothing</a></li>
+                        <li class="nav-item"><a class="nav-link px-xl-2" href="accessories.html">Accessories</a></li>
+                        <li class="nav-item"><a class="nav-link px-xl-2" href="sportswear.html">Sportswear</a></li>
+                        <li class="nav-item"><a class="nav-link px-xl-2" href="electronics.html">Electronics</a></li>
+                        <li class="nav-item"><a class="nav-link px-xl-2" href="reviews.html">Reviews &amp; Contacts</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
-        <hr>
     </header>
 
-    <main>
-        <h2>Stores &amp; Brands</h2>
-        <section>
+
+    <main class="container py-4">
+        <h2 class="page-title display-4 fw-bold text-center text-md-start mb-4">Stores &amp; Brands</h2>
             <h3>Brands we have already worked with</h3>
-            <p>
+            <p class="text-center text-md-start">
                 Below are real examples of brands and products recently ordered through ayana.buyer: from
                 <abbr title="United States of America">USA</abbr>-made electronics to jewelry that people used
                 to search for only in a <abbr title="shopping and entertainment center">mall</abbr>.
-                <!-- b is used intentionally: it is not a semantic emphasis (that's what strong is for), but a
-                     visual highlight of a brand name, the way a price list would style it -->
                 Among them are branded <b>Pandora</b> boxes, <i>New Balance</i> sneakers, the
                 Zendaya&nbsp;&times;&nbsp;On running collaboration, and Stanley tumblers and watches that
                 clients often choose as gifts. If you&rsquo;re reading this looking for a way to pay in
                 installments, note that <mark>Kaspi installment</mark> is available for almost every category
                 below.
             </p>
-
-            <table>
-                <caption>Product categories and brand examples at ayana.buyer (based on posts as of September 2026)</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Category</th>
-                        <th scope="col">Example brands</th>
-                        <th scope="col">Payment terms</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Electronics</td>
-                        <td>Dyson</td>
-                        <td>Kaspi installment available</td>
-                    </tr>
-                    <tr>
-                        <td>Accessories &amp; jewelry</td>
-                        <td>Pandora, JW PEI</td>
-                        <td>Full payment or Kaspi</td>
-                    </tr>
-                    <tr>
-                        <td>Shoes &amp; clothing</td>
-                        <td>New Balance, On running</td>
-                        <td>Full payment or Kaspi</td>
-                    </tr>
-                    <tr>
-                        <td>Cookware &amp; home goods</td>
-                        <td>Stanley</td>
-                        <td>Full payment or Kaspi</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table  class="table table-striped table-hover table-bordered">
+                    <caption>Product categories and brand examples at ayana.buyer (based on posts as of September 2026)</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Category</th>
+                            <th scope="col">Example brands</th>
+                            <th scope="col">Payment terms</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Electronics</td>
+                            <td>Dyson</td>
+                            <td>Kaspi installment available</td>
+                        </tr>
+                        <tr>
+                            <td>Accessories &amp; jewelry</td>
+                            <td>Pandora, JW PEI</td>
+                            <td>Full payment or Kaspi</td>
+                        </tr>
+                        <tr>
+                            <td>Shoes &amp; clothing</td>
+                            <td>New Balance, On running</td>
+                            <td>Full payment or Kaspi</td>
+                        </tr>
+                        <tr>
+                            <td>Cookware &amp; home goods</td>
+                            <td>Stanley</td>
+                            <td>Full payment or Kaspi</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <p><small>The brand list is based on the account&rsquo;s current posts and may be updated.</small></p>
-        </section>
-        <figure>
-            <img src="images/pandora-boxes.jpg" alt="Branded Pandora boxes prepared for handover to clients">
-            <figcaption>This is what Pandora orders look like before they&rsquo;re handed to the client.</figcaption>
-        </figure>
-        <figure>
-           <img src="images/dyson-installment-story.png" alt="Story showing two Dyson hair stylers, the price 305,000 tenge, original from South Korea and a 24-month installment">
-            <figcaption>A Dyson example from the account&rsquo;s stories: original, from South Korea, with a 24-month installment.</figcaption>
-        </figure>
-        <hr>
-        <aside>
-            <h3>Fact</h3>
-           <p>Did you know we have an Instagram account?</p>
-            <p>There you can place an order via Direct or check out our reviews.</p>
-            <p>As of September 2026, the ayana.buyer Instagram account is followed by <sup>5&nbsp;994</sup> people with 347 posts published &mdash; we checked this figure directly on the projects page.</p>
-            <p><a href="https://instagram.com/ayana.buyer" target="_blank">Visit our Instagram (@ayana.buyer)</a></p>
+        <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+            <div class="col">
+                <figure class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden mb-0">
+                    <img src="images/pandora-boxes.jpg" class="img-fluid" alt="Branded Pandora boxes prepared for handover to clients">
+                    <figcaption class="card-body small text-muted">This is what Pandora orders look like before they&rsquo;re handed to the client.</figcaption>
+                </figure>
+            </div>
+            <div class="col">
+                <figure class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden mb-0">
+                    <img src="images/dyson-installment-story.png" class="img-fluid" alt="Story showing two Dyson hair stylers, the price 305,000 tenge, original from South Korea and a 24-month installment">
+                    <figcaption class="card-body small text-muted">A Dyson example from the account&rsquo;s stories: original, from South Korea, with a 24-month installment.</figcaption>
+                </figure>
+            </div>
+        </div><br>
+        <aside class="card border-0 shadow-sm rounded-4 mb-4 text-center">
+            <div class="card-body p-4">
+                <h3 class="h5 fw-bold">Fact</h3>
+                <p class="mb-1">Did you know we have an Instagram account?</p>
+                <p>There you can place an order via Direct or check out our reviews.</p>
+                <p>As of September 2026, the ayana.buyer Instagram account is followed by <sup>5&nbsp;994</sup> people with 347 posts published &mdash; we checked this figure directly on the projects page.</p>
+                <a class="btn btn-primary" href="https://instagram.com/ayana.buyer" target="_blank">Visit our Instagram (@ayana.buyer)</a>
+            </div>
         </aside>
 
-        <section>
-            <h3>Terms worth knowing</h3>
-            <dl>
-                <dt>Personal buyer (byer)</dt>
-                <dd>A person or service that purchases an item abroad on your behalf and arranges delivery.</dd>
-                <dt>Kaspi installment</dt>
-                <dd>Paying for a purchase in parts through the Kaspi app, without going through a bank.</dd>
-                <dt>Group order</dt>
-                <dd>An order format where several clients combine shipments in one chat to reduce shipping costs.</dd>
-            </dl>
-        </section>
+        <div class="card-body p-4">
+            <h3 class="h5 fw-bold mb-3">Terms worth knowing</h3>
+                <dl class="row mb-0">
+                    <dt class="col-sm-3">Personal buyer (byer)</dt>
+                    <dd class="col-sm-9">A person or service that purchases an item abroad on your behalf and arranges delivery.</dd>
+                    <dt class="col-sm-3">Kaspi installment</dt>
+                    <dd class="col-sm-9">Paying for a purchase in parts through the Kaspi app, without going through a bank.</dd>
+                    <dt class="col-sm-3">Group order</dt>
+                    <dd class="col-sm-9">An order format where several clients combine shipments in one chat to reduce shipping costs.</dd>
+                </dl>
+            </div>
 
-        <hr>
-
-        <section>
-            <h3>What an order conversation looks like</h3>
-            <p>
-                The order number you receive in chat looks like this: <code>AYB-2026-0347</code>.
-                A request message template looks like this:
-            </p>
-            <pre>Hi! I'd like to place a buying request.
+        <div class="card-body p-4">
+                <h3 class="h5 fw-bold mb-3">What an order conversation looks like</h3>
+                <p>
+                    The order number you receive in chat looks like this: <code>AYB-2026-0347</code>.
+                    A request message template looks like this:
+                </p>
+                <pre class="bg-dark text-light p-3 rounded-3">Hi! I'd like to place a buying request.
 Product link: ...
 Size/color: ...
 Payment: Kaspi installment</pre>
-            <p>
-                After sending the message, press <kbd>Enter</kbd>, and the chat usually replies with something like:
-            </p>
-            <p><samp>Request received, we'll send you a quote within the day.</samp></p>
-        </section>
-
-        
-        <blockquote cite="https://instagram.com/ayana.buyer">
-            <p>
-                Basically, original branded goods are not expensive &mdash; it is our market&rsquo;s markup that is huge.
-                For example, footwear priced at $150&ndash;210 in Nike stores in the USA starts from as little as
-                110,000&nbsp;&#8376; with us. That is why placing an order through a trusted buyer is very worthwhile:
-                first, you get a 100% original product; second, you pay the original (lower) price plus the cost of
-                the buyer&rsquo;s service; third, American online stores have very frequent and significant discounts.
-            </p>
-        </blockquote>
-        <p>&mdash; <cite>Aikerim Yerbolatkyzy</cite></p>
-
-        <!-- div is used only here: it's a wrapper for two short statistical notes that have no heading of
-             their own and don't form a section or a callout — section, aside and article don't fit here -->
-        <div>
-            <p>347 posts &ldquo;in the bank&rdquo; of the account.</p>
-            <p>5 countries the service works with directly.</p>
+                <p>After sending the message, press <kbd>Enter</kbd>, and the chat usually replies with something like:</p>
+                <p class="mb-0"><samp>Request received, we'll send you a quote within the day.</samp></p>
+                <button type="button" class="btn btn-outline-secondary btn-sm mt-3" disabled>
+                    Join WhatsApp group chat (invite link is in our Instagram bio)
+                </button>
         </div>
-        <p>See more client feedback on the <a href="reviews.html">Reviews &amp; Contacts</a> page.</p>
-        <hr>
+        <div class="container px-0">
+            <blockquote class="blockquote client-review card border-0 shadow-sm rounded-4 p-4 mb-2" cite="https://instagram.com/ayana.buyer">
+                <p class="mb-0">
+                    Basically, original branded goods are not expensive &mdash; it is our market&rsquo;s markup that is huge.
+                    For example, footwear priced at $150&ndash;210 in Nike stores in the USA starts from as little as
+                    110,000&nbsp;&#8376; with us. That is why placing an order through a trusted buyer is very worthwhile:
+                    first, you get a 100% original product; second, you pay the original (lower) price plus the cost of
+                    the buyer&rsquo;s service; third, American online stores have very frequent and significant discounts.
+                </p>
+            </blockquote>
+            <p class="text-end text-muted small">&mdash; <cite>Aikerim Yerbolatkyzy</cite></p>
+        </div>
+        <div class="row row-cols-2 g-3 mb-4">
+            <div class="col">
+                <div class="bg-light rounded-4 p-3 text-center h-100 d-flex align-items-center justify-content-center fw-bold">
+                    347 posts &ldquo;in the bank&rdquo; of the account.
+                </div>
+            </div>
+            <div class="col">
+                <div class="rounded-4 p-3 text-center h-100 d-flex align-items-center justify-content-center fw-bold text-white" style="background-color: var(--color-accent);">
+                    5 countries the service works with directly.
+                </div>
+            </div>
+        </div>
     </main>
 
      <footer>
         <p>ayana.buyer &ldquo;Your trusted personal buyer&rdquo; &mdash; USA &middot; Korea &middot; Turkey &middot; Italy &middot; Germany</p>
         <p>&copy; 2026 ayana.buyer. All rights reserved.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
