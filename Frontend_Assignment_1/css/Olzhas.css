@@ -21,7 +21,7 @@
     object-fit: contain;
     object-position: center 70%;
     background-color: #f8f9fa;
-    transform: translateY(-20px);
+    transform: translateY(-20px) scale(1.1);
 }
 /* Product price branding */
 .product-price {
