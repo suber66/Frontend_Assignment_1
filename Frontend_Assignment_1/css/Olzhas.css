@@ -5,18 +5,15 @@
    Loaded after Bootstrap and base.css
    Bootstrap version: 5.0.2
    ========================================================= */
-
 /* Product card visual corrections */
 .product-card {
     border-radius: 1.25rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .product-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
-
 /* Consistent product image proportions */
 .product-image {
     width: 100%;
@@ -25,15 +22,18 @@
     object-position: top;
     background-color: transparent;
 }
-
 /* Product price branding */
 .product-price {
     font-size: 1.25rem;
     font-weight: 800;
     color: var(--color-heading, #212529);
 }
-
 /* Keep the project navigation visually consistent */
 header nav {
     border-bottom: 1px solid #333;
+}
+/* Dark navy footer */
+footer {
+    background-color: var(--color-heading, #19182f);
+    color: #ffffff;
 }
