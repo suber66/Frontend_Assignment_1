@@ -1,10 +1,39 @@
-/* =========================================================
-Olzhas.css — minimal correction layer for Bootstrap 5
-Pages: electronics.html, sportswear.html
-========================================================= */
 
-.card-img-top {
-height: 320px;
-object-fit: cover;
-object-position: top;
+/* =========================================================
+   Olzhas.css — Olzhas Zholdygulov
+   Pages: electronics.html, sportswear.html
+   Loaded after Bootstrap and base.css
+   Bootstrap version: 5.0.2
+   ========================================================= */
+
+/* Product card visual corrections */
+.product-card {
+    border-radius: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Consistent product image proportions */
+.product-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: top;
+    background-color: transparent;
+}
+
+/* Product price branding */
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-heading, #212529);
+}
+
+/* Keep the project navigation visually consistent */
+header nav {
+    border-bottom: 1px solid #333;
 }

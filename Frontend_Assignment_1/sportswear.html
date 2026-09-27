@@ -1,78 +1,172 @@
+
 <!DOCTYPE html>
 <!-- Author: Olzhas Zholdygulov -->
+<!-- Bootstrap version: 5.0.2 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Original sportswear and athletic equipment ordered directly from Nike, On Running, and Gymshark.">
     <meta name="author" content="Olzhas Zholdygulov">
-    <title>ayana.buyer &ndash; Sportswear</title>
+    <title>ayana.buyer – Sportswear</title>
+
+   <!-- Bootstrap 5.0.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Project stylesheets -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Olzhas.css">
 </head>
 <body>
-    <header>
-        <h1><a href="index.html" aria-label="ayana.buyer &ndash; go to homepage">ayana.buyer</a></h1>
-        <nav class="topnav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="stores.html">Stores &amp; Brands</a></li>
-                <li><a href="shoes.html">Shoes</a></li>
-                <li><a href="clothing.html">Clothing</a></li>
-                <li><a href="accessories.html">Accessories</a></li>
-                <li><a href="sportswear.html">Sportswear</a></li>
-                <li><a href="electronics.html">Electronics</a></li>
-                <li><a href="reviews.html">Reviews &amp; Contacts</a></li>
-            </ul>
+
+    <!-- Shared Bootstrap navigation; Sportswear is the active page -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
+            <!-- container-fluid provides full-width navigation -->
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="index.html">ayana.buyer</a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-xl-0">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="stores.html">Stores &amp; Brands</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="shoes.html">Shoes</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="clothing.html">Clothing</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="accessories.html">Accessories</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" aria-current="page"
+                               href="sportswear.html">Sportswear</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="electronics.html">Electronics</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="reviews.html">Reviews &amp; Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
-        <hr>
     </header>
 
-    <main>
-        <h2>Sportswear &amp; Activewear</h2>
-        <p>High-performance athletic gear, running shoes, and gym apparel ordered straight from official US and European flagships.</p>
+    <!-- Main content in a responsive Bootstrap container -->
+    <main class="container py-4">
+        <h1 class="display-6 text-center text-md-start">
+            Sportswear &amp; Activewear
+        </h1>
+        <p class="lead text-center text-md-start">
+            High-performance athletic gear, running shoes, and gym apparel
+            ordered straight from official US and European flagships.
+        </p>
 
-        <section>
-            <h3>Featured Sportswear Items</h3>
-            
-            <div class="product-showcase">
+        <section class="my-4">
+            <h2 class="h3 mb-4">Featured Sportswear Items</h2>
+
+            <!-- Bootstrap Card component adapted to the existing products -->
+            <div class="row row-cols-1 row-cols-md-2 g-4 product-showcase">
+
                 <!-- Product Card 1 -->
-                <article class="product-card" data-status="in-stock">
-                    <img src="images/on-cloudmonster.png" alt="On Running Cloudmonster" loading="lazy">
-                    <h3>On Running Cloudmonster</h3>
-                    <div class="product-details">
-                        <p>Maximalist cushioning performance running shoes from the Zendaya &times; On collaboration.</p>
-                        <div class="product-price">115,000 &#8376;</div>
-                        <a href="https://instagram.com/ayana.buyer" target="_blank" class="btn-primary">Order via Direct</a>
-                    </div>
-                </article>
+                <div class="col">
+                    <article class="card product-card h-100" data-status="in-stock">
+                        <div class="product-image-wrapper position-relative">
+                            <span class="badge bg-success product-status">
+                                In Stock
+                            </span>
+                            <img src="images/on-cloudmonster.png"
+                                 class="card-img-top product-image"
+                                 alt="On Running Cloudmonster"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">On Running Cloudmonster</h3>
+                            <p class="card-text">
+                                Maximalist cushioning performance running shoes
+                                from the Zendaya × On collaboration.
+                            </p>
+                            <div class="product-price mt-auto mb-3">
+                                115,000 &#8376;
+                            </div>
+                            <a href="https://instagram.com/ayana.buyer"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-primary">
+                                Order via Direct
+                            </a>
+                        </div>
+                    </article>
+                </div>
 
                 <!-- Product Card 2 -->
-                <article class="product-card" data-status="in-stock">
-                    <img src="images/gymshark.png" alt="Gymshark Seamless Set" loading="lazy">
-                    <h3>Gymshark Vital Seamless Set</h3>
-                    <div class="product-details">
-                        <p>Lightweight, breathable athletic matching set available in multiple colors.</p>
-                        <div class="product-price">45,000 &#8376;</div>
-                        <a href="https://instagram.com/ayana.buyer" target="_blank" class="btn-primary">Order via Direct</a>
-                    </div>
-                </article>
+                <div class="col">
+                    <article class="card product-card h-100" data-status="in-stock">
+                        <div class="product-image-wrapper position-relative">
+                            <span class="badge bg-success product-status">
+                                In Stock
+                            </span>
+                            <img src="images/gymshark.png"
+                                 class="card-img-top product-image"
+                                 alt="Gymshark Vital Seamless Set"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Gymshark Vital Seamless Set</h3>
+                            <p class="card-text">
+                                Lightweight, breathable athletic matching set
+                                available in multiple colors.
+                            </p>
+                            <div class="product-price mt-auto mb-3">
+                                45,000 &#8376;
+                            </div>
+                            <a href="https://instagram.com/ayana.buyer"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-primary">
+                                Order via Direct
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
             </div>
         </section>
 
-        <!-- Feature Callout -->
-        <div class="feature-callout">
-            <div class="feature-callout-content">
-                <h4>Group Orders for Fitness Teams</h4>
-                <p>Order workout apparel with friends or training partners to combine shipping and save up to 30% on international delivery fees.</p>
-            </div>
-        </div>
+        <!-- Bootstrap alert for the existing group-order information -->
+        <section class="alert alert-info my-4" role="note">
+            <h2 class="h5 alert-heading">Group Orders for Fitness Teams</h2>
+            <p class="mb-0">
+                Order workout apparel with friends or training partners
+                to combine shipping and save up to 30% on international
+                delivery fees.
+            </p>
+        </section>
 
-        <section>
-            <h3>Popular Athletic Brands &amp; Sizes</h3>
-            <div class="spec-table-container">
-                <table class="spec-table">
-                    <thead>
+        <section class="my-4">
+            <h2 class="h3 mb-3">Popular Athletic Brands &amp; Sizes</h2>
+
+            <!-- Responsive table wrapper prevents page-level horizontal overflow -->
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle spec-table">
+                    <thead class="table-light">
                         <tr>
                             <th scope="col">Brand</th>
                             <th scope="col">Specialty</th>
@@ -84,13 +178,13 @@
                         <tr>
                             <td>On Running</td>
                             <td>Marathon &amp; Performance Running</td>
-                            <td>US 6 &ndash; 13</td>
+                            <td>US 6 – 13</td>
                             <td>Switzerland / USA</td>
                         </tr>
                         <tr>
                             <td>Nike Training</td>
                             <td>Gym &amp; Plyometric Gear</td>
-                            <td>XS &ndash; XXL</td>
+                            <td>XS – XXL</td>
                             <td>USA</td>
                         </tr>
                     </tbody>
@@ -99,10 +193,17 @@
         </section>
     </main>
 
-    <footer>
-        <p>ayana.buyer &ldquo;Your trusted personal buyer&rdquo; &mdash; USA &middot; Korea &middot; Turkey &middot; Italy &middot; Germany</p>
-        <p>&copy; 2026 ayana.buyer. All rights reserved.</p>
+    <footer class="container-fluid bg-light text-center py-3 mt-4">
+        <p class="mb-1">
+            ayana.buyer “Your trusted personal buyer” —
+            USA · Korea · Turkey · Italy · Germany
+        </p>
+        <p class="small text-muted mb-0">
+            &copy; 2026 ayana.buyer. All rights reserved.
+        </p>
     </footer>
-    
+
+    <!-- Bootstrap 5.0.2 JavaScript bundle for mobile navigation -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

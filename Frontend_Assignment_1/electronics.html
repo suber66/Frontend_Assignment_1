@@ -1,80 +1,171 @@
+
 <!DOCTYPE html>
 <!-- Author: Olzhas Zholdygulov -->
+<!-- Bootstrap version: 5.0.2 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Electronics and gadgets available via ayana.buyer: Dyson, Apple, and original tech with Kaspi installment options.">
     <meta name="author" content="Olzhas Zholdygulov">
-    <title>ayana.buyer &ndash; Electronics</title>
-    <!-- Bootstrap 5.0.2 CSS -->
-    <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css)" rel="stylesheet">
+    <title>ayana.buyer – Electronics</title>
+
+   <!-- Bootstrap 5.0.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Project stylesheets: Bootstrap first, custom CSS after -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Olzhas.css">
 </head>
 <body>
-    <header>
-        <h1><a href="index.html" aria-label="ayana.buyer &ndash; go to homepage">ayana.buyer</a></h1>
-        <nav class="topnav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="stores.html">Stores &amp; Brands</a></li>
-                <li><a href="shoes.html">Shoes</a></li>
-                <li><a href="clothing.html">Clothing</a></li>
-                <li><a href="accessories.html">Accessories</a></li>
-                <li><a href="sportswear.html">Sportswear</a></li>
-                <li><a href="electronics.html">Electronics</a></li>
-                <li><a href="reviews.html">Reviews &amp; Contacts</a></li>
-            </ul>
+
+    <!-- Shared Bootstrap navigation; Electronics is the active page -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
+            <!-- container-fluid gives the navigation full-width alignment -->
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="index.html">ayana.buyer</a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-xl-0">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="stores.html">Stores &amp; Brands</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="shoes.html">Shoes</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="clothing.html">Clothing</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="accessories.html">Accessories</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="sportswear.html">Sportswear</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" aria-current="page"
+                               href="electronics.html">Electronics</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="reviews.html">Reviews &amp; Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
-        <hr>
     </header>
 
-    <main>
-        <h2>Electronics &amp; Gadgets</h2>
-        <p>Original electronics sourced directly from official brand stores in Korea, USA, and Europe.</p>
+    <!-- Main content uses a fixed responsive Bootstrap container -->
+    <main class="container py-4">
+        <h1 class="display-6 text-center text-md-start">
+            Electronics &amp; Gadgets
+        </h1>
+        <p class="lead text-center text-md-start">
+            Original electronics sourced directly from official brand stores
+            in Korea, USA, and Europe.
+        </p>
 
-        <section>
-            <h3>Popular Tech Requests</h3>
-            
-            <div class="product-showcase">
+        <section class="my-4">
+            <h2 class="h3 mb-4">Popular Tech Requests</h2>
+
+            <!-- Bootstrap Card component adapted to the existing products -->
+            <div class="row row-cols-1 row-cols-md-2 g-4 product-showcase">
+
                 <!-- Product Card 1 -->
-                <article class="product-card" data-status="in-stock">
-                    <img src="images/dyson.png" alt="Dyson Airwrap Multi-Styler" loading="lazy">
-                    <h3>Dyson Airwrap Multi-Styler</h3>
-                    <div class="product-details">
-                        <p>Original hair styler with full attachment set. Direct delivery from South Korea.</p>
-                        <div class="product-price">102,787 &#8376;</div>
-                        <a href="https://instagram.com/ayana.buyer" target="_blank" class="btn-primary">Order via Direct</a>
-                    </div>
-                </article>
+                <div class="col">
+                    <article class="card product-card h-100" data-status="in-stock">
+                        <div class="product-image-wrapper position-relative">
+                            <span class="badge bg-success product-status">
+                                In Stock
+                            </span>
+                            <img src="images/dyson.png"
+                                 class="card-img-top product-image"
+                                 alt="Dyson Airwrap Multi-Styler"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Dyson Airwrap Multi-Styler</h3>
+                            <p class="card-text">
+                                Original hair styler with full attachment set.
+                                Direct delivery from South Korea.
+                            </p>
+                            <div class="product-price mt-auto mb-3">
+                                102,787 &#8376;
+                            </div>
+                            <a href="https://instagram.com/ayana.buyer"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-primary">
+                                Order via Direct
+                            </a>
+                        </div>
+                    </article>
+                </div>
 
                 <!-- Product Card 2 -->
-                <article class="product-card" data-status="in-stock">
-                    <img src="images/applewatch.png" alt="Apple Watch Ultra 3" loading="lazy">
-                    <h3>Apple Watch Ultra 3</h3>
-                    <div class="product-details">
-                        <p>GPS + Cellular options directly from the US Apple Store with original warranty.</p>
-                        <div class="product-price">607,990 &#8376;</div>
-                        <a href="https://instagram.com/ayana.buyer" target="_blank" class="btn-primary">Order via Direct</a>
-                    </div>
-                </article>
+                <div class="col">
+                    <article class="card product-card h-100" data-status="in-stock">
+                        <div class="product-image-wrapper position-relative">
+                            <span class="badge bg-success product-status">
+                                In Stock
+                            </span>
+                            <img src="images/applewatch.png"
+                                 class="card-img-top product-image"
+                                 alt="Apple Watch Ultra 3"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Apple Watch Ultra 3</h3>
+                            <p class="card-text">
+                                GPS + Cellular options directly from the US
+                                Apple Store with original warranty.
+                            </p>
+                            <div class="product-price mt-auto mb-3">
+                                607,990 &#8376;
+                            </div>
+                            <a href="https://instagram.com/ayana.buyer"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-primary">
+                                Order via Direct
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
             </div>
         </section>
 
-        <!-- Feature Callout -->
-        <div class="feature-callout">
-            <div class="feature-callout-content">
-                <h4>Kaspi Installment Available</h4>
-                <p>You can purchase Dyson stylers and high-end electronics using a 24-month Kaspi installment plan without overpayments.</p>
-            </div>
-        </div>
+        <!-- Bootstrap alert used for the existing installment information -->
+        <section class="alert alert-info my-4" role="note">
+            <h2 class="h5 alert-heading">Kaspi Installment Available</h2>
+            <p class="mb-0">
+                You can purchase Dyson stylers and high-end electronics using
+                a 24-month Kaspi installment plan without overpayments.
+            </p>
+        </section>
 
-        <section>
-            <h3>Electronics Specifications &amp; Ordering Terms</h3>
-            <div class="spec-table-container">
-                <table class="spec-table">
-                    <thead>
+        <section class="my-4">
+            <h2 class="h3 mb-3">Electronics Specifications &amp; Ordering Terms</h2>
+
+            <!-- table-responsive keeps wide tables within the available width -->
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle spec-table">
+                    <thead class="table-light">
                         <tr>
                             <th scope="col">Category</th>
                             <th scope="col">Source Country</th>
@@ -86,13 +177,13 @@
                         <tr>
                             <td>Dyson Haircare</td>
                             <td>South Korea / USA</td>
-                            <td>10&ndash;14 days</td>
+                            <td>10–14 days</td>
                             <td>Full or Kaspi Installment</td>
                         </tr>
                         <tr>
                             <td>Apple Devices</td>
                             <td>USA / Europe</td>
-                            <td>12&ndash;16 days</td>
+                            <td>12–16 days</td>
                             <td>Full or Kaspi Installment</td>
                         </tr>
                     </tbody>
@@ -101,9 +192,17 @@
         </section>
     </main>
 
-    <footer>
-        <p>ayana.buyer &ldquo;Your trusted personal buyer&rdquo; &mdash; USA &middot; Korea &middot; Turkey &middot; Italy &middot; Germany</p>
-        <p>&copy; 2026 ayana.buyer. All rights reserved.</p>
+    <footer class="container-fluid bg-light text-center py-3 mt-4">
+        <p class="mb-1">
+            ayana.buyer “Your trusted personal buyer” —
+            USA · Korea · Turkey · Italy · Germany
+        </p>
+        <p class="small text-muted mb-0">
+            &copy; 2026 ayana.buyer. All rights reserved.
+        </p>
     </footer>
+
+    <!-- Bootstrap 5.0.2 JavaScript bundle for the responsive navbar -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
