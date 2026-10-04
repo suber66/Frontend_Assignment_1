@@ -40,31 +40,3 @@ figure img:hover {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
 }
-.navbar-nav .nav-link {
-    padding: 0.25rem 0.5rem;
-}
-
-/* States for later JavaScript (base.css already has hidden, selected, error, success) */
-.card.active {
-    border: 2px solid var(--color-accent) !important;
-}
-.table tbody tr.selected > * {
-    background-color: #fd484826 !important;
-}
-.form-control.success,
-.form-select.success {
-    border: 2px solid #17643b;
-}
-.field-error {
-    color: #78151c;
-    font-size: 0.875rem;
-}
-.field-error:empty {
-    display: none;
-}
-.form-feedback.error,
-.form-feedback.success,
-.request-summary.selected {
-    padding: 0.75rem 1rem;
-    margin-top: 0.5rem;
-}
