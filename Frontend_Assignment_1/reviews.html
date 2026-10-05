@@ -10,20 +10,25 @@
     <link rel="stylesheet" href="css/kalybek.css">
 </head>
 <body>
-    <header class="sticky-top">
-        <nav class="navbar navbar-light bg-light" aria-label="Main navigation">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-light bg-light" aria-label="Main navigation">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bold" href="index.html" aria-label="ayana.buyer, go to homepage">ayana.buyer</a>
-                <ul class="navbar-nav flex-row flex-wrap ms-xl-auto mb-0">
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="stores.html">Stores &amp; Brands</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="shoes.html">Shoes</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="clothing.html">Clothing</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="accessories.html">Accessories</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="sportswear.html">Sportswear</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="electronics.html">Electronics</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2 active" aria-current="page" href="reviews.html">Reviews &amp; Contacts</a></li>
+                <a class="navbar-brand fw-bold" href="index.html" aria-label="ayana.buyer home">ayana.buyer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon">
+                </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-xl-auto mb-2 mb-xl-0">
+                    <li class="nav-item"><a class="nav-link px-2" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="stores.html">Stores &amp; Brands</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="shoes.html">Shoes</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="clothing.html">Clothing</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="accessories.html">Accessories</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="sportswear.html">Sportswear</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="electronics.html">Electronics</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 active" aria-current="page" href="reviews.html">Reviews &amp; Contacts</a></li>
                 </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -129,7 +134,6 @@
         </div>
 
         <h2 id="contact-form-section" class="h3 fw-bold mt-4">Ask a question</h2>
-        <p>This form only prepares your question; it does not send anything by itself. After preparing it, pass the question on through Instagram direct messages (<a href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener">@ayana.buyer</a>).</p>
         <form id="contact-form" class="card border-0 shadow-sm rounded-4 p-4 mb-3" method="get">
             <div class="mb-3">
                 <label class="form-label" for="contact-name">Your name</label>
@@ -157,11 +161,10 @@
                 <div class="form-text">10 to 1000 characters.</div>
             </div>
             <div class="d-flex flex-wrap gap-2">
-                <button type="button" id="contact-submit" class="btn btn-primary">Prepare question</button>
+                <button type="button" id="contact-submit" class="btn btn-primary">Send</button>
                 <button type="reset" id="contact-reset" class="btn btn-outline-secondary">Clear form</button>
             </div>
         </form>
-        <p id="contact-result-note" class="small">After you press &ldquo;Prepare question&rdquo;, the area below shows either the fields to correct or a summary of your question and the next step: sending it through Instagram.</p>
         <div id="contact-errors" role="alert"></div>
         <div id="contact-summary" class="request-summary" aria-live="polite"></div>
         <div id="contact-confirmation" role="status"></div>
