@@ -1,40 +1,57 @@
-
 /* =========================================================
-   Olzhas.css — Olzhas Zholdygulov
+   olzhas.css — Olzhas Zholdygulov
    Pages: electronics.html, sportswear.html
    Loaded after Bootstrap and base.css
-   Bootstrap version: 5.0.2
    ========================================================= */
+
 /* Product card visual corrections */
 .product-card {
-    border-radius: 1.25rem;
+    border-radius: 1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .product-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
-/* Consistent product image proportions */
+
+/* Product image container and proportions */
+.product-image-wrapper {
+    background-color: #f8f9fa;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    overflow: hidden;
+}
+
 .product-image {
     width: 100%;
     height: 360px;
     object-fit: contain;
-    object-position: center 70%;
-    background-color: #f8f9fa;
-    transform: translateY(-20px);
+    object-position: center;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
 }
-/* Product price branding */
+
+.product-card:hover .product-image {
+    transform: scale(1.03);
+}
+
+/* Responsive adjustment for small mobile screens (e.g. 320px - 375px) */
+@media (max-width: 576px) {
+    .product-image {
+        height: 280px;
+        padding: 1rem;
+    }
+}
+
+/* Product price styling */
 .product-price {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--color-heading, #212529);
+    color: var(--color-heading, #1B1B2F);
 }
-/* Keep the project navigation visually consistent */
-header nav {
-    border-bottom: 1px solid #333;
-}
-/* Dark navy footer */
-footer {
-    background-color: var(--color-heading, #19182f);
-    color: #ffffff;
+
+/* Form styling consistency */
+#electronics-order,
+#sportswear-order {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
 }
