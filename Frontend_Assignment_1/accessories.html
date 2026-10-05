@@ -43,7 +43,7 @@
 
         <section>
             <h2>Accessory categories at ayana.buyer</h2>
-            <p class="lead">Explore accessory categories and the linked brand stores. Include the exact model, color and any relevant material in your request. Availability and the full quote require confirmation.</p>
+            <p class="lead">Explore accessory categories and the linked brand stores.</p>
 
             <ul>
                 <li>Bags &amp; Backpacks
@@ -158,18 +158,10 @@
             </div>
         </section>
 
-        <section>
-            <h2>Before requesting a quote</h2>
-            <p>Use the store links to choose an exact product. Include its model and variant in your request. A brand link does not confirm that a particular item is available.</p>
-            <p>Ask the buyer to confirm availability, the item price, any buying fee, shipping, delivery timing and payment options before agreeing to a purchase.</p>
-            <a class="btn btn-outline-dark" href="#accessories-order">Prepare a request</a>
-        </section>
-
-<hr>
+        <hr>
 
         <section id="accessories-order" aria-labelledby="accessories-order-title">
             <h2 id="accessories-order-title">Prepare an accessory request</h2>
-            <p id="accessories-order-note">Fill in the details, review the request checklist and send them to <a href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">ayana.buyer on Instagram</a>. This page does not send or save your details.</p>
             <!-- Removed action for future JS -->
             <form id="accessories-order-form" aria-describedby="accessories-order-note">
                 <fieldset class="mb-4">
@@ -190,25 +182,10 @@
                         <input class="form-control" type="url" id="accessories-product-link" name="product-link" aria-describedby="accessories-product-link-help" required maxlength="2048">
                         <p class="form-text mb-0" id="accessories-product-link-help">Copy the full https:// address of the exact product and variant.</p>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12">
                         <label class="form-label" for="accessories-model">Model or variant</label>
                         <input class="form-control" type="text" id="accessories-model" name="model" aria-describedby="accessories-model-help" maxlength="120">
                         <p class="form-text mb-0" id="accessories-model-help">Include a model reference if the product page lists one.</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="accessories-quantity">Quantity (required)</label>
-                        <input class="form-control" type="number" id="accessories-quantity" name="quantity" aria-describedby="accessories-quantity-help" required min="1" max="10" step="1" value="1">
-                        <p class="form-text mb-0" id="accessories-quantity-help">Request between 1 and 10 items.</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="accessories-color">Color</label>
-                        <input class="form-control" type="text" id="accessories-color" name="color" maxlength="80">
-
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="accessories-material">Material</label>
-                        <input class="form-control" type="text" id="accessories-material" name="material" aria-describedby="accessories-material-help" maxlength="80">
-                        <p class="form-text mb-0" id="accessories-material-help">Use the material listed on the product page, if relevant.</p>
                     </div>
                     </div>
                 </fieldset>
@@ -258,42 +235,22 @@
                     <textarea class="form-control" id="accessories-note" name="note" rows="4" maxlength="1000" aria-describedby="accessories-note-help"></textarea>
                     <p class="form-text" id="accessories-note-help">For personalization, describe what you want and ask whether the service is available. Do not assume it is offered. Maximum 1000 characters.</p>
                 </div>
-                <p class="small" id="accessories-prepare-help">Preparation is manual here: use the checklist below. The Prepare request button does not generate a message on this page.</p>
                 <div class="d-flex flex-wrap gap-2 mb-4">
-                    <button class="btn btn-primary" type="button" id="accessories-order-submit" aria-describedby="accessories-prepare-help">Prepare request</button>
+                    <button class="btn btn-primary" type="button" id="accessories-order-submit" aria-describedby="accessories-prepare-help">Send</button>
                     <button class="btn btn-outline-secondary" type="reset" id="accessories-order-reset">Clear form</button>
                 </div>
                 <!-- Future JS must check form for validity before preparation, never submit this form. -->
             </form>
-            <div class="request-summary border rounded-3 p-3 p-md-4 mb-4" id="accessories-order-summary" aria-labelledby="accessories-summary-title" aria-live="polite" aria-atomic="true">
-                <h3 id="accessories-summary-title">Request checklist</h3>
-                <p>Review the details above before contacting the buyer. This checklist is not an automatically generated quote.</p>
-                <dl class="row mb-0">
-                    <dt class="col-sm-4">Product</dt>
-                    <dd class="col-sm-8" id="accessories-summary-product">Review the product link and model entered above.</dd>
-                    <dt class="col-sm-4">Options</dt>
-                    <dd class="col-sm-8" id="accessories-summary-options">Check the model, color and material.</dd>
-                    <dt class="col-sm-4">Quantity</dt>
-                    <dd class="col-sm-8" id="accessories-summary-quantity">Check the requested number of items.</dd>
-                    <dt class="col-sm-4">Contact</dt>
-                    <dd class="col-sm-8" id="accessories-summary-contact">Check your name and contact phone number.</dd>
-                    <dt class="col-sm-4">Receiving preference</dt>
-                    <dd class="col-sm-8" id="accessories-summary-delivery">Check the receiving method, address if relevant and preferred date.</dd>
-                    <dt class="col-sm-4">Payment preference</dt>
-                    <dd class="col-sm-8" id="accessories-summary-payment">Any payment terms must be confirmed with the buyer.</dd>
-                </dl>
-                <p id="accessories-order-cost" class="mb-0">Ask for an individual quote including the item price, any buying fee and shipping. No price or delivery date is confirmed here.</p>
-            </div>
-            <div class="hidden error p-3 mb-3" id="accessories-order-errors" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="hidden error p-3 mb-3" id="shoes-order-errors" role="alert" aria-live="assertive" aria-atomic="true">
                 <h3>Check your request</h3>
-                <p>Correct the highlighted details before preparing your request.</p>
-                <ul id="accessories-order-error-list" class="mb-0"></ul>
+                <p>Correct the highlighted details before sending your request.</p>
+                <ul id="shoes-order-error-list" class="mb-0"></ul>
             </div>
-            <div class="hidden success p-3 mb-3" id="accessories-order-confirmation" role="status" aria-live="polite" aria-atomic="true">
-                <h3>Request prepared</h3>
-                <p class="mb-0">Your request is ready to share through Instagram Direct. It has not been sent to the buyer, paid for or accepted as an order.</p>
+            <div class="hidden success p-3 mb-3" id="shoes-order-confirmation" role="status" aria-live="polite" aria-atomic="true">
+                <h3>Request sent</h3>
+                <p class="mb-0">Your request has been sent.</p>
             </div>
-            <a class="btn btn-outline-dark" id="accessories-order-contact" href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">Open Instagram to share your request</a>
+            <a class="btn btn-outline-dark" id="shoes-order-contact" href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">Open Instagram</a>
         </section>
     </main>
 

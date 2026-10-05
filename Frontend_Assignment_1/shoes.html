@@ -41,8 +41,8 @@
     <main class="container py-4" id="main-content">
         <h1 class="display-6 mb-4 text-center text-md-start">Shoes &mdash; explore brands and prepare a request</h1>
         <section>
-            <h2>Shoe brand directory</h2>
-            <p class="lead">Explore footwear brands, choose a product on a store website and prepare a request with its link, size and color. Confirm current availability and the full quote with the buyer.</p>
+            <h2>Shoe brands</h2>
+            <p class="lead">Explore footwear brands, choose a product on a store website and prepare a request.</p>
 
             <!-- Bootstrap Card -->
             <div class="row g-4 mt-1 mb-4" id="shoes-brand-list">
@@ -137,77 +137,10 @@
             </div>
         </section>
 
-        <div class="table-responsive">
-            <table class="table table-striped table-hover table-bordered">
-            <caption>Shoe model examples for your request. Current price and availability require confirmation.</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Product</th>
-                    <th scope="col">Brand</th>
-                    <th scope="col">Price information</th>
-                    <th scope="col">Availability</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Air Max 90</td>
-                    <td><strong>Nike</strong></td>
-                    <td>Individual quote</td>
-                    <td>Confirm before purchase</td>
-                </tr>
-                <tr>
-                    <td>Dunk Low</td>
-                    <td><strong>Nike</strong></td>
-                    <td>Individual quote</td>
-                    <td>Confirm before purchase</td>
-                </tr>
-                <tr>
-                    <td>Samba OG</td>
-                    <td><strong>Adidas</strong></td>
-                    <td>Individual quote</td>
-                    <td>Confirm before purchase</td>
-                </tr>
-                <tr>
-                    <td>574 Classic</td>
-                    <td><strong>New Balance</strong></td>
-                    <td>Individual quote</td>
-                    <td>Confirm before purchase</td>
-                </tr>
-                <tr>
-                    <td>Speedcat</td>
-                    <td><strong>Puma</strong></td>
-                    <td>Individual quote</td>
-                    <td>Confirm before purchase</td>
-                </tr>
-                <tr>
-                    <td>Classic Ultra Mini</td>
-                    <td><strong>UGG</strong></td>
-                    <td>Individual quote</td>
-                    <td>Confirm before purchase</td>
-                </tr>
-                <tr>
-                    <td>Suede Mix Tonal</td>
-                    <td><strong>Tommy Hilfiger</strong></td>
-                    <td>Individual quote</td>
-                    <td>Confirm before purchase</td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
-        <p><small>Model names are examples retained from the existing catalogue. No live prices, inventory or delivery promises are published here.</small></p>
-
-        <section>
-            <h2>Before requesting a quote</h2>
-            <p>Use the store links to choose an exact product. Include its model and variant in your request. A brand link does not confirm that a particular item is available.</p>
-            <p>Ask the buyer to confirm availability, the item price, any buying fee, shipping, delivery timing and payment options before agreeing to a purchase.</p>
-            <a class="btn btn-outline-dark" href="#shoes-order">Prepare a request</a>
-        </section>
-
         <hr>
 
         <section id="shoes-order" aria-labelledby="shoes-order-title">
             <h2 id="shoes-order-title">Prepare a shoe request</h2>
-            <p id="shoes-order-note">Fill in the details, review the request checklist and send them to <a href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">ayana.buyer on Instagram</a>. This page does not send or save your details.</p>
             <!-- Removed action for future JS -->
             <form id="shoes-order-form" aria-describedby="shoes-order-note">
                 <fieldset class="mb-4">
@@ -228,25 +161,10 @@
                         <input class="form-control" type="url" id="shoes-product-link" name="product-link" aria-describedby="shoes-product-link-help" required maxlength="2048">
                         <p class="form-text mb-0" id="shoes-product-link-help">Copy the full https:// address of the exact product and variant.</p>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12">
                         <label class="form-label" for="shoes-model">Model or variant</label>
                         <input class="form-control" type="text" id="shoes-model" name="model" aria-describedby="shoes-model-help" maxlength="120">
                         <p class="form-text mb-0" id="shoes-model-help">Include a model reference if the product page lists one.</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="shoes-quantity">Quantity (required)</label>
-                        <input class="form-control" type="number" id="shoes-quantity" name="quantity" aria-describedby="shoes-quantity-help" required min="1" max="10" step="1" value="1">
-                        <p class="form-text mb-0" id="shoes-quantity-help">Request between 1 and 10 items.</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="shoes-size">Size (required)</label>
-                        <input class="form-control" type="text" id="shoes-size" name="size" aria-describedby="shoes-size-help" required maxlength="40">
-                        <p class="form-text mb-0" id="shoes-size-help">Include the size system, for example EU 39, US 8 or size M.</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="shoes-color">Color (required)</label>
-                        <input class="form-control" type="text" id="shoes-color" name="color" required maxlength="80">
-
                     </div>
                     </div>
                 </fieldset>
@@ -296,42 +214,22 @@
                     <textarea class="form-control" id="shoes-note" name="note" rows="4" maxlength="1000" aria-describedby="shoes-note-help"></textarea>
                     <p class="form-text" id="shoes-note-help">Add any other product requirements. Maximum 1000 characters.</p>
                 </div>
-                <p class="small" id="shoes-prepare-help">Preparation is manual here: use the checklist below. The Prepare request button does not generate a message on this page.</p>
                 <div class="d-flex flex-wrap gap-2 mb-4">
-                    <button class="btn btn-primary" type="button" id="shoes-order-submit" aria-describedby="shoes-prepare-help">Prepare request</button>
+                    <button class="btn btn-primary" type="button" id="shoes-order-submit" aria-describedby="shoes-prepare-help">Send</button>
                     <button class="btn btn-outline-secondary" type="reset" id="shoes-order-reset">Clear form</button>
                 </div>
                 <!-- Future JS must check form for validity before preparation, never submit this form. -->
             </form>
-            <div class="request-summary border rounded-3 p-3 p-md-4 mb-4" id="shoes-order-summary" aria-labelledby="shoes-summary-title" aria-live="polite" aria-atomic="true">
-                <h3 id="shoes-summary-title">Request checklist</h3>
-                <p>Review the details above before contacting the buyer. This checklist is not an automatically generated quote.</p>
-                <dl class="row mb-0">
-                    <dt class="col-sm-4">Product</dt>
-                    <dd class="col-sm-8" id="shoes-summary-product">Review the product link and model entered above.</dd>
-                    <dt class="col-sm-4">Options</dt>
-                    <dd class="col-sm-8" id="shoes-summary-options">Check the size and color.</dd>
-                    <dt class="col-sm-4">Quantity</dt>
-                    <dd class="col-sm-8" id="shoes-summary-quantity">Check the requested number of items.</dd>
-                    <dt class="col-sm-4">Contact</dt>
-                    <dd class="col-sm-8" id="shoes-summary-contact">Check your name and contact phone number.</dd>
-                    <dt class="col-sm-4">Receiving preference</dt>
-                    <dd class="col-sm-8" id="shoes-summary-delivery">Check the receiving method, address if relevant and preferred date.</dd>
-                    <dt class="col-sm-4">Payment preference</dt>
-                    <dd class="col-sm-8" id="shoes-summary-payment">Any payment terms must be confirmed with the buyer.</dd>
-                </dl>
-                <p id="shoes-order-cost" class="mb-0">Ask for an individual quote including the item price, any buying fee and shipping. No price or delivery date is confirmed here.</p>
-            </div>
             <div class="hidden error p-3 mb-3" id="shoes-order-errors" role="alert" aria-live="assertive" aria-atomic="true">
                 <h3>Check your request</h3>
-                <p>Correct the highlighted details before preparing your request.</p>
+                <p>Correct the highlighted details before sending your request.</p>
                 <ul id="shoes-order-error-list" class="mb-0"></ul>
             </div>
             <div class="hidden success p-3 mb-3" id="shoes-order-confirmation" role="status" aria-live="polite" aria-atomic="true">
-                <h3>Request prepared</h3>
-                <p class="mb-0">Your request is ready to share through Instagram Direct. It has not been sent to the buyer, paid for or accepted as an order.</p>
+                <h3>Request sent</h3>
+                <p class="mb-0">Your request has been sent.</p>
             </div>
-            <a class="btn btn-outline-dark" id="shoes-order-contact" href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">Open Instagram to share your request</a>
+            <a class="btn btn-outline-dark" id="shoes-order-contact" href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">Open Instagram</a>
         </section>
     </main>
 
