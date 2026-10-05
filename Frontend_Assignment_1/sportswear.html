@@ -39,6 +39,7 @@
             </div>
         </nav>
     </header>
+
     <main class="container py-4">
         <h1 class="page-title display-6 text-center text-md-start mb-3">
             Sportswear &amp; Activewear
@@ -152,7 +153,7 @@
             </div>
         </section>
 
-        <!-- Order Form Section (O2) -->
+        <!-- Order Form Section -->
         <section id="sportswear-order" class="card border-0 shadow-sm rounded-4 p-4 my-5">
             <h2 class="h3 fw-bold mb-3">Sportswear Purchase Request</h2>
             <p class="text-muted mb-4">
@@ -162,19 +163,10 @@
             <form id="sportswear-order-form" class="needs-validation" novalidate>
                 <div class="row g-3">
 
+                    <!-- Ряд 1: Модель и Имя -->
                     <div class="col-md-6">
                         <label for="sportswear-model" class="form-label fw-semibold">Item Model or Product Link *</label>
                         <input type="text" class="form-control" id="sportswear-model" name="model" placeholder="e.g., On Running Cloudmonster or link" required>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="sportswear-size" class="form-label fw-semibold">Size *</label>
-                        <input type="text" class="form-control" id="sportswear-size" name="size" placeholder="US 9 / M / EUR 42" required>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="sportswear-color" class="form-label fw-semibold">Color *</label>
-                        <input type="text" class="form-control" id="sportswear-color" name="color" placeholder="Black / White / Cobalt" required>
                     </div>
 
                     <div class="col-md-6">
@@ -182,14 +174,10 @@
                         <input type="text" class="form-control" id="sportswear-recipient-name" name="recipient_name" placeholder="Olzhas Joldygulov" required>
                     </div>
 
-                    <div class="col-md-4">
+                    <!-- Ряд 2: Телефон и Способ доставки -->
+                    <div class="col-md-6">
                         <label for="sportswear-phone" class="form-label fw-semibold">Phone / WhatsApp *</label>
                         <input type="tel" class="form-control" id="sportswear-phone" name="phone" placeholder="+7 700 000 00 00" required>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label for="sportswear-quantity" class="form-label fw-semibold">Quantity *</label>
-                        <input type="number" class="form-control" id="sportswear-quantity" name="quantity" min="1" max="10" value="1" required>
                     </div>
 
                     <div class="col-md-6">
@@ -200,16 +188,19 @@
                         </select>
                     </div>
 
-                    <div class="col-md-6">
+                    <!-- Ряд 3: Адрес доставки (на всю ширину) -->
+                    <div class="col-12">
                         <label for="sportswear-address" class="form-label fw-semibold">Delivery Address (if Courier selected)</label>
                         <input type="text" class="form-control" id="sportswear-address" name="address" placeholder="City, Street, Building, Apt">
                     </div>
 
+                    <!-- Ряд 4: Дополнительные комментарии -->
                     <div class="col-12">
                         <label for="sportswear-notes" class="form-label fw-semibold">Additional Comments / Group Order Interest</label>
                         <textarea class="form-control" id="sportswear-notes" name="notes" rows="3" placeholder="Specify if you want to join the WhatsApp group order for combined shipping"></textarea>
                     </div>
 
+                    <!-- Кнопки -->
                     <div class="col-12 d-flex gap-2 pt-2">
                         <button type="submit" id="sportswear-order-submit" class="btn btn-primary btn-lg">Send</button>
                         <button type="reset" id="sportswear-order-reset" class="btn btn-outline-secondary btn-lg">Reset Form</button>
