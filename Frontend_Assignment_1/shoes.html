@@ -4,134 +4,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Popular shoe brands available through ayana.buyer: Nike, Adidas, New Balance, Puma, UGG and more — delivered from the USA, Korea, Turkey, Italy and Germany to Kazakhstan.">
+    <meta name="description" content="Explore shoes brands and prepare a buying request with your product and contact details at ayana.buyer.">
     <meta name="author" content="Akhynbay Dias">
-    <title>ayana.buyer &mdash; Shoes</title>
-    <!-- Bootstrap 5.0.2 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>ayana.buyer | Shoes</title>
+    <!-- Bootstrap 5.3.3 CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/dias.css">
 </head>
 <body>
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-xl navbar-light bg-light" aria-label="Main navigation">
-            <div class="container-fluid">
-                <h1 class="h4 mb-0"><a class="navbar-brand fw-bold" href="index.html" aria-label="ayana.buyer — go to homepage">ayana.buyer</a></h1>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-xl-auto mb-2 mb-xl-0">
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="stores.html">Stores &amp; Brands</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2 active" aria-current="page" href="shoes.html">Shoes</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="clothing.html">Clothing</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="accessories.html">Accessories</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="sportswear.html">Sportswear</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="electronics.html">Electronics</a></li>
-                        <li class="nav-item"><a class="nav-link px-xl-2" href="reviews.html">Reviews &amp; Contacts</a></li>
-                    </ul>
-                </div>
+    <a class="visually-hidden-focusable d-block p-2" href="#main-content">Skip to content</a>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-light bg-light" aria-label="Main navigation">
+            <div class="container-fluid d-flex flex-column flex-xl-row align-items-start gap-2">
+                <a class="navbar-brand fw-bold" href="index.html" aria-label="ayana.buyer home">ayana.buyer</a>
+                <ul class="navbar-nav flex-row flex-wrap ms-xl-auto mb-0">
+                    <li class="nav-item"><a class="nav-link px-2" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="stores.html">Stores &amp; Brands</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 active" aria-current="page" href="shoes.html">Shoes</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="clothing.html">Clothing</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="accessories.html">Accessories</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="sportswear.html">Sportswear</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="electronics.html">Electronics</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="reviews.html">Reviews &amp; Contacts</a></li>
+                </ul>
             </div>
         </nav>
     </header>
 
-    <main class="container py-4">
-        <h2 class="display-6 mb-4 text-center text-md-start">Shoes &mdash; order from the <span class="highlight">world&rsquo;s best brands</span></h2>
-        <!-- span with highlight class is used to emphasize the highlighted text -->
+    <main class="container py-4" id="main-content">
+        <h1 class="display-6 mb-4 text-center text-md-start">Shoes &mdash; explore brands and prepare a request</h1>
         <section>
-            <h3>Popular shoe brands at ayana.buyer</h3>
-            <p class="lead">
-                ayana.buyer delivers genuine footwear from <abbr title="United States of America">USA</abbr>,
-                <abbr title="Republic of Korea">Korea</abbr>, <abbr title="Republic of Turkey">Turkey</abbr>,
-                Italy and Germany to Kazakhstan. Below is a selection of brands and models
-                that clients order most often &mdash; all available through Instagram direct messages
-                or the WhatsApp group-order chat.
-            </p>
+            <h2>Shoe brand directory</h2>
+            <p class="lead">Explore footwear brands, choose a product on a store website and prepare a request with its link, size and color. Confirm current availability and the full quote with the buyer.</p>
 
-            <!-- Bootstrap Card: adapted, responsive columns, replaced the previous custom card grid. -->
-            <div class="row g-4 mt-1 mb-4">
+            <!-- Bootstrap Card -->
+            <div class="row g-4 mt-1 mb-4" id="shoes-brand-list">
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100">
+                    <article class="card brand-card h-100" id="shoes-nike-card" data-brand-id="nike">
                         <img class="card-img-top brand-logo p-3" src="images/logo_nike.png" alt="Nike logo">
-                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">RECOMMEND</span>
                         <div class="card-body d-flex flex-column">
-                            <h4 class="card-title">Nike</h4>
-                            <p class="card-text">Air Max, Dunk, Terminator, V2K Run &mdash; the most requested models. Delivered from the <abbr title="United States of America">USA</abbr> at retail price. <mark>Last sizes</mark> on Dunk Low.</p>
-                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-center align-self-md-start" href="https://www.nike.com/" target="_blank" rel="noopener">Go to store</a>
+                            <h3 class="card-title">Nike</h3>
+                            <p class="card-text">Browse Nike footwear and copy the link to the exact model, size and color you want to request.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.nike.com/" target="_blank" rel="noopener">Browse store</a>
+                            <a class="btn btn-primary btn-sm mt-2 align-self-start" id="shoes-nike-request" data-brand-id="nike" href="#shoes-order">Prepare request<span class="visually-hidden"> for Nike</span></a>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100">
+                    <article class="card brand-card h-100" id="shoes-adidas-card" data-brand-id="adidas">
                         <img class="card-img-top brand-logo p-3" src="images/logo_adidas.png" alt="Adidas logo">
-                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">RECOMMEND</span>
                         <div class="card-body d-flex flex-column">
-                            <h4 class="card-title">Adidas</h4>
-                            <p class="card-text">Samba, Response, Ozelia &mdash; the retro and running lines are in high demand. Samba OG is <mark>Sold out</mark> in <abbr title="Republic of Korea">Korea</abbr>, available through US stores.</p>
-                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-center align-self-md-start" href="https://www.adidas.com/us" target="_blank" rel="noopener">Go to store</a>
+                            <h3 class="card-title">Adidas</h3>
+                            <p class="card-text">Browse Adidas footwear and check the size guide for the model you choose.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.adidas.com/us" target="_blank" rel="noopener">Browse store</a>
+                            <a class="btn btn-primary btn-sm mt-2 align-self-start" id="shoes-adidas-request" data-brand-id="adidas" href="#shoes-order">Prepare request<span class="visually-hidden"> for Adidas</span></a>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100">
+                    <article class="card brand-card h-100" id="shoes-new-balance-card" data-brand-id="new-balance">
                         <img class="card-img-top brand-logo p-3" src="images/logo_new_balance.png" alt="New Balance logo">
                         <div class="card-body d-flex flex-column">
-                            <h4 class="card-title">New Balance</h4>
-                            <p class="card-text">574 Classic, 990, 550 &mdash; known for innovative sole technology and comfortable fit. One of the best sellers among ayana.buyer clients.</p>
-                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-center align-self-md-start" href="https://www.joesnewbalanceoutlet.com/" target="_blank" rel="noopener">Go to store</a>
+                            <h3 class="card-title">New Balance</h3>
+                            <p class="card-text">Explore New Balance models through Joe’s New Balance Outlet. Confirm the seller and product details before requesting a quote.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.joesnewbalanceoutlet.com/" target="_blank" rel="noopener">Browse store</a>
+                            <a class="btn btn-primary btn-sm mt-2 align-self-start" id="shoes-new-balance-request" data-brand-id="new-balance" href="#shoes-order">Prepare request<span class="visually-hidden"> for New Balance</span></a>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100">
+                    <article class="card brand-card h-100" id="shoes-puma-card" data-brand-id="puma">
                         <img class="card-img-top brand-logo p-3" src="images/logo_puma.png" alt="Puma logo">
-                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">RECOMMEND</span>
                         <div class="card-body d-flex flex-column">
-                            <h4 class="card-title">Puma</h4>
-                            <p class="card-text">Speedcat &mdash; the trending motorsport-inspired silhouette that sold out globally in 2024. Delivered from the <abbr title="United States of America">USA</abbr> and <abbr title="Republic of Korea">Korea</abbr>.</p>
-                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-center align-self-md-start" href="https://us.puma.com/us/en" target="_blank" rel="noopener">Go to store</a>
+                            <h3 class="card-title">Puma</h3>
+                            <p class="card-text">Browse Puma footwear and include the model name and your preferred size and color in the request.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://us.puma.com/us/en" target="_blank" rel="noopener">Browse store</a>
+                            <a class="btn btn-primary btn-sm mt-2 align-self-start" id="shoes-puma-request" data-brand-id="puma" href="#shoes-order">Prepare request<span class="visually-hidden"> for Puma</span></a>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100">
+                    <article class="card brand-card h-100" id="shoes-ugg-card" data-brand-id="ugg">
                         <img class="card-img-top brand-logo p-3" src="images/logo_ugg.png" alt="UGG logo">
                         <div class="card-body d-flex flex-column">
-                            <h4 class="card-title">UGG</h4>
-                            <p class="card-text">Classic Ultra Mini, Tasman, Disquette &mdash; cozy boots and slides. Popular in <abbr title="Republic of Korea">Korea</abbr> and the USA. <em>In stock</em> for winter orders.</p>
-                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-center align-self-md-start" href="https://www.ugg.com/" target="_blank" rel="noopener">Go to store</a>
+                            <h3 class="card-title">UGG</h3>
+                            <p class="card-text">Explore UGG boots and slippers. Include the exact product link and check the brand’s size guide.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.ugg.com/" target="_blank" rel="noopener">Browse store</a>
+                            <a class="btn btn-primary btn-sm mt-2 align-self-start" id="shoes-ugg-request" data-brand-id="ugg" href="#shoes-order">Prepare request<span class="visually-hidden"> for UGG</span></a>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100">
+                    <article class="card brand-card h-100" id="shoes-guess-card" data-brand-id="guess">
                         <img class="card-img-top brand-logo p-3" src="images/logo_guess.png" alt="Guess logo">
                         <div class="card-body d-flex flex-column">
-                            <h4 class="card-title">Guess</h4>
-                            <p class="card-text">Stylish ankle boots and Chelsea boots for women. Leather and suede options, often available with <mark>Sale</mark> pricing on the official website.</p>
-                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-center align-self-md-start" href="https://www.guess.com/us/en/home/" target="_blank" rel="noopener">Go to store</a>
+                            <h3 class="card-title">Guess</h3>
+                            <p class="card-text">Browse Guess footwear and specify the model and material shown on the product page.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.guess.com/us/en/home/" target="_blank" rel="noopener">Browse store</a>
+                            <a class="btn btn-primary btn-sm mt-2 align-self-start" id="shoes-guess-request" data-brand-id="guess" href="#shoes-order">Prepare request<span class="visually-hidden"> for Guess</span></a>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100">
+                    <article class="card brand-card h-100" id="shoes-tommy-hilfiger-card" data-brand-id="tommy-hilfiger">
                         <img class="card-img-top brand-logo p-3" src="images/logo_tommy_hilfiger.png" alt="Tommy Hilfiger logo">
-                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">RECOMMEND</span>
                         <div class="card-body d-flex flex-column">
-                            <h4 class="card-title">Tommy Hilfiger</h4>
-                            <p class="card-text">Suede Mix Tonal sneakers &mdash; suede upper with tonal color palette. Classic American style at an <em>affordable</em> price point for the brand.</p>
-                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-center align-self-md-start" href="https://www.tommyhilfiger.com/" target="_blank" rel="noopener">Go to store</a>
+                            <h3 class="card-title">Tommy Hilfiger</h3>
+                            <p class="card-text">Explore Tommy Hilfiger footwear and copy the link to your selected pair.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.tommyhilfiger.com/" target="_blank" rel="noopener">Browse store</a>
+                            <a class="btn btn-primary btn-sm mt-2 align-self-start" id="shoes-tommy-hilfiger-request" data-brand-id="tommy-hilfiger" href="#shoes-order">Prepare request<span class="visually-hidden"> for Tommy Hilfiger</span></a>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100">
+                    <article class="card brand-card h-100" id="shoes-nursace-card" data-brand-id="nursace">
                         <img class="card-img-top brand-logo p-3" src="images/logo_nursace.png" alt="Nursace logo">
                         <div class="card-body d-flex flex-column">
-                            <h4 class="card-title">Nursace</h4>
-                            <p class="card-text">Turkish brand &mdash; a real example of ayana.buyer&rsquo;s <abbr title="Republic of Turkey">Turkey</abbr> supply line. Quality footwear at competitive prices, delivered within 10&ndash;14 days.</p>
-                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-center align-self-md-start" href="https://www.nursace.com/" target="_blank" rel="noopener">Go to store</a>
+                            <h3 class="card-title">Nursace</h3>
+                            <p class="card-text">Browse Nursace footwear and include the product link and size information in your request.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.nursace.com/" target="_blank" rel="noopener">Browse store</a>
+                            <a class="btn btn-primary btn-sm mt-2 align-self-start" id="shoes-nursace-request" data-brand-id="nursace" href="#shoes-order">Prepare request<span class="visually-hidden"> for Nursace</span></a>
                         </div>
                     </article>
                 </div>
@@ -140,12 +134,12 @@
 
         <div class="table-responsive">
             <table class="table table-striped table-hover table-bordered">
-            <caption>Popular shoe models available through ayana.buyer (prices may vary; data as of September 2026)</caption>
+            <caption>Shoe model examples for your request. Current price and availability require confirmation.</caption>
             <thead>
                 <tr>
                     <th scope="col">Product</th>
                     <th scope="col">Brand</th>
-                    <th scope="col">Approximate price (USD)</th>
+                    <th scope="col">Price information</th>
                     <th scope="col">Availability</th>
                 </tr>
             </thead>
@@ -153,129 +147,186 @@
                 <tr>
                     <td>Air Max 90</td>
                     <td><strong>Nike</strong></td>
-                    <td>$90&ndash;$130 <sup>*</sup></td>
-                    <td><em>In stock</em></td>
+                    <td>Individual quote</td>
+                    <td>Confirm before purchase</td>
                 </tr>
                 <tr>
                     <td>Dunk Low</td>
                     <td><strong>Nike</strong></td>
-                    <td>$85&ndash;$110 <sup>*</sup></td>
-                    <td><mark>Last sizes</mark></td>
+                    <td>Individual quote</td>
+                    <td>Confirm before purchase</td>
                 </tr>
                 <tr>
                     <td>Samba OG</td>
                     <td><strong>Adidas</strong></td>
-                    <td>$100&ndash;$120 <sup>*</sup></td>
-                    <td><em>In stock</em></td>
+                    <td>Individual quote</td>
+                    <td>Confirm before purchase</td>
                 </tr>
                 <tr>
                     <td>574 Classic</td>
                     <td><strong>New Balance</strong></td>
-                    <td>$75&ndash;$110 <sup>*</sup></td>
-                    <td><em>In stock</em></td>
+                    <td>Individual quote</td>
+                    <td>Confirm before purchase</td>
                 </tr>
                 <tr>
                     <td>Speedcat</td>
                     <td><strong>Puma</strong></td>
-                    <td>$80&ndash;$100 <sup>*</sup></td>
-                    <td><em>In stock</em></td>
+                    <td>Individual quote</td>
+                    <td>Confirm before purchase</td>
                 </tr>
                 <tr>
                     <td>Classic Ultra Mini</td>
                     <td><strong>UGG</strong></td>
-                    <td>$100&ndash;$140 <sup>*</sup></td>
-                    <td><em>In stock</em></td>
+                    <td>Individual quote</td>
+                    <td>Confirm before purchase</td>
                 </tr>
                 <tr>
                     <td>Suede Mix Tonal</td>
                     <td><strong>Tommy Hilfiger</strong></td>
-                    <td>$70&ndash;$95 <sup>*</sup></td>
-                    <td><em>In stock</em></td>
+                    <td>Individual quote</td>
+                    <td>Confirm before purchase</td>
                 </tr>
             </tbody>
             </table>
         </div>
-        <p><small><sup>*</sup> Prices are approximate and may change depending on the seller, exchange rate and current promotions.</small></p>
+        <p><small>Model names are examples retained from the existing catalogue. No live prices, inventory or delivery promises are published here.</small></p>
 
         <section>
-            <h3>Why order shoes through ayana.buyer?</h3>
-            <p>
-                Original Nike or New Balance sneakers in Kazakhstan often cost <strong>3&ndash;4 times
-                more</strong> than their retail price in the <abbr title="United States of America">USA</abbr>.
-                Through ayana.buyer you pay the actual store price plus a transparent commission
-                and delivery fee &mdash; and you can split the payment into installments via
-                <mark>Kaspi installment</mark>.
-            </p>
-            <p>
-                Clients frequently choose <em>UGG</em> boots for winter, <em>Puma Speedcat</em> for
-                everyday wear, and <em>Nursace</em> from Turkey for budget-friendly quality.
-                All of these are available on the official brand websites, and ayana.buyer will
-                purchase and deliver them to any city in Kazakhstan.
-            </p>
+            <h2>Before requesting a quote</h2>
+            <p>Use the store links to choose an exact product. Include its model and variant in your request. A brand link does not confirm that a particular item is available.</p>
+            <p>Ask the buyer to confirm availability, the item price, any buying fee, shipping, delivery timing and payment options before agreeing to a purchase.</p>
+            <a class="btn btn-outline-dark" href="#shoes-order">Prepare a request</a>
         </section>
 
         <hr>
 
-        <section>
-            <h3>Place a shoe order</h3>
-            <p>Send a request below and the ayana.buyer team will calculate the cost and delivery time.</p>
-            <form method="post" action="#">
-                <fieldset>
-                    <legend class="h4 mb-3">Shoe order request</legend>
-                    <div class="mb-3">
-                        <label class="form-label" for="recipient-name">Recipient name:</label>
-                        <input class="form-control" type="text" id="recipient-name" name="recipient" placeholder="e.g. Aigerim" required>
+        <section id="shoes-order" aria-labelledby="shoes-order-title">
+            <h2 id="shoes-order-title">Prepare a shoe request</h2>
+            <p id="shoes-order-note">Fill in the details, review the request checklist and send them to <a href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">ayana.buyer on Instagram</a>. This page does not send or save your details.</p>
+            <!-- Removed action for future JS -->
+            <form id="shoes-order-form" aria-describedby="shoes-order-note">
+                <fieldset class="mb-4">
+                    <legend class="h4">Product and contact details</legend>
+                    <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="shoes-recipient-name">Your name (required)</label>
+                        <input class="form-control" type="text" id="shoes-recipient-name" name="recipient-name" required autocomplete="name" minlength="2" maxlength="80">
+
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="product-link">Product link:</label>
-                        <input class="form-control" type="url" id="product-link" name="link" placeholder="https://www.nike.com/..." required>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="shoes-phone">Contact phone number (required)</label>
+                        <input class="form-control" type="tel" id="shoes-phone" name="phone" aria-describedby="shoes-phone-help" required autocomplete="tel" minlength="7" maxlength="30">
+                        <p class="form-text mb-0" id="shoes-phone-help">Include the country code. Use this contact in the message you send to the buyer.</p>
                     </div>
-                    <div class="row g-3 mb-3">
-                        <div class="col-12 col-md-6">
-                            <label class="form-label" for="phone">Phone number:</label>
-                            <input class="form-control" type="tel" id="phone" name="phone" placeholder="+7 7XX XXX XX XX" required>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label class="form-label" for="quantity">Quantity:</label>
-                            <input class="form-control" type="number" id="quantity" name="qty" min="1" max="10" value="1" required>
-                        </div>
+                    <div class="col-12">
+                        <label class="form-label" for="shoes-product-link">Product link (required)</label>
+                        <input class="form-control" type="url" id="shoes-product-link" name="product-link" aria-describedby="shoes-product-link-help" required maxlength="2048">
+                        <p class="form-text mb-0" id="shoes-product-link-help">Copy the full https:// address of the exact product and variant.</p>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="delivery-date">Preferred delivery date:</label>
-                        <input class="form-control" type="date" id="delivery-date" name="date">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="shoes-model">Model or variant</label>
+                        <input class="form-control" type="text" id="shoes-model" name="model" aria-describedby="shoes-model-help" maxlength="120">
+                        <p class="form-text mb-0" id="shoes-model-help">Include a model reference if the product page lists one.</p>
                     </div>
-                    <fieldset class="mb-3">
-                        <legend class="fs-6">Payment method:</legend>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="pay-full" name="payment" value="full" checked>
-                            <label class="form-check-label" for="pay-full">Full payment</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="pay-kaspi" name="payment" value="kaspi">
-                            <label class="form-check-label" for="pay-kaspi">Kaspi installment</label>
-                        </div>
-                    </fieldset>
-                    <div class="mb-3">
-                        <label class="form-label" for="delivery-method">Delivery method:</label>
-                        <select class="form-select" id="delivery-method" name="delivery">
-                            <option value="courier">Courier delivery</option>
-                            <option value="pickup">Pickup point</option>
-                            <option value="post">Kazpost</option>
-                        </select>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="shoes-quantity">Quantity (required)</label>
+                        <input class="form-control" type="number" id="shoes-quantity" name="quantity" aria-describedby="shoes-quantity-help" required min="1" max="10" step="1" value="1">
+                        <p class="form-text mb-0" id="shoes-quantity-help">Request between 1 and 10 items.</p>
                     </div>
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="agree" name="agree" required>
-                        <label class="form-check-label" for="agree">I agree to the processing of personal data</label>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="shoes-size">Size (required)</label>
+                        <input class="form-control" type="text" id="shoes-size" name="size" aria-describedby="shoes-size-help" required maxlength="40">
+                        <p class="form-text mb-0" id="shoes-size-help">Include the size system, for example EU 39, US 8 or size M.</p>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="note">Note (optional):</label>
-                        <textarea class="form-control" id="note" name="note" rows="4" placeholder="Specify size, color, or any other preferences..."></textarea>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="shoes-color">Color (required)</label>
+                        <input class="form-control" type="text" id="shoes-color" name="color" required maxlength="80">
+
                     </div>
-                    <button class="btn btn-primary btn-lg me-2 mb-2" type="submit">Submit order</button>
-                    <button class="btn btn-outline-secondary btn-sm mb-2" type="reset">Clear form</button>
+                    </div>
                 </fieldset>
-                <!-- There is no server to receive form data yet; the form is for demonstration purposes only. -->
+                <fieldset class="mb-4">
+                    <legend class="h4">Receiving and payment preferences</legend>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="shoes-delivery-method">Preferred receiving method</label>
+                            <select class="form-select" id="shoes-delivery-method" name="delivery-method" aria-describedby="shoes-delivery-help">
+                                <option value="discuss" selected>Discuss with the buyer</option>
+                                <option value="courier">Request courier delivery</option>
+                                <option value="pickup">Ask about pickup</option>
+                                <option value="post">Ask about postal delivery</option>
+                            </select>
+                            <p class="form-text mb-0" id="shoes-delivery-help">These are preferences, not confirmed delivery services.</p>
+                        </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="shoes-delivery-date">Preferred delivery date</label>
+                        <input class="form-control" type="date" id="shoes-delivery-date" name="delivery-date" aria-describedby="shoes-delivery-date-help" >
+                        <p class="form-text mb-0" id="shoes-delivery-date-help">This is a preference. The buyer must confirm whether it can be met.</p>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label" for="shoes-address">Courier address</label>
+                        <input class="form-control" type="text" id="shoes-address" name="address" aria-describedby="shoes-address-help" autocomplete="street-address" maxlength="240">
+                        <p class="form-text mb-0" id="shoes-address-help">Complete only if you request courier delivery. Availability and cost require confirmation.</p>
+                    </div>
+                    </div>
+                    <fieldset class="mt-3">
+                        <legend class="fs-6">Payment preference</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="shoes-pay-discuss" name="payment" value="discuss" checked>
+                            <label class="form-check-label" for="shoes-pay-discuss">Discuss payment with the buyer</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="shoes-pay-full" name="payment" value="full">
+                            <label class="form-check-label" for="shoes-pay-full">Prefer full payment</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="shoes-pay-kaspi" name="payment" value="kaspi">
+                            <label class="form-check-label" for="shoes-pay-kaspi">Ask whether Kaspi installment is available</label>
+                        </div>
+                        <p class="form-text mb-0">No payment or installment application is processed on this page.</p>
+                    </fieldset>
+                </fieldset>
+                <div class="mb-3">
+                    <label class="form-label" for="shoes-note">Additional details</label>
+                    <textarea class="form-control" id="shoes-note" name="note" rows="4" maxlength="1000" aria-describedby="shoes-note-help"></textarea>
+                    <p class="form-text" id="shoes-note-help">Add any other product requirements. Maximum 1000 characters.</p>
+                </div>
+                <p class="small" id="shoes-prepare-help">Preparation is manual here: use the checklist below. The Prepare request button does not generate a message on this page.</p>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <button class="btn btn-primary" type="button" id="shoes-order-submit" aria-describedby="shoes-prepare-help">Prepare request</button>
+                    <button class="btn btn-outline-secondary" type="reset" id="shoes-order-reset">Clear form</button>
+                </div>
+                <!-- Future JS must check form for validity before preparation, never submit this form. -->
             </form>
+            <div class="request-summary border rounded-3 p-3 p-md-4 mb-4" id="shoes-order-summary" aria-labelledby="shoes-summary-title" aria-live="polite" aria-atomic="true">
+                <h3 id="shoes-summary-title">Request checklist</h3>
+                <p>Review the details above before contacting the buyer. This checklist is not an automatically generated quote.</p>
+                <dl class="row mb-0">
+                    <dt class="col-sm-4">Product</dt>
+                    <dd class="col-sm-8" id="shoes-summary-product">Review the product link and model entered above.</dd>
+                    <dt class="col-sm-4">Options</dt>
+                    <dd class="col-sm-8" id="shoes-summary-options">Check the size and color.</dd>
+                    <dt class="col-sm-4">Quantity</dt>
+                    <dd class="col-sm-8" id="shoes-summary-quantity">Check the requested number of items.</dd>
+                    <dt class="col-sm-4">Contact</dt>
+                    <dd class="col-sm-8" id="shoes-summary-contact">Check your name and contact phone number.</dd>
+                    <dt class="col-sm-4">Receiving preference</dt>
+                    <dd class="col-sm-8" id="shoes-summary-delivery">Check the receiving method, address if relevant and preferred date.</dd>
+                    <dt class="col-sm-4">Payment preference</dt>
+                    <dd class="col-sm-8" id="shoes-summary-payment">Any payment terms must be confirmed with the buyer.</dd>
+                </dl>
+                <p id="shoes-order-cost" class="mb-0">Ask for an individual quote including the item price, any buying fee and shipping. No price or delivery date is confirmed here.</p>
+            </div>
+            <div class="hidden error p-3 mb-3" id="shoes-order-errors" role="alert" aria-live="assertive" aria-atomic="true">
+                <h3>Check your request</h3>
+                <p>Correct the highlighted details before preparing your request.</p>
+                <ul id="shoes-order-error-list" class="mb-0"></ul>
+            </div>
+            <div class="hidden success p-3 mb-3" id="shoes-order-confirmation" role="status" aria-live="polite" aria-atomic="true">
+                <h3>Request prepared</h3>
+                <p class="mb-0">Your request is ready to share through Instagram Direct. It has not been sent to the buyer, paid for or accepted as an order.</p>
+            </div>
+            <a class="btn btn-outline-dark" id="shoes-order-contact" href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">Open Instagram to share your request</a>
         </section>
     </main>
 
@@ -283,6 +334,5 @@
         <p>ayana.buyer &ldquo;Your trusted personal buyer&rdquo; &mdash; USA &middot; Korea &middot; Turkey &middot; Italy &middot; Germany</p>
         <p>&copy; 2026 ayana.buyer. All rights reserved.</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
