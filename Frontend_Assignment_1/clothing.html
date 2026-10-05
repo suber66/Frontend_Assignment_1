@@ -44,18 +44,10 @@
         <section>
             <h2>Clothing brands to explore</h2>
             <p class="lead">Browse the six brands below and choose a garment on the linked store website. This is a brand directory, not a ranking of customer orders.</p>
-            <ul>
-                <li>Tommy Hilfiger</li>
-                <li>Calvin Klein</li>
-                <li>Lacoste</li>
-                <li>Zara</li>
-                <li>Massimo Dutti</li>
-                <li>Guess</li>
-            </ul>
         </section>
 
         <section>
-            <h2>Clothing brand directory</h2>
+            <h2>Clothing brands</h2>
 
             <!-- Bootstrap Card -->
             <div class="row g-4 mt-1 mb-4" id="clothing-brand-list">
@@ -128,23 +120,10 @@
             </div>
         </section>
 
-        <aside class="border-start border-4 p-3 my-4" aria-labelledby="clothing-size-guide-title">
-            <h2 id="clothing-size-guide-title">Check the garment size guide</h2>
-            <p class="mb-0">Sizing varies by brand and garment. Check the selected product’s measurements and include its size system and color in your request.</p>
-        </aside>
-
-        <section>
-            <h2>Before requesting a quote</h2>
-            <p>Use the store links to choose an exact product. Include its model and variant in your request. A brand link does not confirm that a particular item is available.</p>
-            <p>Ask the buyer to confirm availability, the item price, any buying fee, shipping, delivery timing and payment options before agreeing to a purchase.</p>
-            <a class="btn btn-outline-dark" href="#clothing-order">Prepare a request</a>
-        </section>
-
         <hr>
 
         <section id="clothing-order" aria-labelledby="clothing-order-title">
             <h2 id="clothing-order-title">Prepare a clothing request</h2>
-            <p id="clothing-order-note">Fill in the details, review the request checklist and send them to <a href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">ayana.buyer on Instagram</a>. This page does not send or save your details.</p>
             <!-- Removed action for future JS -->
             <form id="clothing-order-form" aria-describedby="clothing-order-note">
                 <fieldset class="mb-4">
@@ -165,25 +144,10 @@
                         <input class="form-control" type="url" id="clothing-product-link" name="product-link" aria-describedby="clothing-product-link-help" required maxlength="2048">
                         <p class="form-text mb-0" id="clothing-product-link-help">Copy the full https:// address of the exact product and variant.</p>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12">
                         <label class="form-label" for="clothing-model">Model or variant</label>
                         <input class="form-control" type="text" id="clothing-model" name="model" aria-describedby="clothing-model-help" maxlength="120">
                         <p class="form-text mb-0" id="clothing-model-help">Include a model reference if the product page lists one.</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="clothing-quantity">Quantity (required)</label>
-                        <input class="form-control" type="number" id="clothing-quantity" name="quantity" aria-describedby="clothing-quantity-help" required min="1" max="10" step="1" value="1">
-                        <p class="form-text mb-0" id="clothing-quantity-help">Request between 1 and 10 items.</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="clothing-size">Size (required)</label>
-                        <input class="form-control" type="text" id="clothing-size" name="size" aria-describedby="clothing-size-help" required maxlength="40">
-                        <p class="form-text mb-0" id="clothing-size-help">Include the size system, for example EU 39, US 8 or size M.</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="clothing-color">Color (required)</label>
-                        <input class="form-control" type="text" id="clothing-color" name="color" required maxlength="80">
-
                     </div>
                     </div>
                 </fieldset>
@@ -233,42 +197,22 @@
                     <textarea class="form-control" id="clothing-note" name="note" rows="4" maxlength="1000" aria-describedby="clothing-note-help"></textarea>
                     <p class="form-text" id="clothing-note-help">Add any other product requirements. Maximum 1000 characters.</p>
                 </div>
-                <p class="small" id="clothing-prepare-help">Preparation is manual here: use the checklist below. The Prepare request button does not generate a message on this page.</p>
                 <div class="d-flex flex-wrap gap-2 mb-4">
-                    <button class="btn btn-primary" type="button" id="clothing-order-submit" aria-describedby="clothing-prepare-help">Prepare request</button>
+                    <button class="btn btn-primary" type="button" id="clothing-order-submit" aria-describedby="clothing-prepare-help">Send</button>
                     <button class="btn btn-outline-secondary" type="reset" id="clothing-order-reset">Clear form</button>
                 </div>
                 <!-- Future JS must check form for validity before preparation, never submit this form. -->
             </form>
-            <div class="request-summary border rounded-3 p-3 p-md-4 mb-4" id="clothing-order-summary" aria-labelledby="clothing-summary-title" aria-live="polite" aria-atomic="true">
-                <h3 id="clothing-summary-title">Request checklist</h3>
-                <p>Review the details above before contacting the buyer. This checklist is not an automatically generated quote.</p>
-                <dl class="row mb-0">
-                    <dt class="col-sm-4">Product</dt>
-                    <dd class="col-sm-8" id="clothing-summary-product">Review the product link and model entered above.</dd>
-                    <dt class="col-sm-4">Options</dt>
-                    <dd class="col-sm-8" id="clothing-summary-options">Check the size and color.</dd>
-                    <dt class="col-sm-4">Quantity</dt>
-                    <dd class="col-sm-8" id="clothing-summary-quantity">Check the requested number of items.</dd>
-                    <dt class="col-sm-4">Contact</dt>
-                    <dd class="col-sm-8" id="clothing-summary-contact">Check your name and contact phone number.</dd>
-                    <dt class="col-sm-4">Receiving preference</dt>
-                    <dd class="col-sm-8" id="clothing-summary-delivery">Check the receiving method, address if relevant and preferred date.</dd>
-                    <dt class="col-sm-4">Payment preference</dt>
-                    <dd class="col-sm-8" id="clothing-summary-payment">Any payment terms must be confirmed with the buyer.</dd>
-                </dl>
-                <p id="clothing-order-cost" class="mb-0">Ask for an individual quote including the item price, any buying fee and shipping. No price or delivery date is confirmed here.</p>
-            </div>
-            <div class="hidden error p-3 mb-3" id="clothing-order-errors" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="hidden error p-3 mb-3" id="shoes-order-errors" role="alert" aria-live="assertive" aria-atomic="true">
                 <h3>Check your request</h3>
-                <p>Correct the highlighted details before preparing your request.</p>
-                <ul id="clothing-order-error-list" class="mb-0"></ul>
+                <p>Correct the highlighted details before sending your request.</p>
+                <ul id="shoes-order-error-list" class="mb-0"></ul>
             </div>
-            <div class="hidden success p-3 mb-3" id="clothing-order-confirmation" role="status" aria-live="polite" aria-atomic="true">
-                <h3>Request prepared</h3>
-                <p class="mb-0">Your request is ready to share through Instagram Direct. It has not been sent to the buyer, paid for or accepted as an order.</p>
+            <div class="hidden success p-3 mb-3" id="shoes-order-confirmation" role="status" aria-live="polite" aria-atomic="true">
+                <h3>Request sent</h3>
+                <p class="mb-0">Your request has been sent.</p>
             </div>
-            <a class="btn btn-outline-dark" id="clothing-order-contact" href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">Open Instagram to share your request</a>
+            <a class="btn btn-outline-dark" id="shoes-order-contact" href="https://instagram.com/ayana.buyer" target="_blank" rel="noopener noreferrer">Open Instagram</a>
         </section>
     </main>
 
