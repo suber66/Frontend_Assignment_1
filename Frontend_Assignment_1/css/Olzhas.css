@@ -55,3 +55,9 @@
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
 }
+/* Navbar link spacing on mobile screens */
+header .navbar-nav .nav-link {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    display: inline-block;
+}
