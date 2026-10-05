@@ -163,7 +163,6 @@
             <form id="sportswear-order-form" class="needs-validation" novalidate>
                 <div class="row g-3">
 
-                    <!-- Ряд 1: Модель и Имя -->
                     <div class="col-md-6">
                         <label for="sportswear-model" class="form-label fw-semibold">Item Model or Product Link *</label>
                         <input type="text" class="form-control" id="sportswear-model" name="model" placeholder="e.g., On Running Cloudmonster or link" required>
@@ -174,7 +173,6 @@
                         <input type="text" class="form-control" id="sportswear-recipient-name" name="recipient_name" placeholder="Olzhas Joldygulov" required>
                     </div>
 
-                    <!-- Ряд 2: Телефон и Способ доставки -->
                     <div class="col-md-6">
                         <label for="sportswear-phone" class="form-label fw-semibold">Phone / WhatsApp *</label>
                         <input type="tel" class="form-control" id="sportswear-phone" name="phone" placeholder="+7 700 000 00 00" required>
@@ -188,19 +186,16 @@
                         </select>
                     </div>
 
-                    <!-- Ряд 3: Адрес доставки (на всю ширину) -->
                     <div class="col-12">
                         <label for="sportswear-address" class="form-label fw-semibold">Delivery Address (if Courier selected)</label>
                         <input type="text" class="form-control" id="sportswear-address" name="address" placeholder="City, Street, Building, Apt">
                     </div>
 
-                    <!-- Ряд 4: Дополнительные комментарии -->
                     <div class="col-12">
                         <label for="sportswear-notes" class="form-label fw-semibold">Additional Comments / Group Order Interest</label>
                         <textarea class="form-control" id="sportswear-notes" name="notes" rows="3" placeholder="Specify if you want to join the WhatsApp group order for combined shipping"></textarea>
                     </div>
 
-                    <!-- Кнопки -->
                     <div class="col-12 d-flex gap-2 pt-2">
                         <button type="submit" id="sportswear-order-submit" class="btn btn-primary btn-lg">Send</button>
                         <button type="reset" id="sportswear-order-reset" class="btn btn-outline-secondary btn-lg">Reset Form</button>
