@@ -47,7 +47,7 @@
                                                 <option value="post">Ask about postal delivery</option>
                                             </select>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12" id="address-form">
                                             <label class="form-label" for="address">Courier address</label>
                                             <input class="form-control" type="text" id="address" name="address" autocomplete="street-address" maxlength="240">
                                         </div>
@@ -74,10 +74,27 @@
         const openButton = document.getElementById("order-open");
         const closeButton = document.getElementById("order-close");
         const cancelButton = document.getElementById("order-cancel");
+        const deliverySelect = document.getElementById("delivery-method");
+        const addressRow = document.getElementById("address-form");
         let previousOverflow = "";
 
         // Keep the popup outside page sections that may have their own positioning.
         document.body.append(modal);
+
+        function selectDelivery() {
+            if (modal.classList.contains("hidden")) {
+                return;
+            }
+            
+            var index = deliverySelect.selectedIndex;
+            
+            if (index == 1) {
+                addressRow.classList.add("hidden");
+            }
+            else {
+                addressRow.classList.remove("hidden");
+            }
+        }
 
         function openForm() {
             if (!modal.classList.contains("hidden")) {
@@ -107,6 +124,7 @@
         openButton.addEventListener("click", openForm);
         closeButton.addEventListener("click", closeForm);
         cancelButton.addEventListener("click", closeForm);
+        deliverySelect.addEventListener("change", selectDelivery);
 
         document.addEventListener("keydown", function (event) {
             if (modal.classList.contains("hidden")) {
