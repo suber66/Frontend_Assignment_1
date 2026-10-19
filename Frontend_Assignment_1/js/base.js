@@ -245,3 +245,11 @@
     });
     render();
 })();
+const sportswearNavLinks = document.querySelectorAll('a[href="sportswear.html"]');
+
+sportswearNavLinks.forEach(link => {
+    const listItem = link.closest('li.nav-item');
+    if (listItem) {
+        listItem.remove();
+    }
+});
