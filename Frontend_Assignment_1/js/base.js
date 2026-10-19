@@ -1,5 +1,5 @@
-'use strict';
 (() => {
+    'use strict';
     const KEY = 'ayana-cart';
     const categories = [
         { name: 'Shoes', min: 40000, max: 110000, words: ['shoe', 'sneaker', 'nike', 'adidas'] },

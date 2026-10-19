@@ -1,4 +1,5 @@
-(function () {
+(() => {
+    'use strict';
     function createOrderForm() {
         const oldForm = document.querySelector('form[id$="-order-form"]');
 
@@ -87,7 +88,7 @@
             }
             
             var index = deliverySelect.selectedIndex;
-            
+
             if (index == 1) {
                 addressRow.classList.add("hidden");
             }
