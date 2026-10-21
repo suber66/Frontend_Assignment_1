@@ -362,11 +362,10 @@ const electronicsCatalog = document.getElementById('electronics-catalog');
             const section = document.createElement('section');
             
             const title = document.createElement('h2');
-            title.classList.add('h4', 'mb-4'); // Сделали h4, чтобы заголовок смотрелся аккуратнее
+            title.classList.add('h4', 'mb-4');
             title.textContent = titleText;
 
             const row = document.createElement('div');
-            // Оставляем только row-cols-1, чтобы карточка занимала всю ширину своей половины
             row.classList.add('row', 'row-cols-1', 'g-4');
 
             const filteredBrands = techBrands.filter(brand => brand.category === categoryName);
@@ -386,14 +385,12 @@ const electronicsCatalog = document.getElementById('electronics-catalog');
         const smartphonesSection = renderCategorySection('Smartphones & Gadgets', 'Smartphones & Gadgets');
         const appliancesSection = renderCategorySection('Home Appliances', 'Home Appliances');
 
-        // Создаем общую обертку-строку для двух колонок
         const sectionsWrapper = document.createElement('div');
         sectionsWrapper.classList.add('row', 'g-4', 'my-4');
 
-        // Помещаем каждую секцию в свою колонку (col-md-6)
         if (smartphonesSection) {
             const col1 = document.createElement('div');
-            col1.classList.add('col-12', 'col-md-6'); // На мобилках друг под другом, на ПК — рядом
+            col1.classList.add('col-12', 'col-md-6');
             col1.append(smartphonesSection);
             sectionsWrapper.append(col1);
         }
@@ -413,36 +410,52 @@ const electronicsCatalog = document.getElementById('electronics-catalog');
             pageDesc.textContent = 'Browse the brands below and choose a device on the linked store website before requesting a quote.';
         }
 
-        // === 3. МЕНЯЕМ ФОРМУ ЗАКАЗА НА КНОПКИ ===
         const orderForm = document.getElementById('electronics-order-form');
         
-        if (orderForm) {
-            // Очищаем текущее содержимое формы
-            orderForm.innerHTML = '';
-            
-            // Создаем контейнер для кнопок
-            const buttonContainer = document.createElement('div');
-            buttonContainer.classList.add('d-flex', 'gap-2', 'pt-2');
-            
-            // Создаем кнопку "Make order"
-            const makeOrderBtn = document.createElement('button');
+      if (orderForm) {
+        const scope = orderForm.parentElement;
+        const existing = [...scope.querySelectorAll('button, a.btn')]
+            .filter(el => el.textContent.trim().toLowerCase() === 'make order');
+
+        let makeOrderBtn = existing[0];
+        const duplicates = existing.slice(1);
+
+        if (!makeOrderBtn) {
+            makeOrderBtn = document.createElement('button');
             makeOrderBtn.type = 'button';
-            makeOrderBtn.classList.add('btn', 'btn-primary', 'btn-lg', 'w-100'); 
             makeOrderBtn.textContent = 'Make order';
             makeOrderBtn.id = 'electronics-make-order-btn';
-
-            // Создаем кнопку "Open Instagram"
-            const instagramBtn = document.createElement('a');
-            instagramBtn.href = 'https://www.instagram.com/'; // Вставь свою ссылку на Инстаграм
-            instagramBtn.target = '_blank';
-            instagramBtn.classList.add('btn', 'btn-outline-dark', 'btn-lg');
-            instagramBtn.textContent = 'Open Instagram';
-
-            // Добавляем кнопки в контейнер
-            buttonContainer.append(makeOrderBtn, instagramBtn);
-            
-            // Вставляем контейнер в форму
-            orderForm.append(buttonContainer);
         }
+
+        makeOrderBtn.classList.remove('w-100', 'd-block', 'btn-lg');
+        makeOrderBtn.classList.add('btn', 'btn-primary');
+
+        const instagramBtn = document.createElement('a');
+        instagramBtn.href = 'https://www.instagram.com/ayana.buyer/';
+        instagramBtn.target = '_blank';
+        instagramBtn.rel = 'noopener';
+        instagramBtn.classList.add('btn', 'btn-outline-dark');
+        instagramBtn.textContent = 'Open Instagram';
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('d-flex', 'flex-row', 'flex-wrap', 'gap-2', 'pt-2');
+        buttonContainer.append(makeOrderBtn, instagramBtn); 
+
+        duplicates.forEach(el => el.remove());
+        orderForm.className = '';
+        orderForm.innerHTML = '';
+        orderForm.append(buttonContainer);
+        const orderCard = orderForm.closest('.card') || orderForm.parentElement;
+
+        if (orderCard && !orderCard.previousElementSibling?.matches('hr')) {
+            const line = document.createElement('hr');
+            line.classList.add('mt-4', 'mb-2');   // снизу отступ меньше
+            orderCard.before(line);
+        }
+
+
+        orderCard.classList.remove('mt-3', 'mt-4', 'mt-5', 'my-3', 'my-4', 'my-5');
+        orderCard.classList.add('mt-0');
+    }
     }
 })();
