@@ -301,12 +301,12 @@ const electronicsCatalog = document.getElementById('electronics-catalog');
             { 
                 id: 'b1', name: 'Apple', category: 'Smartphones & Gadgets', 
                 desc: 'Browse Apple devices and select the exact model, storage, and color before requesting a quote.',
-                storeLink: 'https://www.apple.com', logo: 'images/apple.png' 
+                storeLink: 'https://www.apple.com', logo: 'images/logo_apple.png' 
             },
             { 
                 id: 'b2', name: 'Dyson', category: 'Home Appliances', 
                 desc: 'Browse Dyson home appliances and select the exact item and color before requesting a quote.',
-                storeLink: 'https://www.dyson.com', logo: 'images/dyson.png' 
+                storeLink: 'https://www.dyson.com', logo: 'images/logo_dyson.png' 
             }
         ];
 
@@ -382,7 +382,7 @@ const electronicsCatalog = document.getElementById('electronics-catalog');
             }
             return null;
         }
-
+        
         const smartphonesSection = renderCategorySection('Smartphones & Gadgets', 'Smartphones & Gadgets');
         const appliancesSection = renderCategorySection('Home Appliances', 'Home Appliances');
 
@@ -411,6 +411,38 @@ const electronicsCatalog = document.getElementById('electronics-catalog');
         const pageDesc = document.querySelector('.lead');
         if (pageDesc) {
             pageDesc.textContent = 'Browse the brands below and choose a device on the linked store website before requesting a quote.';
+        }
+
+        // === 3. МЕНЯЕМ ФОРМУ ЗАКАЗА НА КНОПКИ ===
+        const orderForm = document.getElementById('electronics-order-form');
+        
+        if (orderForm) {
+            // Очищаем текущее содержимое формы
+            orderForm.innerHTML = '';
+            
+            // Создаем контейнер для кнопок
+            const buttonContainer = document.createElement('div');
+            buttonContainer.classList.add('d-flex', 'gap-2', 'pt-2');
+            
+            // Создаем кнопку "Make order"
+            const makeOrderBtn = document.createElement('button');
+            makeOrderBtn.type = 'button';
+            makeOrderBtn.classList.add('btn', 'btn-primary', 'btn-lg', 'w-100'); 
+            makeOrderBtn.textContent = 'Make order';
+            makeOrderBtn.id = 'electronics-make-order-btn';
+
+            // Создаем кнопку "Open Instagram"
+            const instagramBtn = document.createElement('a');
+            instagramBtn.href = 'https://www.instagram.com/'; // Вставь свою ссылку на Инстаграм
+            instagramBtn.target = '_blank';
+            instagramBtn.classList.add('btn', 'btn-outline-dark', 'btn-lg');
+            instagramBtn.textContent = 'Open Instagram';
+
+            // Добавляем кнопки в контейнер
+            buttonContainer.append(makeOrderBtn, instagramBtn);
+            
+            // Вставляем контейнер в форму
+            orderForm.append(buttonContainer);
         }
     }
 })();
