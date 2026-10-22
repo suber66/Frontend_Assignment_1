@@ -19,7 +19,6 @@
 
     form.addEventListener("submit", e => {
         e.preventDefault();
-
         const name = $("contact-name").value.trim();
         const email = $("contact-email").value.trim();
         const topic = $("contact-topic").value;
