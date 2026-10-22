@@ -1,4 +1,3 @@
-
 (() => {
     "use strict";
 
@@ -8,15 +7,18 @@
 
     if (!form) return;
 
-    const getQuestions = () =>
-        JSON.parse(localStorage.getItem(KEY) || "[]");
-    const save = data =>
-        localStorage.setItem(KEY, JSON.stringify(data));
+    const getQuestions = () => {
+        try {
+            return JSON.parse(localStorage.getItem(KEY) || "[]");
+        } catch (err) {
+            return [];
+        }
+    };
 
-    // Submit customer question
+    const save = data => localStorage.setItem(KEY, JSON.stringify(data));
+
     form.addEventListener("submit", e => {
         e.preventDefault();
-
         const name = $("contact-name").value.trim();
         const email = $("contact-email").value.trim();
         const topic = $("contact-topic").value;
@@ -25,17 +27,17 @@
         if (name.length < 2 ||
             !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
             !topic || message.length < 10) {
-            if ($("contact-errors"))
-                $("contact-errors").textContent =
-                    "Please complete all fields correctly.";
-            else alert("Please complete all fields correctly.");
+            $("contact-errors").textContent = "Please complete all fields correctly.";
             return;
         }
 
         const questions = getQuestions();
         questions.push({
             id: Date.now(),
-            name, email, topic, message,
+            name: name,
+            email: email,
+            topic: topic,
+            message: message,
             reply: "",
             date: new Date().toLocaleString()
         });
@@ -43,48 +45,74 @@
         save(questions);
         form.reset();
 
-        if ($("contact-errors")) $("contact-errors").textContent = "";
-        if ($("contact-confirmation"))
-            $("contact-confirmation").textContent =
-                "Your question was saved successfully!";
-        else alert("Your question was saved successfully!");
+        $("contact-errors").textContent = "";
+        $("contact-confirmation").textContent = "Your question was saved successfully! This is a demonstration: no data is sent to a server.";
     });
 
-    // Create admin button
-    const admin = document.createElement("button");
-    admin.type = "button";
-    admin.className = "btn btn-dark mt-3";
-    admin.textContent = "Admin Questions";
-    form.insertAdjacentElement("afterend", admin);
+    function createModal(titleText) {
+        const modal = document.createElement("div");
+        modal.className = "modal d-none";
 
-    // Create popup
-    const modal = document.createElement("div");
-    modal.style.cssText =
-        "display:none;position:fixed;inset:0;z-index:99999;" +
-        "background:#0009;overflow:auto;padding:25px;";
-    modal.innerHTML = `
-        <div class="bg-white rounded p-4 mx-auto"
-             style="max-width:750px;color:#222">
-            <div class="d-flex justify-content-between">
-                <h4>Customer Questions</h4>
-                <button class="btn btn-secondary" id="close-questions">
-                    Close
-                </button>
-            </div>
-            <hr>
-            <div id="question-list"></div>
-        </div>`;
-    document.body.appendChild(modal);
+        const dialog = document.createElement("div");
+        dialog.className = "modal-dialog modal-dialog-scrollable";
 
-    const list = $("question-list");
+        const content = document.createElement("div");
+        content.className = "modal-content";
 
-    // Display questions and reply fields
-    function render() {
-        list.replaceChildren();
+        const header = document.createElement("div");
+        header.className = "modal-header";
+
+        const title = document.createElement("h4");
+        title.className = "modal-title";
+        title.textContent = titleText;
+
+        const closeBtn = document.createElement("button");
+        closeBtn.type = "button";
+        closeBtn.className = "btn-close";
+        closeBtn.setAttribute("aria-label", "Close");
+
+        const body = document.createElement("div");
+        body.className = "modal-body";
+
+        header.append(title, closeBtn);
+        content.append(header, body);
+        dialog.append(content);
+        modal.append(dialog);
+        document.body.append(modal);
+
+        function open() {
+            modal.classList.remove("d-none");
+            modal.classList.add("d-block", "show");
+        }
+
+        function close() {
+            modal.classList.add("d-none");
+            modal.classList.remove("d-block", "show");
+        }
+
+        closeBtn.addEventListener("click", close);
+
+        modal.addEventListener("click", e => {
+            if (e.target === modal) close();
+        });
+
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape") close();
+        });
+
+        return { body: body, open: open };
+    }
+
+    const myModal = createModal("My questions");
+
+    function showMyQuestions() {
+        myModal.body.replaceChildren();
         const questions = getQuestions();
 
-        if (!questions.length) {
-            list.textContent = "No questions yet.";
+        if (questions.length === 0) {
+            const empty = document.createElement("p");
+            empty.textContent = "You have not asked any questions yet.";
+            myModal.body.append(empty);
             return;
         }
 
@@ -92,69 +120,31 @@
             const card = document.createElement("div");
             card.className = "border rounded p-3 mb-3";
 
-            const info = document.createElement("p");
-            info.textContent =
-                `${q.name} (${q.email}) | ${q.topic} | ${q.date}`;
-
-            const message = document.createElement("p");
-            message.textContent = q.message;
-
-            const input = document.createElement("textarea");
-            input.className = "form-control mb-2";
-            input.placeholder = "Write your reply...";
-            input.value = q.reply || "";
-
-            const button = document.createElement("button");
-            button.className = "btn btn-primary btn-sm";
-            button.textContent = "Save Reply";
+            const text = document.createElement("p");
+            text.textContent = q.message;
 
             const status = document.createElement("p");
-            status.className = "small mt-2";
-
-            if (q.reply) {
-                const oldReply = document.createElement("p");
-                oldReply.className = "text-success";
-                oldReply.textContent = "Saved reply: " + q.reply;
-                card.appendChild(oldReply);
+            if (q.reply !== "") {
+                status.className = "text-success fw-semibold";
+                status.textContent = "Reply: " + q.reply;
+            } else {
+                status.className = "text-secondary fw-semibold";
+                status.textContent = "Waiting for a reply";
             }
 
-            button.addEventListener("click", () => {
-                if (!input.value.trim()) {
-                    status.textContent = "Write a reply first.";
-                    return;
-                }
-
-                const data = getQuestions();
-                const item = data.find(x => x.id === q.id);
-                if (!item) return;
-
-                item.reply = input.value.trim();
-                save(data);
-                render();
-            });
-
-            card.append(info, message, input, button, status);
-            list.appendChild(card);
+            card.append(text, status);
+            myModal.body.append(card);
         });
     }
 
-    // Open and close admin popup
-    admin.addEventListener("click", () => {
-        render();
-        modal.style.display = "block";
+    const myBtn = document.createElement("button");
+    myBtn.type = "button";
+    myBtn.className = "btn btn-outline-dark mt-3";
+    myBtn.textContent = "My questions";
+    myBtn.addEventListener("click", () => {
+        showMyQuestions();
+        myModal.open();
     });
 
-    $("close-questions").addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-
-    modal.addEventListener("click", e => {
-        if (e.target === modal) modal.style.display = "none";
-    });
-
-    document.addEventListener("keydown", e => {
-        if (e.key === "Escape") modal.style.display = "none";
-    });
+    form.after(myBtn);
 })();
-
-
