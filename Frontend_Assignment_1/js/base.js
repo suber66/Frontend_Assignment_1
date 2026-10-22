@@ -245,10 +245,14 @@
 
         document.getElementById('order-close')?.click();
 
-        const notice = document.getElementById('order-notification');
+        const notice = document.querySelector('a[id$="-order-contact"]')
+        // const notice = document.getElementById('order-notification');
         if (notice) {
-            notice.classList.remove('hidden');
-            notice.textContent = 'Product added to cart.';
+            notice.insertAdjacentHTML("afterend", `
+                <div class="alert alert-success mt-3" id="order-notification" role="status" aria-live="polite">Product added to cart.</div>
+                `)
+            // notice.classList.remove('hidden');
+            // notice.textContent = 'Product added to cart.';
         }
     });
 
