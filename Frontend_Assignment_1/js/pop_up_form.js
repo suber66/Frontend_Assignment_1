@@ -1,19 +1,16 @@
-(() => {
+(($) => {
     'use strict';
     function createOrderForm() {
-        const oldForm = document.querySelector('form[id$="-order-form"]');
+        const $oldForm = $('form[id$="-order-form"]').first();
 
-        if (!oldForm || document.getElementById("order-modal")) {
+        if (!$oldForm.length || $("#order-modal").length) {
             return;
         }
 
-        oldForm.classList.add("hidden");
-        const header = document.querySelector("header");
-        if (header) {
-            header.classList.add("z-1");
-        }
+        $oldForm.addClass("hidden");
+        $("header").first().addClass("z-1");
 
-        oldForm.insertAdjacentHTML("beforebegin", `
+        $oldForm.before(`
             <button class="btn btn-primary" type="button" id="order-open" aria-controls="order-modal" aria-haspopup="dialog">Make order</button>
             <div class="modal d-block hidden bg-black bg-opacity-50" id="order-modal" role="dialog" aria-hidden="true" aria-labelledby="order-modal-title" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -71,64 +68,65 @@
             <div class="alert alert-success mt-3 hidden" id="order-notification" role="status" aria-live="polite">Added to cart.</div>
         `);
 
-        const modal = document.getElementById("order-modal");
-        const openButton = document.getElementById("order-open");
-        const closeButton = document.getElementById("order-close");
-        const cancelButton = document.getElementById("order-cancel");
-        const deliverySelect = document.getElementById("delivery-method");
-        const addressRow = document.getElementById("address-form");
+        const $modal = $("#order-modal");
+        const $openButton = $("#order-open");
+        const $closeButton = $("#order-close");
+        const $cancelButton = $("#order-cancel");
+        const $deliverySelect = $("#delivery-method");
+        const $addressRow = $("#address-form");
+        const $body = $("body");
         let previousOverflow = "";
 
         // Keep the popup outside page sections that may have their own positioning.
-        document.body.append(modal);
+        $body.append($modal);
 
         function selectDelivery() {
-            if (modal.classList.contains("hidden")) {
+            if ($modal.hasClass("hidden")) {
                 return;
             }
             
-            var index = deliverySelect.selectedIndex;
+            const index = $deliverySelect.prop("selectedIndex");
 
             if (index == 1) {
-                addressRow.classList.add("hidden");
+                $addressRow.addClass("hidden");
             }
             else {
-                addressRow.classList.remove("hidden");
+                $addressRow.removeClass("hidden");
             }
         }
 
         function openForm() {
-            if (!modal.classList.contains("hidden")) {
+            if (!$modal.hasClass("hidden")) {
                 return;
             }
 
-            previousOverflow = document.body.style.overflow;
-            document.body.style.overflow = "hidden";
-            modal.classList.remove("hidden");
-            modal.removeAttribute("aria-hidden");
-            modal.setAttribute("aria-modal", "true");
-            document.getElementById("product-link").focus();
+            previousOverflow = $body.prop("style").overflow;
+            $body.css("overflow", "hidden");
+            $modal.removeClass("hidden");
+            $modal.removeAttr("aria-hidden");
+            $modal.attr("aria-modal", "true");
+            $("#product-link").trigger("focus");
         }
 
         function closeForm() {
-            if (modal.classList.contains("hidden")) {
+            if ($modal.hasClass("hidden")) {
                 return;
             }
 
-            modal.classList.add("hidden");
-            modal.removeAttribute("aria-modal");
-            document.body.style.overflow = previousOverflow;
-            openButton.focus();
-            modal.setAttribute("aria-hidden", "true");
+            $modal.addClass("hidden");
+            $modal.removeAttr("aria-modal");
+            $body.css("overflow", previousOverflow);
+            $openButton.trigger("focus");
+            $modal.attr("aria-hidden", "true");
         }
 
-        openButton.addEventListener("click", openForm);
-        closeButton.addEventListener("click", closeForm);
-        cancelButton.addEventListener("click", closeForm);
-        deliverySelect.addEventListener("change", selectDelivery);
+        $openButton.on("click", openForm);
+        $closeButton.on("click", closeForm);
+        $cancelButton.on("click", closeForm);
+        $deliverySelect.on("change", selectDelivery);
 
-        document.addEventListener("keydown", function (event) {
-            if (modal.classList.contains("hidden")) {
+        $(document).on("keydown", function (event) {
+            if ($modal.hasClass("hidden")) {
                 return;
             }
 
@@ -136,33 +134,29 @@
                 event.preventDefault();
                 closeForm();
             } else if (event.key === "Tab") {
-                const controls = modal.querySelectorAll("button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled)");
-                const firstControl = controls[0];
-                const lastControl = controls[controls.length - 1];
+                const $controls = $modal.find("button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled)");
+                const $firstControl = $controls.first();
+                const $lastControl = $controls.last();
 
-                if (document.activeElement === modal || !modal.contains(document.activeElement)) {
+                if ($(document.activeElement).is($modal) || !$modal.has(document.activeElement).length) {
                     event.preventDefault();
-                    (event.shiftKey ? lastControl : firstControl).focus();
-                } else if (event.shiftKey && document.activeElement === firstControl) {
+                    (event.shiftKey ? $lastControl : $firstControl).trigger("focus");
+                } else if (event.shiftKey && $(document.activeElement).is($firstControl)) {
                     event.preventDefault();
-                    lastControl.focus();
-                } else if (!event.shiftKey && document.activeElement === lastControl) {
+                    $lastControl.trigger("focus");
+                } else if (!event.shiftKey && $(document.activeElement).is($lastControl)) {
                     event.preventDefault();
-                    firstControl.focus();
+                    $firstControl.trigger("focus");
                 }
             }
         });
 
-        document.addEventListener("focusin", function (event) {
-            if (!modal.classList.contains("hidden") && !modal.contains(event.target)) {
-                modal.focus();
+        $(document).on("focusin", function (event) {
+            if (!$modal.hasClass("hidden") && !$modal.has(event.target).length) {
+                $modal.trigger("focus");
             }
         });
     }
 
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", createOrderForm, { once: true });
-    } else {
-        createOrderForm();
-    }
-})();
+    $(createOrderForm);
+})(jQuery);
