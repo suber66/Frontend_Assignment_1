@@ -252,12 +252,21 @@ $(function () {
 
         $("#order-close").trigger("click");
 
-        const notice = document.querySelector('a[id$="-order-contact"]');
-        if (notice) {
-            notice.insertAdjacentHTML("afterend", `
-                <div class="alert alert-success mt-3" id="order-notification" role="status" aria-live="polite">Product added to cart.</div>
-            `);
-        }
+        const $main = $('main');
+        if ($main.length) {
+            $('#order-notification').remove();
+            $('<div>')
+                .addClass("alert alert-success mt-3")
+                .attr({ id: "order-notification", role: "status", "aria-live": "polite" })
+                .text("Product added to cart.")
+                .hide()
+                .appendTo($main) // аналог 'beforeend' в jQuery — добавление в конец main
+                .slideDown(300)
+                .delay(3000)
+                .fadeOut(500, function () {
+                    $(this).remove();
+                });
+}
     });
 
     body.addEventListener('click', handleClick);
