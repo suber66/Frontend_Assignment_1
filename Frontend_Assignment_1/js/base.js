@@ -252,27 +252,31 @@ $(function () {
 
         $("#order-close").trigger("click");
 
-        const $contact = $("a[id$='-order-contact']");
-        if ($contact.length) {
-            $("#order-notification").remove();
-            $("<div>")
-                .addClass("alert alert-success mt-3")
-                .attr({ id: "order-notification", role: "status", "aria-live": "polite" })
-                .text("Product added to cart.")
-                .hide()
-                .insertAfter($contact)
-                .slideDown(300)
-                .delay(3000)
-                .fadeOut(500, function () {
-                    $(this).remove();
-                });
+        const notice = document.querySelector('a[id$="-order-contact"]');
+        if (notice) {
+            notice.insertAdjacentHTML("afterend", `
+                <div class="alert alert-success mt-3" id="order-notification" role="status" aria-live="polite">Product added to cart.</div>
+            `);
         }
     });
 
-    $openBtn.on("click", function () {
-        $panel.addClass("show").css("visibility", "visible");
-        $openBtn.attr("aria-expanded", "true");
-        $closeBtn.trigger("focus");
+    body.addEventListener('click', handleClick);
+    footer.addEventListener('click', handleClick);
+
+    body.addEventListener('change', event => {
+        if (event.target.type !== 'checkbox') return;
+
+        const item = cart.find(i => i.link === event.target.dataset.link);
+        if (item) item.selected = event.target.checked;
+
+        render();
+    });
+
+    openBtn.addEventListener('click', () => {
+        panel.classList.add('show');
+        panel.style.visibility = 'visible';
+        openBtn.setAttribute('aria-expanded', 'true');
+        closeBtn.focus();
     });
 
     function closeCart() {
