@@ -246,9 +246,9 @@
 
         document.getElementById('order-close')?.click();
 
-        const notice = document.querySelector('a[id$="-order-contact"]');
+        const notice = document.querySelector('main');
         if (notice) {
-            notice.insertAdjacentHTML("afterend", `
+            notice.insertAdjacentHTML("beforeend", `
                 <div class="alert alert-success mt-3" id="order-notification" role="status" aria-live="polite">Product added to cart.</div>
             `);
         }
