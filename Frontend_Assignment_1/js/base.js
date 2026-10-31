@@ -260,7 +260,7 @@ $(function () {
                 .attr({ id: "order-notification", role: "status", "aria-live": "polite" })
                 .text("Product added to cart.")
                 .hide()
-                .appendTo($main) // аналог 'beforeend' в jQuery — добавление в конец main
+                .appendTo($main)
                 .slideDown(300)
                 .delay(3000)
                 .fadeOut(500, function () {
