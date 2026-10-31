@@ -268,24 +268,17 @@ $(function () {
                 });
 }
     });
-
-    body.addEventListener('click', handleClick);
-    footer.addEventListener('click', handleClick);
-
-    body.addEventListener('change', event => {
-        if (event.target.type !== 'checkbox') return;
-
-        const item = cart.find(i => i.link === event.target.dataset.link);
-        if (item) item.selected = event.target.checked;
-
+        $body.on("change", "input[type='checkbox']", function () {
+        const link = $(this).attr("data-link");
+        const item = cart.find(function (i) { return i.link === link; });
+        if (item) item.selected = $(this).prop("checked");
         render();
     });
 
-    openBtn.addEventListener('click', () => {
-        panel.classList.add('show');
-        panel.style.visibility = 'visible';
-        openBtn.setAttribute('aria-expanded', 'true');
-        closeBtn.focus();
+    $openBtn.on("click", function () {
+        $panel.addClass("show").css("visibility", "visible");
+        $openBtn.attr("aria-expanded", "true");
+        $closeBtn.trigger("focus");
     });
 
     function closeCart() {
