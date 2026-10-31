@@ -63,7 +63,7 @@ $(function () {
             const url = new URL(link);
             const category = categories.find(function (c) {
                 return c.words.some(function (w) { return link.toLowerCase().includes(w); });
-            }) || categories[5];
+            }) || categories[4];
 
             const parts = url.pathname.split("/").filter(Boolean);
             let name = url.hostname;
@@ -267,12 +267,6 @@ $(function () {
                     $(this).remove();
                 });
 }
-    });
-        $body.on("change", "input[type='checkbox']", function () {
-        const link = $(this).attr("data-link");
-        const item = cart.find(function (i) { return i.link === link; });
-        if (item) item.selected = $(this).prop("checked");
-        render();
     });
 
     $openBtn.on("click", function () {
