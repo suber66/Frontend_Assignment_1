@@ -1,74 +1,86 @@
-(() => {
-    'use strict';
-    // --- CART LOGIC (Vanilla JS) ---
-    const KEY = 'ayana-cart';
+$(function () {
+    "use strict";
+
+    const KEY = "ayana-cart";
     const categories = [
-        { name: 'Shoes', min: 40000, max: 110000, words: ['shoe', 'sneaker', 'nike', 'adidas'] },
-        { name: 'Clothing', min: 15000, max: 60000, words: ['hoodie', 'jacket', 'shirt', 'jeans', 'dress'] },
-        { name: 'Accessories', min: 10000, max: 80000, words: ['bag', 'watch', 'ring', 'bracelet'] },
-        { name: 'Sportswear', min: 20000, max: 70000, words: ['sport', 'running', 'gym'] },
-        { name: 'Electronics', min: 150000, max: 320000, words: ['phone', 'iphone', 'laptop', 'airpods', 'dyson'] },
-        { name: 'Other', min: 10000, max: 100000, words: [] }
+        { name: "Shoes", min: 40000, max: 110000, words: ["shoe", "shoes", "sneaker", "sneakers","nike", "adidas", "puma", "reebok","boots", "sandal", "sandals", "slippers","footwear", "handball spezial", "spezial"] },
+        { name: "Clothing", min: 15000, max: 60000, words: ["hoodie", "jacket", "shirt", "jeans", "dress","trousers", "skirt", "blouse", "t-shirt"] },
+        { name: "Accessories", min: 10000, max: 80000, words: ["bag", "watch", "ring", "bracelet"] },
+        { name: "Electronics", min: 150000, max: 320000, words: ["phone", "smartphone", "iphone", "samsung","laptop", "computer", "tablet", "ipad","airpods", "earbuds", "headphones", "dyson","watch", "camera", "keyboard", "mouse","monitor", "speaker", "charger", "console"] },
+        { name: "Other", min: 10000, max: 100000, words: [] }
     ];
-    const el = (tag, cls = '', text = '') => {
-        const node = document.createElement(tag);
-        node.className = cls;
-        node.textContent = text;
-        return node;
-    };
-    const money = n => n.toLocaleString('en-US') + ' KZT';
+
+    function el(tag, cls, text) {
+        return $("<" + tag + ">").addClass(cls || "").text(text === undefined ? "" : text);
+    }
+
+    function money(n) {
+        return n.toLocaleString("en-US") + " KZT";
+    }
+
     function loadCart() {
         try {
-            const data = JSON.parse(localStorage.getItem(KEY) || '[]');
+            const data = JSON.parse(localStorage.getItem(KEY) || "[]");
             return Array.isArray(data) ? data : [];
-        } catch {
+        } catch (err) {
             return [];
         }
+    }
+    function saveCart() {
+        try {
+            localStorage.setItem(KEY, JSON.stringify(cart));
+        } catch (err) {}
     }
 
     let cart = loadCart();
     let lastOrder = null;
 
-    const save = () => localStorage.setItem(KEY, JSON.stringify(cart));
-    const selected = () => cart.filter(i => i.selected !== false);
-    const total = items => items.reduce((s, i) => s + i.price * i.qty, 0);
-    const count = items => items.reduce((s, i) => s + i.qty, 0);
+    function selected() {
+        return cart.filter(function (i) { return i.selected !== false; });
+    }
 
-    function button(text, action, link = '', cls = 'btn btn-outline-secondary btn-sm') {
-        const b = el('button', cls, text);
-        b.type = 'button';
-        b.dataset.action = action;
-        b.dataset.link = link;
-        return b;
+    function total(items) {
+        return items.reduce(function (s, i) { return s + i.price * i.qty; }, 0);
+    }
+
+    function count(items) {
+        return items.reduce(function (s, i) { return s + i.qty; }, 0);
+    }
+
+    function button(text, action, link, cls) {
+        return el("button", cls || "btn btn-outline-secondary btn-sm", text)
+            .attr("type", "button")
+            .attr("data-action", action)
+            .attr("data-link", link || "");
     }
 
     function addItem(link, qty, delivery) {
-        const existing = cart.find(i => i.link === link);
+        const existing = cart.find(function (i) { return i.link === link; });
 
         if (existing) {
             existing.qty = Math.min(99, existing.qty + qty);
         } else {
             const url = new URL(link);
-            const category = categories.find(c =>
-                c.words.some(w => link.toLowerCase().includes(w))
-            ) || categories[5];
+            const category = categories.find(function (c) {
+                return c.words.some(function (w) { return link.toLowerCase().includes(w); });
+            }) || categories[5];
 
-            const parts = url.pathname.split('/').filter(Boolean);
+            const parts = url.pathname.split("/").filter(Boolean);
             let name = url.hostname;
 
             if (parts.length) {
                 try {
-                    name = decodeURIComponent(parts.pop()).replace(/[-_]/g, ' ').slice(0, 40);
-                } catch {}
+                    name = decodeURIComponent(parts.pop()).replace(/[-_]/g, " ").slice(0, 40);
+                } catch (err) {}
             }
 
             cart.push({
-                link,
-                name: name + ' (' + url.hostname + ')',
+                link: link,
+                name: name + " (" + url.hostname + ")",
                 category: category.name,
                 price: Math.floor(Math.random() * (category.max - category.min + 1)) + category.min,
-                qty,
-                delivery,
+                qty: qty,
+                delivery: delivery,
                 selected: true
             });
         }
@@ -77,217 +89,206 @@
         render();
     }
 
-    const openBtn = el(
-        'button',
-        'btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3 p-3 shadow z-3',
-        'Cart'
-    );
+    const $badge = el("span", "badge rounded-pill bg-danger ms-1", "0");
+    const $openBtn = el("button", "btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3 p-3 shadow z-3", "Cart")
+        .attr({ type: "button", "aria-label": "Open cart" })
+        .append($badge)
+        .appendTo("body");
 
-    openBtn.type = 'button';
-    openBtn.setAttribute('aria-label', 'Open cart');
+    const $panel = el("aside", "offcanvas offcanvas-end shadow").attr("aria-label", "Shopping cart");
+    const $header = el("div", "offcanvas-header border-bottom");
+    const $closeBtn = el("button", "btn-close").attr({ type: "button", "aria-label": "Close cart" });
+    const $body = el("div", "offcanvas-body");
+    const $footer = el("div", "border-top p-3");
 
-    const badge = el('span', 'badge rounded-pill bg-danger ms-1', '0');
-    openBtn.append(badge);
-    document.body.append(openBtn);
-
-    const panel = el('aside', 'offcanvas offcanvas-end shadow');
-    panel.setAttribute('aria-label', 'Shopping cart');
-
-    const header = el('div', 'offcanvas-header border-bottom');
-    header.append(el('h2', 'offcanvas-title h5 fw-bold', 'Your Cart'));
-
-    const closeBtn = el('button', 'btn-close');
-    closeBtn.type = 'button';
-    closeBtn.setAttribute('aria-label', 'Close cart');
-    header.append(closeBtn);
-
-    const body = el('div', 'offcanvas-body');
-    const footer = el('div', 'border-top p-3');
-
-    panel.append(header, body, footer);
-    document.body.append(panel);
+    $header.append(el("h2", "offcanvas-title h5 fw-bold", "Your Cart"), $closeBtn);
+    $panel.append($header, $body, $footer).appendTo("body");
 
     function render() {
-        try { save(); } catch {}
+        saveCart();
 
-        body.replaceChildren();
-        footer.replaceChildren();
+        $body.empty();
+        $footer.empty();
 
-        badge.textContent = count(cart);
-        badge.classList.toggle('d-none', cart.length === 0);
+        $badge.text(count(cart)).toggleClass("d-none", cart.length === 0);
 
         if (lastOrder) {
-            const msg = el('div', 'alert alert-success');
-            msg.append(
-                el('strong', '', 'Demo Order ' + lastOrder.id),
-                el('p', 'mb-1', 'Items: ' + lastOrder.count),
-                el('p', 'mb-1', 'Total: ' + money(lastOrder.total)),
-                el('p', 'small text-break', lastOrder.names.join(', ')),
-                el('p', 'small mb-0', 'Demo only. No real order or payment.')
-            );
-            body.append(msg);
+            el("div", "alert alert-success")
+                .append(
+                    el("strong", "", "Demo Order " + lastOrder.id),
+                    el("p", "mb-1", "Items: " + lastOrder.count),
+                    el("p", "mb-1", "Total: " + money(lastOrder.total)),
+                    el("p", "small text-break", lastOrder.names.join(", ")),
+                    el("p", "small mb-0", "Demo only. No real order or payment.")
+                )
+                .appendTo($body);
         }
 
-        if (!cart.length) {
-            body.append(el('p', 'text-center text-muted mt-4', 'Your cart is empty.'));
+        if (cart.length === 0) {
+            el("p", "text-center text-muted mt-4", "Your cart is empty.").appendTo($body);
             return;
         }
 
-        cart.forEach((item, index) => {
-            const row = el('div', 'border-bottom py-3');
-            const check = el('input', 'form-check-input me-2');
-            check.type = 'checkbox';
-            check.checked = item.selected !== false;
-            check.dataset.link = item.link;
-            check.id = 'cart-' + index;
+        $.each(cart, function (index, item) {
+            const $row = el("div", "border-bottom py-3 cart-row");
 
-            const label = el('label', 'fw-bold text-break', item.name);
-            label.htmlFor = check.id;
+            const $check = $("<input>")
+                .addClass("form-check-input me-2")
+                .attr({ type: "checkbox", id: "cart-" + index, "data-link": item.link })
+                .prop("checked", item.selected !== false);
 
-            row.append(
-                check, label,
-                el('p', 'small text-muted mb-1', item.category + ' | ' + item.delivery),
-                el('p', 'small', money(item.price) + ' x ' + item.qty + ' = ' + money(item.price * item.qty))
+            const $label = el("label", "fw-bold text-break", item.name).attr("for", "cart-" + index);
+
+            $row.append(
+                $check,
+                $label,
+                el("p", "small text-muted mb-1", item.category + " | " + item.delivery),
+                el("p", "small", money(item.price) + " x " + item.qty + " = " + money(item.price * item.qty))
             );
 
-            const controls = el('div', 'd-flex align-items-center gap-2');
-            controls.append(
-                button('-', 'minus', item.link),
-                el('span', 'fw-bold', item.qty),
-                button('+', 'plus', item.link),
-                button('Remove', 'remove', item.link, 'btn btn-outline-danger btn-sm ms-auto')
+            const $controls = el("div", "d-flex align-items-center gap-2");
+            $controls.append(
+                button("-", "minus", item.link),
+                el("span", "fw-bold", item.qty),
+                button("+", "plus", item.link),
+                button("Remove", "remove", item.link, "btn btn-outline-danger btn-sm ms-auto")
             );
 
-            row.append(controls);
-            body.append(row);
+            $row.append($controls).appendTo($body);
         });
 
         const items = selected();
-        footer.append(
-            el('p', 'mb-1 text-muted', 'Selected: ' + items.length + ' | Quantity: ' + count(items)),
-            el('p', 'fs-5 fw-bold', 'Total: ' + money(total(items)))
+        $footer.append(
+            el("p", "mb-1 text-muted", "Selected: " + items.length + " | Quantity: " + count(items)),
+            el("p", "fs-5 fw-bold", "Total: " + money(total(items)))
         );
 
-        const actions = el('div', 'd-flex gap-2');
-        const buy = button('Submit Order', 'buy', '', 'btn btn-success flex-fill');
-        const clear = button('Clear Cart', 'clear', '', 'btn btn-outline-danger');
+        const $actions = el("div", "d-flex gap-2");
+        const $buy = button("Submit Order", "buy", "", "btn btn-success flex-fill");
+        const $clear = button("Clear Cart", "clear", "", "btn btn-outline-danger");
 
-        buy.disabled = !items.length;
-        actions.append(buy, clear);
-        footer.append(actions);
-
-        footer.append(el('p', 'small text-muted mt-2', 'Estimated prices. No real purchase.'));
+        $buy.prop("disabled", items.length === 0);
+        $actions.append($buy, $clear);
+        $footer.append($actions);
+        $footer.append(el("p", "small text-muted mt-2", "Estimated prices. No real purchase."));
     }
 
-    function handleClick(event) {
-        const btn = event.target.closest('button[data-action]');
-        if (!btn) return;
+    $body.add($footer).on("click", "button[data-action]", function () {
+        const $btn = $(this);
+        const action = $btn.attr("data-action");
+        const link = $btn.attr("data-link");
+        const item = cart.find(function (i) { return i.link === link; });
 
-        const { action, link } = btn.dataset;
-        const item = cart.find(i => i.link === link);
-
-        if (action === 'clear') {
+        if (action === "clear") {
             cart = [];
             lastOrder = null;
             render();
             return;
         }
 
-        if (action === 'plus' && item) item.qty = Math.min(99, item.qty + 1);
-        if (action === 'minus' && item) item.qty--;
-        if (action === 'remove') cart = cart.filter(i => i.link !== link);
-
-        if (action === 'buy') {
-            const items = selected();
-            if (!items.length) return;
-
-            lastOrder = {
-                id: 'AB-' + (Math.floor(Math.random() * 90000) + 10000),
-                count: count(items),
-                total: total(items),
-                names: items.map(i => i.name)
-            };
-
-            cart = cart.filter(i => i.selected === false);
-        }
-
-        cart = cart.filter(i => i.qty > 0);
-        render();
-    }
-
-    document.addEventListener('submit', event => {
-        const form = event.target;
-        if (form.id !== 'order-form') return;
-
-        event.preventDefault();
-
-        const link = form.elements['product-link'].value.trim();
-        const qty = Number(form.elements['product-quantity'].value);
-        const delivery = form.elements['delivery-method'].selectedOptions[0]?.textContent || '';
-
-        try {
-            const url = new URL(link);
-            if (!['https:', 'http:'].includes(url.protocol)) throw Error();
-        } catch {
-            form.elements['product-link'].setCustomValidity('Enter a valid product URL.');
-            form.elements['product-link'].reportValidity();
+        if (action === "remove") {
+            $btn.closest(".cart-row").fadeOut(250, function () {
+                cart = cart.filter(function (i) { return i.link !== link; });
+                render();
+            });
             return;
         }
 
-        form.elements['product-link'].setCustomValidity('');
+        if (action === "plus" && item) item.qty = Math.min(99, item.qty + 1);
+        if (action === "minus" && item) item.qty--;
+
+        if (action === "buy") {
+            const items = selected();
+            if (items.length === 0) return;
+
+            lastOrder = {
+                id: "AB-" + (Math.floor(Math.random() * 90000) + 10000),
+                count: count(items),
+                total: total(items),
+                names: items.map(function (i) { return i.name; })
+            };
+
+            cart = cart.filter(function (i) { return i.selected === false; });
+        }
+
+        cart = cart.filter(function (i) { return i.qty > 0; });
+        render();
+    });
+
+    $body.on("change", "input[type='checkbox']", function () {
+        const link = $(this).attr("data-link");
+        const item = cart.find(function (i) { return i.link === link; });
+        if (item) item.selected = $(this).prop("checked");
+        render();
+    });
+
+    $(document).on("submit", "#order-form", function (e) {
+        e.preventDefault();
+
+        const $form = $(this);
+        const $linkInput = $form.find("[name='product-link']");
+        const link = $linkInput.val().trim();
+        const qty = Number($form.find("[name='product-quantity']").val());
+        const delivery = $form.find("[name='delivery-method'] option:selected").text();
+
+        try {
+            const url = new URL(link);
+            if (url.protocol !== "https:" && url.protocol !== "http:") throw new Error();
+        } catch (err) {
+            $linkInput[0].setCustomValidity("Enter a valid product URL.");
+            $linkInput[0].reportValidity();
+            return;
+        }
+
+        $linkInput[0].setCustomValidity("");
 
         if (!Number.isInteger(qty) || qty < 1 || qty > 99 || !delivery) {
-            form.reportValidity();
+            $form[0].reportValidity();
             return;
         }
 
         addItem(link, qty, delivery);
-        form.reset();
+        $form.trigger("reset");
 
-        document.getElementById('order-close')?.click();
+        $("#order-close").trigger("click");
 
-        const notice = document.querySelector('a[id$="-order-contact"]');
-        if (notice) {
-            notice.insertAdjacentHTML("afterend", `
-                <div class="alert alert-success mt-3" id="order-notification" role="status" aria-live="polite">Product added to cart.</div>
-            `);
+        const $contact = $("a[id$='-order-contact']");
+        if ($contact.length) {
+            $("#order-notification").remove();
+            $("<div>")
+                .addClass("alert alert-success mt-3")
+                .attr({ id: "order-notification", role: "status", "aria-live": "polite" })
+                .text("Product added to cart.")
+                .hide()
+                .insertAfter($contact)
+                .slideDown(300)
+                .delay(3000)
+                .fadeOut(500, function () {
+                    $(this).remove();
+                });
         }
     });
 
-    body.addEventListener('click', handleClick);
-    footer.addEventListener('click', handleClick);
-
-    body.addEventListener('change', event => {
-        if (event.target.type !== 'checkbox') return;
-
-        const item = cart.find(i => i.link === event.target.dataset.link);
-        if (item) item.selected = event.target.checked;
-
-        render();
-    });
-
-    openBtn.addEventListener('click', () => {
-        panel.classList.add('show');
-        panel.style.visibility = 'visible';
-        openBtn.setAttribute('aria-expanded', 'true');
-        closeBtn.focus();
+    $openBtn.on("click", function () {
+        $panel.addClass("show").css("visibility", "visible");
+        $openBtn.attr("aria-expanded", "true");
+        $closeBtn.trigger("focus");
     });
 
     function closeCart() {
-        panel.classList.remove('show');
-        panel.style.visibility = '';
-        openBtn.setAttribute('aria-expanded', 'false');
-        openBtn.focus();
+        $panel.removeClass("show").css("visibility", "");
+        $openBtn.attr("aria-expanded", "false");
+        $openBtn.trigger("focus");
     }
 
-    closeBtn.addEventListener('click', closeCart);
+    $closeBtn.on("click", closeCart);
 
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && panel.classList.contains('show')) closeCart();
+    $(document).on("keydown", function (e) {
+        if (e.key === "Escape" && $panel.hasClass("show")) closeCart();
     });
 
     render();
-})(); // END OF VANILLA JS BLOCK
+});
 
 
 // =====================================================================
