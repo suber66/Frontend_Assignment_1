@@ -11,7 +11,9 @@
         $("header").first().addClass("z-1");
 
         $oldForm.before(`
-            <button class="btn btn-primary" type="button" id="order-open" aria-controls="order-modal" aria-haspopup="dialog">Make order</button>
+          <div class="d-flex flex-row flex-wrap gap-2 mb-3" id="order-buttons-wrapper">
+                <button class="btn btn-primary" type="button" id="order-open" aria-controls="order-modal" aria-haspopup="dialog">Make order</button>
+            </div>
             <div class="modal d-block hidden bg-black bg-opacity-50" id="order-modal" role="dialog" aria-hidden="true" aria-labelledby="order-modal-title" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <article class="modal-content shadow" id="form-card">
@@ -67,6 +69,17 @@
             </div>
             <div class="alert alert-success mt-3 hidden" id="order-notification" role="status" aria-live="polite">Added to cart.</div>
         `);
+        const $existingInsta = $oldForm.parent().find('a').filter(function() {
+            return $(this).text().trim() === 'Open Instagram';
+        });
+
+        if ($existingInsta.length > 0) {
+            $existingInsta.appendTo('#order-buttons-wrapper');
+        } else {
+            $('#order-buttons-wrapper').append(
+                '<a href="https://www.instagram.com/ayana.buyer/" target="_blank" rel="noopener" class="btn btn-outline-dark">Open Instagram</a>'
+            );
+        }
 
         const $modal = $("#order-modal");
         const $openButton = $("#order-open");
