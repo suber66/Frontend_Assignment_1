@@ -392,3 +392,38 @@ $(function () {
         }
     }
 });
+
+$(function () {
+    const $button = $('.navbar-toggler');
+    const $menu = $('#navbarNav');
+    const desktop = window.matchMedia('(min-width: 1200px)');
+
+    if (!$button.length || !$menu.length) return;
+
+    function setMenuOpen(isOpen) {
+        $menu.toggleClass('show', isOpen);
+        $button
+            .toggleClass('collapsed', !isOpen)
+            .attr('aria-expanded', String(isOpen));
+    }
+
+    $button.on('click', function () {
+        if (desktop.matches) return;
+
+        setMenuOpen(!$menu.hasClass('show'));
+    });
+
+    $button.add($menu).on('keydown', function (event) {
+        if (event.key === 'Escape' && $menu.hasClass('show')) {
+            event.preventDefault();
+            setMenuOpen(false);
+            $button.trigger('focus');
+        }
+    });
+
+    desktop.addEventListener('change', function () {
+        setMenuOpen(false);
+    });
+
+    setMenuOpen(false);
+});
