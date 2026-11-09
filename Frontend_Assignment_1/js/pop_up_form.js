@@ -134,6 +134,7 @@
         }
 
         $openButton.on("click", openForm);
+        $openButton.on("click", selectDelivery);
         $closeButton.on("click", closeForm);
         $cancelButton.on("click", closeForm);
         $deliverySelect.on("change", selectDelivery);
