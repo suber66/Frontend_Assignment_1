@@ -338,7 +338,7 @@ $(function () {
         
         const $smartphonesSection = renderCategorySection('Smartphones & Gadgets', 'Smartphones & Gadgets');
         const $appliancesSection = renderCategorySection('Home Appliances', 'Home Appliances');
-        const $sectionsWrapper = $('<div>', { class: 'row g-4 my-4' });
+        const $sectionsWrapper = $('<div>', { class: 'row g-4 my-4', id: 'electronics-cards' });
 
         if ($smartphonesSection) $sectionsWrapper.append($('<div>', { class: 'col-12 col-md-6' }).append($smartphonesSection));
         if ($appliancesSection) $sectionsWrapper.append($('<div>', { class: 'col-12 col-md-6' }).append($appliancesSection));

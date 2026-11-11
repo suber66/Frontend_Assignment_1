@@ -1,7 +1,8 @@
 (($) => {
     'use strict';
     function createOrderForm() {
-        const $oldForm = $('form[id$="-order-form"]').first();
+        const $oldForm = $('section[id$="-order"]').first();
+        const $cards = $('[id$="-cards"]').first();
 
         if (!$oldForm.length || $("#order-modal").length) {
             return;
@@ -10,7 +11,7 @@
         $oldForm.addClass("hidden");
         $("header").first().addClass("z-1");
 
-        $oldForm.before(`
+        $cards.before(`
           <div class="d-flex flex-row flex-wrap gap-2 mb-3" id="order-buttons-wrapper">
                 <button class="btn btn-primary" type="button" id="order-open" aria-controls="order-modal" aria-haspopup="dialog">Make order</button>
             </div>
