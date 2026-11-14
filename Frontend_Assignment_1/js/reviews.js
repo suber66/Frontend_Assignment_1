@@ -3,6 +3,7 @@ $(function () {
     const KEY = "ayanaBuyerQuestions";
     const $form = $("#contact-form");
     if ($form.length === 0) return;
+
     function getQuestions() {
         try {
             return JSON.parse(localStorage.getItem(KEY) || "[]");
@@ -13,6 +14,29 @@ $(function () {
     function save(data) {
         localStorage.setItem(KEY, JSON.stringify(data));
     }
+
+    function renderRecent(animate) {
+        const $list = $("#recent-questions").empty();
+        const last = getQuestions().slice(-3);
+        for (let i = 0; i < 3; i++) {
+            const q = last[i];
+            const $item = $("<div>").addClass("card border-0 shadow-sm rounded-4 p-3 mb-2 recent-item");
+            if (q) {
+                $("<p>").addClass("mb-1").text(q.message).appendTo($item);
+                $("<small>")
+                    .addClass(q.reply ? "text-success" : "text-secondary")
+                    .text(q.reply ? "Reply: " + q.reply : "Waiting for a reply")
+                    .appendTo($item);
+            } else {
+                $item.addClass("text-muted").text("Your question will appear here");
+            }
+            $list.append($item);
+        }
+        if (animate && last.length > 0) {
+            $list.children().eq(last.length - 1).hide().slideDown(300);
+        }
+    }
+    renderRecent(false);
 
     $form.find("input[type='text']:first").trigger("focus");
 
@@ -81,11 +105,27 @@ $(function () {
             valid = false;
         }
         if (!valid) return;
+
         const questions = getQuestions();
+        const newId = Date.now();
         questions.push({
-            id: Date.now(),name: name,email: email,phone: phone,topic: topic,message: message,reply: "",date: new Date().toLocaleString()
+            id: newId, name: name, email: email, phone: phone, topic: topic,
+            message: message, reply: "", date: new Date().toLocaleString()
         });
         save(questions);
+        renderRecent(true);
+
+
+        $("html, body").animate({ scrollTop: $("#recent-questions").offset().top - 80 }, 500);
+        setTimeout(function () {
+            const all = getQuestions();
+            const q = all.find(function (item) { return item.id === newId; });
+            if (!q) return;
+            q.reply = "Thank you! We will answer you in Instagram direct soon.";
+            save(all);
+            renderRecent(false);
+        }, 4000);
+
         $form.trigger("reset");
         $("#contact-confirmation")
             .text("Your question was saved successfully! This is a demonstration: no data is sent to a server.")
@@ -95,6 +135,7 @@ $(function () {
                 $(this).delay(3000).fadeOut(600);
             });
     });
+
     const $modal = $("<div>").addClass("modal");
     const $dialog = $("<div>").addClass("modal-dialog modal-dialog-scrollable");
     const $content = $("<div>").addClass("modal-content");
@@ -108,6 +149,7 @@ $(function () {
     $content.append($header, $body);
     $dialog.append($content);
     $modal.append($dialog).appendTo("body");
+
     function openModal() {
         $modal.fadeIn(300);
     }
@@ -154,6 +196,7 @@ $(function () {
 
         $body.find(".question-card:last").addClass("mb-0");
     }
+
     $body.on("click", ".question-card", function () {
         $(this).toggleClass("bg-light");
         $(this).siblings().removeClass("bg-light");

@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="css/kalybek.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
     <script src="js/base.js" defer></script>
-    <script src="js/reviews_old.js" defer></script>
-
+    <script src="js/reviews.js" defer></script>
 </head>
 <body>
     <header class="sticky-top">
@@ -39,6 +38,10 @@
 
     <main class="container py-4">
         <h1 class="page-title display-4 fw-bold text-center text-md-start mb-4">Reviews &amp; Contacts</h1>
+
+        <h2 class="h3 fw-bold mb-3">Latest questions</h2>
+        <div id="recent-questions" class="mb-4"></div>
+
         <h2 id="reviews">What clients say</h2>
         <p>
             The reviews below come from the account&rsquo;s Instagram stories (the highlights
@@ -83,27 +86,6 @@
                 <p>&mdash; Client review, Instagram user dmrskk, story shared on @ayana.buyer (translated from Kazakh)</p>
         </div>
 
-        <div class="row g-4 mb-4">
-            <div class="col-12 col-lg-5">
-                <div class="p-4 p-md-5 bg-dark text-white rounded-4 h-100 shadow">
-                    <p class="text-uppercase fw-semibold small text-danger mb-2">Simple process</p>
-                    <h2 class="fw-bold mb-3 h3 text-white">How orders are placed</h2>
-                    <p class="text-white-50 mb-0">
-                        Clients write to us on Instagram direct messages or in the shared WhatsApp group-order chat.
-                        The team answers questions about timing and price. Each category page has its own request section.
-                    </p>
-                </div>
-            </div>
-            <div class="col-12 col-lg-7 d-flex flex-column justify-content-center">
-                <h2 class="fw-bold mb-4 h3">Order steps</h2>
-                <ol id="order-steps" type="I">
-                    <li>The client sends a product link.</li>
-                    <li>The ayana.buyer team calculates the purchase and delivery cost.</li>
-                    <li>The client confirms the order and chooses a payment method; Kaspi installment may be offered.</li>
-                    <li>The item is delivered to Kazakhstan and handed to the client.</li>
-                </ol>
-            </div>
-        </div>
         <div class="row g-4 align-items-center py-3">
             <div class="col-12 col-lg-6">
                 <div class="p-4 bg-dark text-white rounded-4 shadow-sm border border-secondary border-opacity-25">
