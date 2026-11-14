@@ -9,25 +9,27 @@
     border-radius: 5px;
     background-color: var(--color-accent);
 }
-.card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 18px #1b1b2f20 !important;
-}
-.form-card:hover {
-    transform: none;
-}
 .client-review {
     border-left: 4px solid var(--color-accent) !important;
 }
-figure img {
-    transition: transform 0.2s ease;
+
+.questions-dialog {
+    width: min(500px, calc(100% - 1rem));
+    max-height: calc(100dvh - 1rem);
 }
-figure img:hover {
-    transform: scale(1.02);
+
+.questions-dialog > div {
+    max-height: inherit;
 }
+
+.questions-dialog::backdrop {
+    background-color: rgb(0 0 0 / 50%);
+}
+
+body:has(.questions-dialog[open]) {
+    overflow: hidden;
+}
+
 .highlight {
     color: var(--color-accent);
     font-weight: 700;

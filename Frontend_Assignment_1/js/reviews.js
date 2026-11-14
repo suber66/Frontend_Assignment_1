@@ -136,58 +136,45 @@ $(function () {
             });
     });
 
-    const $modal = $("<div>").addClass("modal");
-    const $dialog = $("<div>").addClass("modal-dialog modal-dialog-scrollable");
-    const $content = $("<div>").addClass("modal-content");
-    const $header = $("<div>").addClass("modal-header");
-    const $title = $("<h4>").addClass("modal-title").text("My questions");
+    const $modal = $("<dialog>")
+        .attr({ id: "my-questions-dialog", "aria-labelledby": "my-questions-title" })
+        .addClass("questions-dialog bg-body text-body border-0 rounded-3 p-0 shadow");
+    const $content = $("<div>").addClass("d-flex flex-column");
+    const $header = $("<div>").addClass("d-flex align-items-center justify-content-between gap-3 border-bottom p-3");
+    const $title = $("<h2>").attr("id", "my-questions-title").addClass("h4 mb-0").text("My questions");
     const $closeBtn = $("<button>")
-        .attr({ type: "button", "aria-label": "Close" })
+        .attr({ type: "button", "aria-label": "Close", autofocus: "autofocus" })
         .addClass("btn-close");
-    const $body = $("<div>").addClass("modal-body");
+    const $body = $("<div>").addClass("overflow-auto p-3");
     $header.append($title, $closeBtn);
     $content.append($header, $body);
-    $dialog.append($content);
-    $modal.append($dialog).appendTo("body");
+    $modal.append($content).appendTo("body");
 
-    function openModal() {
-        $modal.fadeIn(300);
-    }
-    function closeModal() {
-        $modal.fadeOut(300, function () {
-            console.log("Modal closed");
-        });
-    }
-    $closeBtn.on("click", closeModal);
-    $modal.on("click", function (e) {
-        if (e.target === this) closeModal();
+    $closeBtn.on("click", function () {
+        $modal[0].close();
     });
-
-    $(document).on("keydown", function (e) {
-        if (e.key === "Escape") closeModal();
+    $modal.on("click", function (e) {
+        if (e.target === this) this.close();
     });
 
     function showMyQuestions() {
         $body.empty();
         const questions = getQuestions();
 
-        $title.html("My questions <small class='text-secondary'>(" + questions.length + ")</small>");
+        $title.removeAttr("title").html("My questions <small class='text-secondary'>(" + questions.length + ")</small>");
 
         if (questions.length === 0) {
             $("<p>").text("You have not asked any questions yet.").appendTo($body);
             return;
         }
 
-        $.each(questions, function (index, q) {
+        questions.forEach(function (q) {
             const $card = $("<div>").addClass("border rounded p-3 mb-3 question-card");
             $("<p>").text(q.message).appendTo($card);
-            const $status = $("<p>").addClass("status");
-            if (q.reply !== "") {
-                $status.addClass("text-success fw-semibold").text("Reply: " + q.reply);
-            } else {
-                $status.addClass("text-secondary fw-semibold").text("Waiting for a reply");
-            }
-            $status.appendTo($card);
+            $("<p>")
+                .addClass(q.reply ? "text-success fw-semibold" : "text-secondary fw-semibold")
+                .text(q.reply ? "Reply: " + q.reply : "Waiting for a reply")
+                .appendTo($card);
             const $label = $("<label>").addClass("small");
             $("<input>").attr("type", "checkbox").addClass("me-1 important-check").appendTo($label);
             $label.append("Important").appendTo($card);
@@ -197,17 +184,6 @@ $(function () {
         $body.find(".question-card:last").addClass("mb-0");
     }
 
-    $body.on("click", ".question-card", function () {
-        $(this).toggleClass("bg-light");
-        $(this).siblings().removeClass("bg-light");
-        $(this).find(".status").slideToggle(250);
-    });
-    $body.on("mouseenter", ".question-card", function () {
-        $(this).addClass("shadow-sm");
-    });
-    $body.on("mouseleave", ".question-card", function () {
-        $(this).removeClass("shadow-sm");
-    });
     $body.on("change", ".important-check", function () {
         const isChecked = $(this).prop("checked");
         $(this).closest(".question-card").toggleClass("border-primary", isChecked);
@@ -216,13 +192,17 @@ $(function () {
         $title.attr("title", "Important: " + count);
     });
 
-    $("<button>")
-        .attr("type", "button")
+    const $openButton = $("<button>")
+        .attr({ type: "button", "aria-controls": "my-questions-dialog", "aria-haspopup": "dialog" })
         .addClass("btn btn-outline-dark mt-3")
         .text("My questions")
         .on("click", function () {
             showMyQuestions();
-            openModal();
+            $modal[0].showModal();
         })
         .insertAfter($form);
+
+    $modal.on("close", function () {
+        $openButton.trigger("focus");
+    });
 });
