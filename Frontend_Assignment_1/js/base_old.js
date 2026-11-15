@@ -77,18 +77,36 @@
         render();
     }
 
-    const openBtn = el(
-        'button',
-        'btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3 p-3 shadow z-3',
-        'Cart'
-    );
+    const CART_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>';
 
+    const openBtn = document.createElement('button');
     openBtn.type = 'button';
     openBtn.setAttribute('aria-label', 'Open cart');
+    openBtn.className = 'btn btn-link text-reset p-2 position-relative lh-1 border-0 ms-auto me-2 order-xl-last ms-xl-2 me-xl-0';
+    openBtn.style.display = 'inline-flex';
+    openBtn.style.alignItems = 'center';
+    openBtn.innerHTML = CART_ICON;
 
-    const badge = el('span', 'badge rounded-pill bg-danger ms-1', '0');
+    const badge = document.createElement('span');
+    badge.className = 'position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger';
+    badge.style.fontSize = '0.65rem';
+    badge.textContent = '0';
     openBtn.append(badge);
-    document.body.append(openBtn);
+
+    
+   
+    document.addEventListener('DOMContentLoaded', () => {
+        const nav = document.querySelector('nav.navbar');
+        const toggler = nav ? nav.querySelector('.navbar-toggler') : null;
+
+        if (toggler) {
+            toggler.before(openBtn);
+        } else if (nav) {
+            nav.append(openBtn);
+        } else {
+            document.body.append(openBtn);
+        }
+    });
 
     const panel = el('aside', 'offcanvas offcanvas-end shadow');
     panel.setAttribute('aria-label', 'Shopping cart');
