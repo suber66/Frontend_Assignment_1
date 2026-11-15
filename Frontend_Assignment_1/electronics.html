@@ -51,71 +51,73 @@
             Original electronics sourced directly from official brand stores in Korea, USA, and Europe.
         </p>
 
-        <!-- Product Cards Catalog -->
-        <section class="my-4" id="electronics-catalog">
-            <h2 class="h3 mb-4">Popular Tech Requests</h2>
+        <!-- Product Cards Catalog (обернуто для скрипта корзины) -->
+        <div id="electronics-cards">
+            <section class="my-4" id="electronics-catalog">
+                <h2 class="h3 mb-4">Popular Tech Requests</h2>
 
-            <div class="row row-cols-1 row-cols-md-2 g-4 product-showcase" id="electronics-product-list">
+                <div class="row row-cols-1 row-cols-md-2 g-4 product-showcase" id="electronics-product-list">
 
-                <!-- Dyson Card -->
-                <div class="col">
-                    <article class="card product-card h-100 shadow-sm border-0 rounded-4" id="electronics-dyson-card" data-product-id="dyson-airwrap" data-status="in-stock">
-                        <div class="product-image-wrapper position-relative text-center bg-light rounded-top-4 p-3">
-                            <span class="badge bg-success product-status position-absolute top-0 start-0 m-3">
-                                In Stock
-                            </span>
-                            <img src="images/dyson.png"
-                                 class="card-img-top product-image img-fluid"
-                                 alt="Dyson Airwrap Multi-Styler"
-                                 loading="lazy">
-                        </div>
-
-                        <div class="card-body d-flex flex-column p-4">
-                            <h3 class="card-title h5 fw-bold">Dyson Airwrap Multi-Styler</h3>
-                            <p class="card-text text-muted">
-                                Original hair styler with full attachment set. Direct delivery from South Korea. 
-                                <small class="d-block text-dark mt-1">*Single unit price shown below. Two-styler bundle offers (305,000 &#8376;) are available upon quote calculation.</small>
-                            </p>
-                            <div class="product-price fs-4 fw-bold mt-auto mb-3">
-                                102,787 &#8376;
+                    <!-- Dyson Card -->
+                    <div class="col">
+                        <article class="card product-card h-100 shadow-sm border-0 rounded-4" id="electronics-dyson-card" data-product-id="dyson-airwrap" data-status="in-stock">
+                            <div class="product-image-wrapper position-relative text-center bg-light rounded-top-4 p-3">
+                                <span class="badge bg-success product-status position-absolute top-0 start-0 m-3">
+                                    In Stock
+                                </span>
+                                <img src="images/dyson.png"
+                                     class="card-img-top product-image img-fluid"
+                                     alt="Dyson Airwrap Multi-Styler"
+                                     loading="lazy">
                             </div>
-                            <a href="#electronics-order" class="btn btn-primary w-100 rounded-3">
-                                Prepare Request
-                            </a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Apple Watch Card -->
-                <div class="col">
-                    <article class="card product-card h-100 shadow-sm border-0 rounded-4" id="electronics-applewatch-card" data-product-id="apple-watch-ultra-3" data-status="in-stock">
-                        <div class="product-image-wrapper position-relative text-center bg-light rounded-top-4 p-3">
-                            <span class="badge bg-success product-status position-absolute top-0 start-0 m-3">
-                                In Stock
-                            </span>
-                            <img src="images/applewatch.png"
-                                 class="card-img-top product-image img-fluid"
-                                 alt="Apple Watch Ultra 3"
-                                 loading="lazy">
-                        </div>
-
-                        <div class="card-body d-flex flex-column p-4">
-                            <h3 class="card-title h5 fw-bold">Apple Watch Ultra 3</h3>
-                            <p class="card-text text-muted">
-                                GPS + Cellular options directly from the US Apple Store with original international warranty.
-                            </p>
-                            <div class="product-price fs-4 fw-bold mt-auto mb-3">
-                                607,990 &#8376;
+                            <div class="card-body d-flex flex-column p-4">
+                                <h3 class="card-title h5 fw-bold">Dyson Airwrap Multi-Styler</h3>
+                                <p class="card-text text-muted">
+                                    Original hair styler with full attachment set. Direct delivery from South Korea. 
+                                    <small class="d-block text-dark mt-1">*Single unit price shown below. Two-styler bundle offers (305,000 &#8376;) are available upon quote calculation.</small>
+                                </p>
+                                <div class="product-price fs-4 fw-bold mt-auto mb-3">
+                                    102,787 &#8376;
+                                </div>
+                                <a href="#electronics-order" class="btn btn-primary w-100 rounded-3">
+                                    Prepare Request
+                                </a>
                             </div>
-                            <a href="#electronics-order" class="btn btn-primary w-100 rounded-3">
-                                Prepare Request
-                            </a>
-                        </div>
-                    </article>
-                </div>
+                        </article>
+                    </div>
 
-            </div>
-        </section>
+                    <!-- Apple Watch Card -->
+                    <div class="col">
+                        <article class="card product-card h-100 shadow-sm border-0 rounded-4" id="electronics-applewatch-card" data-product-id="apple-watch-ultra-3" data-status="in-stock">
+                            <div class="product-image-wrapper position-relative text-center bg-light rounded-top-4 p-3">
+                                <span class="badge bg-success product-status position-absolute top-0 start-0 m-3">
+                                    In Stock
+                                </span>
+                                <img src="images/applewatch.png"
+                                     class="card-img-top product-image img-fluid"
+                                     alt="Apple Watch Ultra 3"
+                                     loading="lazy">
+                            </div>
+
+                            <div class="card-body d-flex flex-column p-4">
+                                <h3 class="card-title h5 fw-bold">Apple Watch Ultra 3</h3>
+                                <p class="card-text text-muted">
+                                    GPS + Cellular options directly from the US Apple Store with original international warranty.
+                                </p>
+                                <div class="product-price fs-4 fw-bold mt-auto mb-3">
+                                    607,990 &#8376;
+                                </div>
+                                <a href="#electronics-order" class="btn btn-primary w-100 rounded-3">
+                                    Prepare Request
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </section>
+        </div>
 
         <!-- Terms Alert -->
         <section class="alert alert-info my-4 rounded-4 shadow-sm" role="note">

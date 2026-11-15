@@ -311,7 +311,7 @@ $(function () {
             const filteredBrands = techBrands.filter(brand => brand.category === categoryName);
             if (filteredBrands.length === 0) return null;
 
-            const $section = $('<section>', { class: 'my-5' })
+            const $section = $('<section>', { class: 'mb-4' })
                 .append($('<h2>', { class: 'h4 mb-4', text: titleText }))
                 .append($('<div>', { class: 'row row-cols-1 g-4 brand-row' }));
 
@@ -337,7 +337,7 @@ $(function () {
         
         const $smartphonesSection = renderCategorySection('Smartphones & Gadgets', 'Smartphones & Gadgets');
         const $appliancesSection = renderCategorySection('Home Appliances', 'Home Appliances');
-        const $sectionsWrapper = $('<div>', { class: 'row g-4 my-4' });
+        const $sectionsWrapper = $('<div>', { class: 'row g-4 mb-4' });
         const sentence = document.getElementById('sentence');
         const container = document.getElementById('rowsContainer');
         if ($smartphonesSection) $sectionsWrapper.append($('<div>', { class: 'col-12 col-md-6' }).append($smartphonesSection));
