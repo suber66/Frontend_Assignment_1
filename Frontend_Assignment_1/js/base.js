@@ -3,19 +3,12 @@ $(function () {
 
     const KEY = "ayana-cart";
     const categories = [
-        { name: "Shoes", min: 40000, max: 110000, words: ["shoe", "shoes", "sneaker", "sneakers", "nike", "adidas", "puma", "reebok", "boots", "sandal", "sandals", "slippers", "footwear", "handball spezial", "spezial"] },
-        { name: "Clothing", min: 15000, max: 60000, words: ["hoodie", "jacket", "shirt", "jeans", "dress", "trousers", "skirt", "blouse", "t-shirt"] },
+        { name: "Shoes", min: 40000, max: 110000, words: ["shoe", "shoes", "sneaker", "sneakers","nike", "adidas", "puma", "reebok","boots", "sandal", "sandals", "slippers","footwear", "handball spezial", "spezial"] },
+        { name: "Clothing", min: 15000, max: 60000, words: ["hoodie", "jacket", "shirt", "jeans", "dress","trousers", "skirt", "blouse", "t-shirt"] },
         { name: "Accessories", min: 10000, max: 80000, words: ["bag", "watch", "ring", "bracelet"] },
-        { name: "Electronics", min: 150000, max: 320000, words: ["phone", "smartphone", "iphone", "samsung", "laptop", "computer", "tablet", "ipad", "airpods", "earbuds", "headphones", "dyson", "camera", "keyboard", "mouse", "monitor", "speaker", "charger", "console"] },
+        { name: "Electronics", min: 150000, max: 320000, words: ["phone", "smartphone", "iphone", "samsung","laptop", "computer", "tablet", "ipad","airpods", "earbuds", "headphones", "dyson","watch", "camera", "keyboard", "mouse","monitor", "speaker", "charger", "console"] },
         { name: "Other", min: 10000, max: 100000, words: [] }
     ];
-
-    const CART_ICON =
-        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ' +
-        'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
-        'stroke-linejoin="round" aria-hidden="true" focusable="false">' +
-        '<circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>' +
-        '<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>';
 
     function el(tag, cls, text) {
         return $("<" + tag + ">").addClass(cls || "").text(text === undefined ? "" : text);
@@ -33,7 +26,6 @@ $(function () {
             return [];
         }
     }
-
     function saveCart() {
         try {
             localStorage.setItem(KEY, JSON.stringify(cart));
@@ -97,33 +89,11 @@ $(function () {
         render();
     }
 
-    const $badge = el("span", "position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger", "0")
-        .css({ fontSize: "0.65rem" });
-
-    const $openBtn = $("<button>")
-        .attr({ type: "button", "aria-label": "Open cart", "aria-expanded": "false", id: "cart-open-btn" })
-        .addClass("btn btn-link text-reset p-2 position-relative lh-1 border-0")
-        .css({ display: "inline-flex", alignItems: "center", textDecoration: "none" })
-        .html(CART_ICON)
-        .append($badge);
-
-    (function mountCartButton() {
-        const $nav = $("nav.navbar").first();
-        const $toggler = $nav.find(".navbar-toggler").first();
-
-        if ($toggler.length) {
-            $openBtn.addClass("ms-auto me-2 order-xl-last ms-xl-2 me-xl-0");
-            $toggler.before($openBtn);
-        } else if ($nav.length) {
-            $openBtn.addClass("ms-auto");
-            ($nav.find(".container, .container-fluid").first().length
-                ? $nav.find(".container, .container-fluid").first()
-                : $nav).append($openBtn);
-        } else {
-            $openBtn.addClass("position-fixed bottom-0 end-0 m-3 shadow bg-primary text-white rounded-circle z-3");
-            $("body").append($openBtn);
-        }
-    })();
+    const $badge = el("span", "badge rounded-pill bg-danger ms-1", "0");
+    const $openBtn = el("button", "btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3 p-3 shadow z-3", "Cart")
+        .attr({ type: "button", "aria-label": "Open cart" })
+        .append($badge)
+        .appendTo("body");
 
     const $panel = el("aside", "offcanvas offcanvas-end shadow").attr("aria-label", "Shopping cart");
     const $header = el("div", "offcanvas-header border-bottom");
@@ -140,7 +110,7 @@ $(function () {
         $body.empty();
         $footer.empty();
 
-        $badge.text(cart.length).toggleClass("d-none", cart.length === 0);
+        $badge.text(count(cart)).toggleClass("d-none", cart.length === 0);
 
         if (lastOrder) {
             el("div", "alert alert-success")
@@ -282,10 +252,10 @@ $(function () {
 
         $("#order-close").trigger("click");
 
-        const $main = $("main");
+        const $main = $('main');
         if ($main.length) {
-            $("#order-notification").remove();
-            $("<div>")
+            $('#order-notification').remove();
+            $('<div>')
                 .addClass("alert alert-success mt-3")
                 .attr({ id: "order-notification", role: "status", "aria-live": "polite" })
                 .text("Product added to cart.")
@@ -296,14 +266,14 @@ $(function () {
                 .fadeOut(500, function () {
                     $(this).remove();
                 });
-        }
+}
     });
 
-    function openCart() {
+    $openBtn.on("click", function () {
         $panel.addClass("show").css("visibility", "visible");
         $openBtn.attr("aria-expanded", "true");
         $closeBtn.trigger("focus");
-    }
+    });
 
     function closeCart() {
         $panel.removeClass("show").css("visibility", "");
@@ -311,21 +281,10 @@ $(function () {
         $openBtn.trigger("focus");
     }
 
-    $openBtn.on("click", function () {
-        if ($panel.hasClass("show")) closeCart(); else openCart();
-    });
-
     $closeBtn.on("click", closeCart);
 
     $(document).on("keydown", function (e) {
         if (e.key === "Escape" && $panel.hasClass("show")) closeCart();
-    });
-
-    $(document).on("click", function (e) {
-        if (!$panel.hasClass("show")) return;
-        if ($(e.target).closest($panel).length || $(e.target).closest($openBtn).length) return;
-        if ($(e.target).closest("[data-action]").length) return;
-        closeCart();
     });
 
     render();
@@ -346,7 +305,7 @@ $(function () {
             { id: 'b1', name: 'Apple', category: 'Smartphones & Gadgets', desc: 'Browse Apple devices and select the exact model, storage, and color before requesting a quote.', storeLink: 'https://www.apple.com', logo: 'images/logo_apple.png' },
             { id: 'b2', name: 'Dyson', category: 'Home Appliances', desc: 'Browse Dyson home appliances and select the exact item and color before requesting a quote.', storeLink: 'https://www.dyson.com', logo: 'images/logo_dyson.png' }
         ];
-
+        
         // 2. FEATURE: BUILD CARDS FROM ARRAY
         function renderCategorySection(titleText, categoryName) {
             const filteredBrands = techBrands.filter(brand => brand.category === categoryName);
@@ -368,7 +327,6 @@ $(function () {
                             <p class="mb-4" style="font-size: 0.95rem;">${brand.desc}</p>
                             <div class="mt-auto d-flex gap-2 flex-wrap">
                                 <a href="${brand.storeLink}" target="_blank" class="btn btn-outline-dark btn-sm">Browse store</a>
-                                <button type="button" class="btn btn-primary btn-sm prepare-req-btn">Prepare request</button>
                             </div>
                         </article>
                     </div>
@@ -379,8 +337,9 @@ $(function () {
         
         const $smartphonesSection = renderCategorySection('Smartphones & Gadgets', 'Smartphones & Gadgets');
         const $appliancesSection = renderCategorySection('Home Appliances', 'Home Appliances');
-        const $sectionsWrapper = $('<div>', { class: 'row g-4 my-4', id: 'electronics-cards' });
-
+        const $sectionsWrapper = $('<div>', { class: 'row g-4 my-4' });
+        const sentence = document.getElementById('sentence');
+        const container = document.getElementById('rowsContainer');
         if ($smartphonesSection) $sectionsWrapper.append($('<div>', { class: 'col-12 col-md-6' }).append($smartphonesSection));
         if ($appliancesSection) $sectionsWrapper.append($('<div>', { class: 'col-12 col-md-6' }).append($appliancesSection));
         
@@ -389,16 +348,6 @@ $(function () {
         
         $('.lead').text('Browse the brands below and choose a device on the linked store website before requesting a quote.');
         $('.brand-card').fadeIn(800);
-
-        // EVENT DELEGATION
-        $(document).on('click', '.prepare-req-btn', function() {
-            const brandName = $(this).closest('.card').find('h3').text();
-            const $notice = $('<div>', { class: 'alert alert-info position-fixed top-0 start-50 translate-middle-x mt-3 z-3', text: `Scrolling to order form for ${brandName}...`, style: 'display: none;' });
-            $('body').append($notice);
-            
-            $notice.slideDown(300).delay(1500).slideUp(300, function() { $(this).remove(); });
-            $('html, body').animate({ scrollTop: $("#electronics-order-form").offset().top - 100 }, 500);
-        });
 
         // 3. FEATURE: FORM BUTTONS REPLACEMENT
         const $orderForm = $('#electronics-order-form');
@@ -432,39 +381,4 @@ $(function () {
             $orderCard.removeClass('mt-3 mt-4 mt-5 my-3 my-4 my-5').addClass('mt-0');
         }
     }
-});
-
-$(function () {
-    const $button = $('.navbar-toggler');
-    const $menu = $('#navbarNav');
-    const desktop = window.matchMedia('(min-width: 1200px)');
-
-    if (!$button.length || !$menu.length) return;
-
-    function setMenuOpen(isOpen) {
-        $menu.toggleClass('show', isOpen);
-        $button
-            .toggleClass('collapsed', !isOpen)
-            .attr('aria-expanded', String(isOpen));
-    }
-
-    $button.on('click', function () {
-        if (desktop.matches) return;
-
-        setMenuOpen(!$menu.hasClass('show'));
-    });
-
-    $button.add($menu).on('keydown', function (event) {
-        if (event.key === 'Escape' && $menu.hasClass('show')) {
-            event.preventDefault();
-            setMenuOpen(false);
-            $button.trigger('focus');
-        }
-    });
-
-    desktop.addEventListener('change', function () {
-        setMenuOpen(false);
-    });
-
-    setMenuOpen(false);
 });
