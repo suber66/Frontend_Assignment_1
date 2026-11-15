@@ -265,15 +265,16 @@ $(function () {
 
         $("#order-close").trigger("click");
 
+        const $orderButtons = $('#order-buttons-wrapper');
         const $main = $('main');
-        if ($main.length) {
+        if ($orderButtons) {
             $('#order-notification').remove();
             $('<div>')
                 .addClass("alert alert-success mt-3")
                 .attr({ id: "order-notification", role: "status", "aria-live": "polite" })
                 .text("Product added to cart.")
                 .hide()
-                .appendTo($main)
+                .insertAfter($orderButtons)
                 .slideDown(300)
                 .delay(3000)
                 .fadeOut(500, function () {

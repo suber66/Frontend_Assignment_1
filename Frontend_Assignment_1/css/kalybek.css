@@ -30,15 +30,7 @@ body:has(.questions-dialog[open]) {
     overflow: hidden;
 }
 
-.highlight {
-    color: var(--color-accent);
-    font-weight: 700;
-}
 .table thead th {
     background-color: var(--color-heading);
     color: var(--color-surface);
-}
-.request-template {
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
 }

@@ -50,7 +50,7 @@
             <!-- Bootstrap Card -->
             <div class="row g-4 mt-1 mb-4" id="shoes-brand-list">
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="shoes-nike-card" data-brand-id="nike">
+                    <article class="card brand-card h-100" id="shoes-nike-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_nike.png" alt="Nike logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Nike</h3>
@@ -60,7 +60,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="shoes-adidas-card" data-brand-id="adidas">
+                    <article class="card brand-card h-100" id="shoes-adidas-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_adidas.png" alt="Adidas logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Adidas</h3>
@@ -70,7 +70,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="shoes-new-balance-card" data-brand-id="new-balance">
+                    <article class="card brand-card h-100" id="shoes-new-balance-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_new_balance.png" alt="New Balance logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">New Balance</h3>
@@ -80,7 +80,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="shoes-puma-card" data-brand-id="puma">
+                    <article class="card brand-card h-100" id="shoes-puma-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_puma.png" alt="Puma logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Puma</h3>
@@ -90,7 +90,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="shoes-ugg-card" data-brand-id="ugg">
+                    <article class="card brand-card h-100" id="shoes-ugg-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_ugg.png" alt="UGG logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">UGG</h3>
@@ -100,7 +100,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="shoes-guess-card" data-brand-id="guess">
+                    <article class="card brand-card h-100" id="shoes-guess-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_guess.png" alt="Guess logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Guess</h3>
@@ -110,7 +110,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="shoes-tommy-hilfiger-card" data-brand-id="tommy-hilfiger">
+                    <article class="card brand-card h-100" id="shoes-tommy-hilfiger-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_tommy_hilfiger.png" alt="Tommy Hilfiger logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Tommy Hilfiger</h3>
@@ -120,7 +120,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="shoes-nursace-card" data-brand-id="nursace">
+                    <article class="card brand-card h-100" id="shoes-nursace-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_nursace.png" alt="Nursace logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Nursace</h3>
@@ -136,7 +136,6 @@
 
         <section id="shoes-order" aria-labelledby="shoes-order-title">
             <h2 id="shoes-order-title">Prepare a shoe request</h2>
-            <!-- Removed action for future JS -->
             <form id="shoes-order-form" aria-describedby="shoes-order-note">
                 <fieldset class="mb-4">
                     <legend class="h4">Product and contact details</legend>
@@ -213,7 +212,6 @@
                     <button class="btn btn-primary" type="button" id="shoes-order-submit" aria-describedby="shoes-prepare-help">Send</button>
                     <button class="btn btn-outline-secondary" type="reset" id="shoes-order-reset">Clear form</button>
                 </div>
-                <!-- Future JS must check form for validity before preparation, never submit this form. -->
             </form>
             <div class="hidden error p-3 mb-3" id="shoes-order-errors" role="alert" aria-live="assertive" aria-atomic="true">
                 <h3>Check your request</h3>

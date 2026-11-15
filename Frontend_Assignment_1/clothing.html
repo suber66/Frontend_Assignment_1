@@ -55,7 +55,7 @@
             <!-- Bootstrap Card -->
             <div class="row g-4 mt-1 mb-4" id="clothing-brand-list">
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="clothing-tommy-hilfiger-card" data-brand-id="tommy-hilfiger">
+                    <article class="card brand-card h-100" id="clothing-tommy-hilfiger-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_tommy_hilfiger.png" alt="Tommy Hilfiger logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Tommy Hilfiger</h3>
@@ -65,7 +65,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="clothing-calvin-klein-card" data-brand-id="calvin-klein">
+                    <article class="card brand-card h-100" id="clothing-calvin-klein-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_calvin_klein.png" alt="Calvin Klein logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Calvin Klein</h3>
@@ -75,7 +75,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="clothing-lacoste-card" data-brand-id="lacoste">
+                    <article class="card brand-card h-100" id="clothing-lacoste-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_lacoste.png" alt="Lacoste logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Lacoste</h3>
@@ -85,7 +85,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="clothing-zara-card" data-brand-id="zara">
+                    <article class="card brand-card h-100" id="clothing-zara-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_zara.png" alt="Zara logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Zara</h3>
@@ -95,7 +95,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="clothing-massimo-dutti-card" data-brand-id="massimo-dutti">
+                    <article class="card brand-card h-100" id="clothing-massimo-dutti-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_massimo_dutti.png" alt="Massimo Dutti logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Massimo Dutti</h3>
@@ -105,7 +105,7 @@
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
-                    <article class="card brand-card h-100" id="clothing-guess-card" data-brand-id="guess">
+                    <article class="card brand-card h-100" id="clothing-guess-card">
                         <img class="card-img-top brand-logo p-3" src="images/logo_guess.png" alt="Guess logo">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title">Guess</h3>
@@ -121,7 +121,6 @@
 
         <section id="clothing-order" aria-labelledby="clothing-order-title">
             <h2 id="clothing-order-title">Prepare a clothing request</h2>
-            <!-- Removed action for future JS -->
             <form id="clothing-order-form" aria-describedby="clothing-order-note">
                 <fieldset class="mb-4">
                     <legend class="h4">Product and contact details</legend>
@@ -198,7 +197,6 @@
                     <button class="btn btn-primary" type="button" id="clothing-order-submit" aria-describedby="clothing-prepare-help">Send</button>
                     <button class="btn btn-outline-secondary" type="reset" id="clothing-order-reset">Clear form</button>
                 </div>
-                <!-- Future JS must check form for validity before preparation, never submit this form. -->
             </form>
             <div class="hidden error p-3 mb-3" id="shoes-order-errors" role="alert" aria-live="assertive" aria-atomic="true">
                 <h3>Check your request</h3>
