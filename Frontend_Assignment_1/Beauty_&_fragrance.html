@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!-- Author: Olzhas Zholdygulov -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore beauty and fragrance brands and prepare a buying request with your product and contact details at ayana.buyer.">
+    <meta name="author" content="Olzhas Zholdygulov">
+    <title>ayana.buyer | Beauty &amp; Fragrance</title>
+    <!-- Bootstrap 5.3.3 CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Shared and personal CSS files -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/dias.css">
+    <link rel="stylesheet" href="css/olzhas.css">
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="js/pop_up_form.js" defer></script>
+    <script src="js/base.js" defer></script>
+</head>
+<body>
+    <a class="visually-hidden-focusable d-block p-2" href="#main-content">Skip to content</a>
+    <header class="sticky-top">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-xl navbar-light bg-light" aria-label="Main navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="index.html" aria-label="ayana.buyer home">ayana.buyer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-xl-auto mb-2 mb-xl-0">
+                    <li class="nav-item"><a class="nav-link px-2" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="stores.html">Stores &amp; Brands</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="shoes.html">Shoes</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="clothing.html">Clothing</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="accessories.html">Accessories</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 active" aria-current="page" href="Beauty_&_fragrance.html">Beauty &amp; Fragrance</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="electronics.html">Electronics</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="reviews.html">Reviews &amp; Contacts</a></li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4" id="main-content">
+        <h1 class="display-6 mb-4 text-center text-md-start">Beauty &amp; Fragrance &mdash; cosmetics, perfumes and skincare</h1>
+
+        <section>
+            <h2>Beauty categories at ayana.buyer</h2>
+            <p class="lead">Explore cosmetics, fragrances and skincare, and choose products directly from official brand stores.</p>
+
+            <ul>
+                <li>Fragrance
+                    <ul>
+                        <li><strong>Dior</strong> &mdash; Miss Dior, Sauvage, J'adore</li>
+                        <li><strong>Chanel</strong> &mdash; Bleu de Chanel, Coco Mademoiselle</li>
+                    </ul>
+                </li>
+                <li>Makeup &amp; Cosmetics
+                    <ul>
+                        <li><strong>Charlotte Tilbury</strong> &mdash; Flawless Filter, Pillow Talk collection</li>
+                        <li><strong>Rare Beauty</strong> &mdash; Soft Pinch liquid blushes and highlighters</li>
+                    </ul>
+                </li>
+                <li>Skincare &amp; Bath
+                    <ul>
+                        <li><strong>Sephora</strong> &mdash; multi-brand retail, skincare sets, travel sizes</li>
+                        <li><strong>Victoria&rsquo;s Secret</strong> &mdash; body mists and scented lotions</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="beauty-cards">
+            <h2>Beauty brand directory</h2>
+
+            <!-- MAKEUP & COSMETICS SECTION -->
+            <h3 class="h4 mt-4 mb-3">Makeup &amp; Cosmetics</h3>
+            <div class="row g-4 mt-1 mb-4" id="beauty-makeup-list">
+                
+                <div class="col-12 col-md-6 col-xl-4">
+                    <article class="card brand-card h-100" id="beauty-sephora-card" data-brand-id="sephora">
+                        <img class="card-img-top brand-logo p-3" src="images/logo_sephora.png" alt="Sephora logo">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Sephora</h3>
+                            <p class="card-text">Browse Sephora for a wide range of cosmetics and skincare. Include the product name, shade, and size.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.sephora.com/" target="_blank" rel="noopener">Browse store</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-4">
+                    <article class="card brand-card h-100" id="beauty-rare-beauty-card" data-brand-id="rare-beauty">
+                        <img class="card-img-top brand-logo p-3" src="images/logo_rare_beauty.png" alt="Rare Beauty logo">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Rare Beauty</h3>
+                            <p class="card-text">Browse Rare Beauty blushes and lip oils. Copy the full link to the exact shade you wish to request.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.rarebeauty.com/" target="_blank" rel="noopener">Browse store</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-4">
+                    <article class="card brand-card h-100" id="beauty-charlotte-tilbury-card" data-brand-id="charlotte-tilbury">
+                        <img class="card-img-top brand-logo p-3" src="images/logo_charlotte_tilbury.png" alt="Charlotte Tilbury logo">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Charlotte Tilbury</h3>
+                            <p class="card-text">Explore Charlotte Tilbury makeup and skincare. Copy the link to your selected product.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.charlottetilbury.com/us" target="_blank" rel="noopener">Browse store</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- FRAGRANCE SECTION -->
+            <h3 class="h4 mt-5 mb-3">Fragrance</h3>
+            <div class="row g-4 mt-1 mb-4" id="beauty-fragrance-list">
+                
+                <div class="col-12 col-md-6 col-xl-4">
+                    <article class="card brand-card h-100" id="beauty-dior-card" data-brand-id="dior">
+                        <img class="card-img-top brand-logo p-3" src="images/logo_dior.png" alt="Dior logo">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Dior Beauty</h3>
+                            <p class="card-text">Explore Dior fragrances. Specify the exact bottle volume (e.g., 50ml, 100ml) in your request.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.dior.com/en_us/beauty" target="_blank" rel="noopener">Browse store</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-4">
+                    <article class="card brand-card h-100" id="beauty-chanel-card" data-brand-id="chanel">
+                        <img class="card-img-top brand-logo p-3" src="images/logo_chanel.png" alt="Chanel logo">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Chanel</h3>
+                            <p class="card-text">Browse Chanel fragrances for men and women. Ensure you select the correct size.</p>
+                            <a class="btn btn-outline-dark btn-sm mt-auto align-self-start" href="https://www.chanel.com/us/fragrance/" target="_blank" rel="noopener">Browse store</a>
+                        </div>
+                    </article>
+                </div>
+                
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="beauty-order" aria-labelledby="beauty-order-title">
+            <h2 id="beauty-order-title">Prepare a beauty request</h2>
+            <form id="beauty-order-form" aria-describedby="beauty-order-note">
+                <fieldset class="mb-4">
+                    <legend class="h4">Product and contact details</legend>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="beauty-recipient-name">Your name (required)</label>
+                            <input class="form-control" type="text" id="beauty-recipient-name" name="recipient-name" required autocomplete="name" minlength="2" maxlength="80">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="beauty-phone">Contact phone number (required)</label>
+                            <input class="form-control" type="tel" id="beauty-phone" name="phone" aria-describedby="beauty-phone-help" required autocomplete="tel" minlength="7" maxlength="30">
+                            <p class="form-text mb-0" id="beauty-phone-help">Include the country code. Use this contact in the message you send to the buyer.</p>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="beauty-product-link">Product link (required)</label>
+                            <input class="form-control" type="url" id="beauty-product-link" name="product-link" aria-describedby="beauty-product-link-help" required maxlength="2048">
+                            <p class="form-text mb-0" id="beauty-product-link-help">Copy the full https:// address of the exact product and variant.</p>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="beauty-model">Shade or volume</label>
+                            <input class="form-control" type="text" id="beauty-model" name="model" aria-describedby="beauty-model-help" maxlength="120">
+                            <p class="form-text mb-0" id="beauty-model-help">Specify the makeup shade or fragrance bottle size (e.g., 50ml, 100ml).</p>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="mb-4">
+                    <legend class="h4">Receiving and payment preferences</legend>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="beauty-delivery-method">Preferred receiving method</label>
+                            <select class="form-select" id="beauty-delivery-method" name="delivery-method" aria-describedby="beauty-delivery-help">
+                                <option value="discuss" selected>Discuss with the buyer</option>
+                                <option value="courier">Request courier delivery</option>
+                                <option value="pickup">Ask about pickup</option>
+                                <option value="post">Ask about postal delivery</option>
+                            </select>
+                            <p class="form-text mb-0" id="beauty-delivery-help">These are preferences, not confirmed delivery services.</p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="beauty-delivery-date">Preferred delivery date</label>
+                            <input class="form-control" type="date" id="beauty-delivery-date" name="delivery-date" aria-describedby="beauty-delivery-date-help">
+                            <p class="form-text mb-0" id="beauty-delivery-date-help">This is a preference. The buyer must confirm whether it can be met.</p>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="beauty-address">Courier address</label>
+                            <input class="form-control" type="text" id="beauty-address" name="address" aria-describedby="beauty-address-help" autocomplete="street-address" maxlength="240">
+                            <p class="form-text mb-0" id="beauty-address-help">Complete only if you request courier delivery.</p>
+                        </div>
+                    </div>
+                    <fieldset class="mt-3">
+                        <legend class="fs-6">Payment preference</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="beauty-pay-discuss" name="payment" value="discuss" checked>
+                            <label class="form-check-label" for="beauty-pay-discuss">Discuss payment with the buyer</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="beauty-pay-full" name="payment" value="full">
+                            <label class="form-check-label" for="beauty-pay-full">Prefer full payment</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="beauty-pay-kaspi" name="payment" value="kaspi">
+                            <label class="form-check-label" for="beauty-pay-kaspi">Ask whether Kaspi installment is available</label>
+                        </div>
+                        <p class="form-text mb-0">No payment or installment application is processed on this page.</p>
+                    </fieldset>
+                </fieldset>
+                <div class="mb-3">
+                    <label class="form-label" for="beauty-note">Additional details</label>
+                    <textarea class="form-control" id="beauty-note" name="note" rows="4" maxlength="1000" aria-describedby="beauty-note-help"></textarea>
+                    <p class="form-text" id="beauty-note-help">For perfumes, note if you require gift packaging. Maximum 1000 characters.</p>
+                </div>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <button class="btn btn-primary" type="button" id="beauty-order-submit" aria-describedby="beauty-prepare-help">Send</button>
+                    <button class="btn btn-outline-secondary" type="reset" id="beauty-order-reset">Clear form</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>ayana.buyer &ldquo;Your trusted personal buyer&rdquo; &mdash; USA &middot; Korea &middot; Turkey &middot; Italy &middot; Germany</p>
+        <p>&copy; 2026 ayana.buyer. All rights reserved.</p>
+    </footer>
+</body>
+</html>
