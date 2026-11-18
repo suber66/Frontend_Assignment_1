@@ -36,7 +36,6 @@ textarea:focus-visible {
     outline-offset: 2px;
 }
 
-/* Sections and footers without per-page spacing utilities. */
 section {
     margin-bottom: 2rem;
 }
@@ -61,7 +60,6 @@ footer p {
     margin-bottom: 0.25rem;
 }
 
-/* Content details shared by the reviews and product pages. */
 blockquote {
     border-left: 4px solid var(--color-accent);
     padding: 1rem 1.25rem;
@@ -92,7 +90,6 @@ mark {
     border-radius: 10px;
 }
 
-/* For later JS */
 .hidden {
     display: none !important;
 }
